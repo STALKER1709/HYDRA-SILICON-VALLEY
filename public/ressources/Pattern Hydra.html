@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pattern Hydra</title>
+<style>
+/* Layout: SVG pleine page, motif en grille, chaque rangée monte puis redescend en cascade du haut vers le bas */
+:root {
+  --bg: #ffffff;
+  --gold: #c9a84e;
+  --leaf: #3e6b25;
+  --wave-lift: -26px;
+  --wave-period: 4.8s;
+  --wave-step: 0.3s;
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0e1510; --gold: #d2b25a; --leaf: #4f8030; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #0e1510; --gold: #d2b25a; --leaf: #4f8030; color-scheme: dark; }
+
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); overflow: hidden; }
+.stage { position: fixed; inset: 0; background: var(--bg); }
+svg { display: block; width: 100%; height: 100%; }
+
+.row {
+  animation: lift var(--wave-period) cubic-bezier(.45, .05, .35, 1) infinite;
+  animation-delay: calc((var(--i) - 12) * var(--wave-step));
+  will-change: transform;
+}
+@keyframes lift {
+  0%   { transform: translateY(0); }
+  28%  { transform: translateY(var(--wave-lift)); }
+  58%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .row { animation: none; }
+}
+</style>
+
+<div class="stage">
+  <svg id="art" viewBox="0 0 1932 1932" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Motif de chevrons vert et or animé en vague">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color: var(--gold)"/>
+        <stop offset="1" style="stop-color: var(--leaf)"/>
+      </linearGradient>
+      <g id="pair">
+        <path fill="url(#g)" d="M0 76 L62 3 Q66 -1 70 3 L131 76 Q132 80 128 80 L100 80 Q96 80 94 77 L72 46 Q66 40 60 46 L38 77 Q36 80 32 80 L4 80 Q0 80 0 76 Z"/>
+        <path fill="url(#g)" transform="translate(0 174) scale(1 -1)" d="M0 76 L62 3 Q66 -1 70 3 L131 76 Q132 80 128 80 L100 80 Q96 80 94 77 L72 46 Q66 40 60 46 L38 77 Q36 80 32 80 L4 80 Q0 80 0 76 Z"/>
+      </g>
+    </defs>
+    <g id="rows"></g>
+  </svg>
+</div>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  var rows = document.getElementById("rows");
+  var COLS = 15, ROWS = 12, DX = 133, DY = 178;
+  for (var r = 0; r < ROWS; r++) {
+    var g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "row");
+    g.style.setProperty("--i", r);
+    for (var c = 0; c < COLS; c++) {
+      var u = document.createElementNS(NS, "use");
+      u.setAttribute("href", "#pair");
+      u.setAttribute("x", c * DX);
+      u.setAttribute("y", r * DY);
+      g.appendChild(u);
+    }
+    rows.appendChild(g);
+  }
+})();
+</script>
+
+</body></html>
