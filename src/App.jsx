@@ -11,6 +11,14 @@ const assets = {
   agro: '/ressources/material-symbols_agriculture-outline-sharp.png'
 };
 
+const newsVisuals = [
+  '/ressources/visuels/WhatsApp%20Image%202026-11-02%20at%2022.31.06.jpeg',
+  '/ressources/visuels/WhatsApp%20Image%202026-11-02%20at%2022.31.07.jpeg',
+  '/ressources/visuels/WhatsApp%20Image%202026-11-02%20at%2022.31.08%20(1).jpeg',
+  '/ressources/visuels/WhatsApp%20Image%202026-11-02%20at%2022.31.08.jpeg',
+  '/ressources/visuels/WhatsApp%20Image%202026-11-02%20at%2022.31.09.jpeg'
+];
+
 const team = [
   { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(2).png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer', note: 'Visionnaire de la tech africaine' },
   { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(3).png', name: 'ING. Bienvenu KUETCHE CHENDOU', role: 'Co-Fondateur & Chief Operating Officer', note: 'Visionnaire de la tech africaine' },
@@ -41,9 +49,11 @@ const translations = {
     newsTitle: <>Actualités</>,
     newsLead: 'Les dernières nouvelles de la corporation.',
     news: [
-      ['Communication', 'Imprimez mieux. Portez la marque.', 'Découvrez les supports de communication et les initiatives qui font rayonner HSV.'],
-      ['Stages académiques', 'Stages académiques', 'Une expérience d’apprentissage au contact de projets et d’équipes engagées.'],
-      ['Vacances utiles', 'Vacances utiles', 'Un programme pour apprendre, créer et développer de nouvelles compétences.']
+      ['Communication', 'Accessoires Hydra Silicon Valley', 'Découvrez la collection de polos, t-shirts et casquettes aux couleurs de HSV.'],
+      ['Offre spéciale', 'Une offre spéciale pour vos impressions', 'Profitez des offres promotionnelles proposées par Hydra Silicon Valley.'],
+      ['Stages académiques', 'Programme d’accueil des stagiaires', 'Une formation de trois mois au contact de plusieurs pôles de compétences.'],
+      ['Vacances utiles', 'Vacances utiles numériques', 'Un programme de six semaines pour découvrir les outils et les métiers du numérique.'],
+      ['Services aux étudiants', 'Un service d’impression pour les étudiants', 'Un service rapide et professionnel pour les rapports et documents académiques.']
     ],
     explore: 'Explorer',
     contactTitle: <>Contactez <em>nous</em></>,
@@ -75,9 +85,11 @@ const translations = {
     newsTitle: <>Latest news</>,
     newsLead: 'The latest updates from the corporation.',
     news: [
-      ['Communication', 'Print better. Wear the brand.', 'Discover the communication materials and initiatives that bring HSV to life.'],
-      ['Academic internships', 'Academic internships', 'A learning experience alongside committed teams and real projects.'],
-      ['Useful holidays', 'Useful holidays', 'A programme to learn, create and develop new skills.']
+      ['Communication', 'Hydra Silicon Valley accessories', 'Discover the collection of polos, t-shirts and caps branded with HSV.'],
+      ['Special offer', 'A special offer on printing', 'Discover the promotional offers from Hydra Silicon Valley.'],
+      ['Academic internships', 'Academic internship programme', 'A three-month training experience across several areas of expertise.'],
+      ['Useful holidays', 'Useful digital holidays', 'A six-week programme to discover digital tools and careers.'],
+      ['Student services', 'Printing services for students', 'Fast, professional printing for academic reports and documents.']
     ],
     explore: 'Explore',
     contactTitle: <>Get in <em>touch</em></>,
@@ -212,23 +224,19 @@ function App() {
             <p>{t.newsLead}</p>
           </div>
           <div className="news-grid">
-            <article className="news-feature">
-              <div className="news-feature-copy">
-                <span>{t.news[0][0]}</span>
-                <h3>{t.news[0][1]}</h3>
-                <p>{t.news[0][2]}</p>
-                <a href="#contact">{t.explore} <b>↗</b></a>
-              </div>
-              <img src="/ressources/Frame%208204.png" alt="" loading="lazy" />
-            </article>
-            <article className="news-card news-card-one">
-              <img src="/ressources/Frame%208205.png" alt="" loading="lazy" />
-              <div><span>{t.news[1][0]}</span><h3>{t.news[1][1]}</h3><a href="#contact">↗</a></div>
-            </article>
-            <article className="news-card news-card-two">
-              <img src="/ressources/Frame%208194.png" alt="" loading="lazy" />
-              <div><span>{t.news[2][0]}</span><h3>{t.news[2][1]}</h3><a href="#contact">↗</a></div>
-            </article>
+            {t.news.map((item, index) => (
+              <article className="news-card" key={item[1]}>
+                <a className="news-image-link" href="#contact" aria-label={`${t.explore} : ${item[1]}`}>
+                  <img src={newsVisuals[index]} alt={item[1]} loading="lazy" />
+                </a>
+                <div className="news-card-copy">
+                  <span>{item[0]}</span>
+                  <h3>{item[1]}</h3>
+                  <p>{item[2]}</p>
+                  <a className="news-explore" href="#contact">{t.explore} <b>↗</b></a>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
