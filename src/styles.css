@@ -37,7 +37,7 @@ img { display: block; max-width: 100%; }
 .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: white; color: black; padding: 12px; }
 .skip-link:focus { top: 10px; }
 .hero { min-height: 780px; height: 100vh; max-height: 980px; padding: 180px 7% 90px; position: relative; isolation: isolate; display: flex; justify-content: center; align-items: center; text-align: center; background: #f8f9f5; }
-.hero-pattern { position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; opacity: .34; mix-blend-mode: multiply; }
+.hero-pattern { display: none; position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; opacity: .34; mix-blend-mode: multiply; }
 .hero-pattern iframe { display: block; width: 100%; height: 100%; border: 0; }
 .hero-glow { position: absolute; z-index: -1; width: 72vw; height: 300px; border-radius: 50%; bottom: -210px; left: 14%; background: radial-gradient(ellipse, rgba(28, 99, 39, .78), rgba(28, 99, 39, 0) 70%); filter: blur(22px); }
 .hero-mark { position: absolute; z-index: -1; width: clamp(360px, 43vw, 650px); right: -3%; top: 9%; opacity: .98; }
@@ -153,6 +153,9 @@ img { display: block; max-width: 100%; }
 .theme-dark .site-footer { background: #070e09; color: #eef3e9; }
 .theme-dark .footer-brand-block p, .theme-dark .footer-navigation a, .theme-dark .footer-bottom { color: #a5b3a2; }
 .theme-dark .footer-top { border-color: rgba(255,255,255,.25); }
+@media (min-width: 761px) {
+  .hero-pattern { display: block; }
+}
 @media (max-width: 1050px) {
   .site-header { padding: 0 4%; }
   .main-nav { gap: 20px; margin-right: 3%; }
