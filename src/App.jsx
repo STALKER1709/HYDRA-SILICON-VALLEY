@@ -41,9 +41,11 @@ const translations = {
     newsTitle: <>Actualités</>,
     newsLead: 'Les dernières nouvelles de la corporation.',
     news: [
-      ['Communication', 'Imprimez mieux. Portez la marque.', 'Découvrez les supports de communication et les initiatives qui font rayonner HSV.'],
-      ['Stages académiques', 'Stages académiques', 'Une expérience d’apprentissage au contact de projets et d’équipes engagées.'],
-      ['Vacances utiles', 'Vacances utiles', 'Un programme pour apprendre, créer et développer de nouvelles compétences.']
+      { tag: 'Stages académiques', title: 'Un programme d’accueil pour les stagiaires', text: 'Trois mois de formation et d’encadrement dans les pôles Génie logiciel, Graphic Design, Systèmes et réseaux et Software Engineering. Inscription : 5 000 FCFA. Encadrement : 45 000 FCFA.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'Programme d’accueil de stagiaires académiques HSV' },
+      { tag: 'Formation', title: 'Vacances utiles numériques', text: 'Un parcours de six semaines, à raison de trois séances par semaine : découverte de l’ordinateur, bureautique, navigation Internet, design et programmation. Inscription : 5 000 FCFA. Encadrement : 25 000 FCFA.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Affiche du programme Vacances utiles numériques' },
+      { tag: 'Services aux étudiants', title: 'L’impression à 20 FCFA la page', text: 'Un service d’impression rapide et professionnel pour les rapports de stage et les travaux académiques, avec une attention portée à la qualité et à la précision.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression proposé aux étudiants' },
+      { tag: 'Identité HSV', title: 'La collection d’accessoires HSV', text: 'Portez les couleurs de Hydra Silicon Valley : polos à 5 000 FCFA, T-shirts à 3 500 FCFA et casquettes à 1 500 FCFA.', image: '/ressources/visuels/accessoires-hsv.jpeg', alt: 'Collection de polos, T-shirts et casquettes HSV' },
+      { tag: 'Offre spéciale', title: 'Jusqu’à 20 % de réduction sur vos impressions', text: 'Achetez un accessoire HSV et bénéficiez de 20 % de réduction sur vos impressions (16 FCFA la page). En recommandant un ami avec un boss HSV, profitez de 10 % de réduction (18 FCFA la page).', image: '/ressources/visuels/offre-impression.jpeg', alt: 'Offre promotionnelle sur les impressions HSV' }
     ],
     explore: 'Explorer',
     contactTitle: <>Contactez <em>nous</em></>,
@@ -75,9 +77,11 @@ const translations = {
     newsTitle: <>Latest news</>,
     newsLead: 'The latest updates from the corporation.',
     news: [
-      ['Communication', 'Print better. Wear the brand.', 'Discover the communication materials and initiatives that bring HSV to life.'],
-      ['Academic internships', 'Academic internships', 'A learning experience alongside committed teams and real projects.'],
-      ['Useful holidays', 'Useful holidays', 'A programme to learn, create and develop new skills.']
+      { tag: 'Academic internships', title: 'A welcome programme for interns', text: 'Three months of training and mentoring across Software Engineering, Graphic Design, Systems & Networks and Software Development. Registration: 5,000 FCFA. Training: 45,000 FCFA.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'HSV academic internship programme' },
+      { tag: 'Training', title: 'Useful digital holidays', text: 'A six-week programme with three sessions per week covering computer basics, office tools, Internet browsing, design and programming. Registration: 5,000 FCFA. Training: 25,000 FCFA.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Useful digital holidays programme poster' },
+      { tag: 'Student services', title: 'Printing at 20 FCFA per page', text: 'Fast, professional printing for internship reports and academic work, with a focus on quality and precision.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Printing service for students' },
+      { tag: 'HSV identity', title: 'The HSV accessories collection', text: 'Wear Hydra Silicon Valley colours: polo shirts at 5,000 FCFA, T-shirts at 3,500 FCFA and caps at 1,500 FCFA.', image: '/ressources/visuels/accessoires-hsv.jpeg', alt: 'HSV polo shirts, T-shirts and caps' },
+      { tag: 'Special offer', title: 'Up to 20% off your printing', text: 'Buy an HSV accessory and get 20% off printing (16 FCFA per page). Refer a friend through an HSV boss and get 10% off (18 FCFA per page).', image: '/ressources/visuels/offre-impression.jpeg', alt: 'HSV printing discount offer' }
     ],
     explore: 'Explore',
     contactTitle: <>Get in <em>touch</em></>,
@@ -214,21 +218,19 @@ function App() {
           <div className="news-grid">
             <article className="news-feature">
               <div className="news-feature-copy">
-                <span>{t.news[0][0]}</span>
-                <h3>{t.news[0][1]}</h3>
-                <p>{t.news[0][2]}</p>
+                <span>{t.news[0].tag}</span>
+                <h3>{t.news[0].title}</h3>
+                <p>{t.news[0].text}</p>
                 <a href="#contact">{t.explore} <b>↗</b></a>
               </div>
-              <img src="/ressources/Frame%208204.png" alt="" loading="lazy" />
+              <img src={t.news[0].image} alt={t.news[0].alt} loading="lazy" />
             </article>
-            <article className="news-card news-card-one">
-              <img src="/ressources/Frame%208205.png" alt="" loading="lazy" />
-              <div><span>{t.news[1][0]}</span><h3>{t.news[1][1]}</h3><a href="#contact">↗</a></div>
-            </article>
-            <article className="news-card news-card-two">
-              <img src="/ressources/Frame%208194.png" alt="" loading="lazy" />
-              <div><span>{t.news[2][0]}</span><h3>{t.news[2][1]}</h3><a href="#contact">↗</a></div>
-            </article>
+            {t.news.slice(1).map((item) => (
+              <article className="news-card" key={item.title}>
+                <img src={item.image} alt={item.alt} loading="lazy" />
+                <div><span>{item.tag}</span><h3>{item.title}</h3><p>{item.text}</p><a href="#contact" aria-label={t.explore}>↗</a></div>
+              </article>
+            ))}
           </div>
         </section>
 
