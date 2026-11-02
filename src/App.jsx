@@ -138,7 +138,7 @@ function App() {
 
       <main id="main">
         <section className="hero" id="home">
-          <div className="hero-grid" />
+          <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
