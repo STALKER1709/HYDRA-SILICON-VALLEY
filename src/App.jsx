@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 
 const assets = {
   logo: '/ressources/logo%20hydra%20%20blanc%201.png',
-  mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
+  logoDark: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201%201.png',
+  mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2.png',
   map: '/ressources/Frame%208219.png',
   wave: '/ressources/Frame%208228.png',
   tech: '/ressources/pixel_technology.png',
@@ -120,7 +121,7 @@ function App() {
       <a className="skip-link" href="#main">Aller au contenu</a>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil">
-          <img src={assets.logo} alt="Hydra Silicon Valley" />
+          <img src={theme === 'dark' ? assets.logo : assets.logoDark} alt="Hydra Silicon Valley" />
         </a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Ouvrir le menu"><span /><span /></button>
         <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">
@@ -177,7 +178,7 @@ function App() {
             <span className="section-index">02 / NOTRE RAYONNEMENT</span>
             <h2>{t.presenceTitle}</h2>
             <p>{t.presenceText}</p>
-            <div className="presence-signature"><span>HSV</span><i /> BUILDING AFRICA’S FUTURE</div>
+            <div className="presence-stats"><div><strong>0</strong><span>Filiale de présence<br />internationale</span></div><div><strong>0</strong><span>Filiale de présence<br />internationale</span></div><div><strong>0+</strong><span>Partenariats<br />stratégiques</span></div><div><strong>0+</strong><span>Projets et initiatives<br />à impact</span></div></div>
           </div>
           <div className="presence-visual">
             <img src={assets.map} alt="Carte du monde illustrant les liens internationaux de Hydra Silicon Valley" />
@@ -262,7 +263,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand-block">
-            <a className="footer-brand" href="#home"><img src={assets.logo} alt="Hydra Silicon Valley" /></a>
+            <a className="footer-brand" href="#home"><img src={theme === 'dark' ? assets.logo : assets.logoDark} alt="Hydra Silicon Valley" /></a>
             <p>{t.footerText}</p>
             <a className="footer-cta" href="#contact">{t.contact} <span>↗</span></a>
           </div>
