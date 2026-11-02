@@ -92,7 +92,7 @@ const translations = {
 
 function App() {
   const [lang, setLang] = useState('fr');
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [menuOpen, setMenuOpen] = useState(false);
   const t = translations[lang];
 
