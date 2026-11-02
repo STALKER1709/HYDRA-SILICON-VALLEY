@@ -136,7 +136,6 @@ img { display: block; max-width: 100%; }
 .theme-dark .header-contact { border-color: rgba(255,255,255,.5); }
 .theme-dark .language-switch { color: #c5d99b; }
 .theme-dark .hero, .theme-dark .ecosystem, .theme-dark .team, .theme-dark .contact { background: #0b160e; }
-.theme-dark .hero-grid { opacity: .22; }
 .theme-dark .hero h1 { color: #e1e9df; text-shadow: none; }
 .theme-dark .hero-description, .theme-dark .hero-kicker, .theme-dark .hero-location { color: #a6b4a5; }
 .theme-dark .sector-card { background: linear-gradient(145deg, rgba(44,112,52,.32), rgba(255,255,255,.025)); border-color: rgba(255,255,255,.13); }
