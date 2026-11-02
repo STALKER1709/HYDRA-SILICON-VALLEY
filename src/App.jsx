@@ -1,91 +1,282 @@
 import { useEffect, useState } from 'react';
 
-const copy = {
+const assets = {
+  logo: '/ressources/logo%20hydra%20%20blanc%201.png',
+  mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
+  map: '/ressources/Frame%208219.png',
+  wave: '/ressources/Frame%208228.png',
+  tech: '/ressources/pixel_technology.png',
+  health: '/ressources/ix_health.png',
+  agro: '/ressources/material-symbols_agriculture-outline-sharp.png'
+};
+
+const team = [
+  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(2).png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer', note: 'Visionnaire de la tech africaine' },
+  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(3).png', name: 'ING. Bienvenu KUETCHE CHENDOU', role: 'Co-Fondateur & Chief Operating Officer', note: 'Visionnaire de la tech africaine' },
+  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(1).png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique', note: 'Designer pro, concepteur UI/UX' },
+  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(4).png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing', note: 'Spécialiste de la transformation digitale' },
+  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(5).png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer', note: 'Administrateur SR et développeur Web et Mobile' }
+];
+
+const translations = {
   fr: {
-    nav: ['À propos','Secteurs','Écosystème','Notre vision','Contact'], cta:'Collaborons',
-    eyebrow:'UN GROUPE PANAFRICAIN MULTISECTORIEL', heroTitle:<>Enracinés en Afrique.<br/><em>Élevés au niveau mondial.</em></>,
-    heroCopy:"Nous bâtissons des solutions et des entreprises qui transforment les secteurs clés du continent. Une ambition commune : faire émerger un avenir africain durable, innovant et connecté au monde.",
-    explore:'Découvrir notre écosystème', who:'Qui sommes-nous ?', city:'YAOUNDÉ · CAMEROUN', scroll:'DÉFILER POUR EXPLORER',
-    aboutK:'QUI NOUS SOMMES', aboutTitle:<>L'avenir de l'Afrique<br/>se <em>construit maintenant.</em></>,
-    about1:"Hydra Silicon Valley est un groupe panafricain qui rassemble des expertises, des talents et des initiatives autour d'une conviction : le développement du continent passe par des solutions concrètes, pensées ici et capables de rayonner partout.",
-    about2:"À travers nos différents secteurs d'activité, nous connectons innovation, entrepreneuriat et impact pour répondre aux défis d'aujourd'hui et ouvrir les possibilités de demain.",
-    aboutLink:'Explorer nos secteurs', sectorK:'NOS DOMAINES D’ACTION', sectorTitle:<>Un écosystème.<br/><em>Plusieurs horizons.</em></>,
-    sectorLead:"Nous investissons notre énergie dans les secteurs qui façonnent la vie, l'économie et le futur du continent.",
-    sectors:[
-      ['TECHNOLOGY','Technology & Digital','Des solutions numériques, des infrastructures et des produits qui accélèrent la transformation des organisations.'],
-      ['HEALTH','Health & Wellbeing',"Des approches et services qui rapprochent les communautés d'un système de santé plus accessible et performant."],
-      ['AGRICULTURE','Agriculture & Food Systems','Des initiatives pour valoriser les chaînes agricoles, soutenir les producteurs et renforcer la sécurité alimentaire.'],
-      ['INFRASTRUCTURE','Real Estate & Energy','Des projets et services qui accompagnent le développement des territoires et des infrastructures durables.']
+    nav: ['Accueil', 'Écosystème', 'Corporation', 'Actualités'],
+    contact: 'Contact',
+    heroKicker: 'UN GROUPE PANAFRICAIN MULTISECTORIEL',
+    heroTitle: <>Enracinés en <em>Afrique.</em><br />Élevés au niveau mondial.</>,
+    heroText: 'Nous bâtissons des solutions, des entreprises et des opportunités qui contribuent à transformer les secteurs clés du continent.',
+    heroButton: 'Découvrir notre écosystème',
+    ecoTitle: <>Notre <em>écosystème</em></>,
+    ecoLead: 'Des filiales stratégiques pour construire les leviers de la transformation numérique et du développement durable.',
+    sectors: [
+      ['HSV - TECH', 'Solutions technologiques et services pour relever les défis de demain.', 'Technologie & transformation digitale'],
+      ['HSV - HEALTH', 'Solutions de santé numérique et approches innovantes.', 'Santé & bien-être'],
+      ['HSV - AGRO', 'Technologies pour une agriculture intelligente et durable.', 'Agriculture & agro-industrie']
     ],
-    ecoK:'NOTRE ÉCOSYSTÈME', ecoTitle:<>Des expertises distinctes.<br/><em>Une ambition commune.</em></>,
-    ecoCopy:"Nos entités développent des réponses spécialisées, portées par une vision collective et une culture de l'innovation.",
-    companies:[['HSV','-TECH','Technologie, ingénierie & transformation digitale'],['HSV','-HEALTH','Santé, bien-être & innovation médicale'],['HSV','-AGRO','Agriculture, agro-industrie & développement rural']],
-    visionK:'NOTRE ENGAGEMENT', visionEyebrow:"BUILDING AFRICA'S FUTURE — SECTOR BY SECTOR",
-    visionTitle:<>Le potentiel est<br/><em>immense.</em> L'action<br/>commence ici.</>,
-    visionCopy:"Nous croyons en une Afrique qui crée, innove et prend pleinement part aux grandes transformations mondiales. Notre rôle : contribuer à rendre cette vision réelle, projet après projet.",
-    visionCta:'Construisons ensemble', contactK:'ENTRONS EN CONTACT',
-    contactTitle:<>Une idée en tête ?<br/><em>Parlons-en.</em></>, contactCopy:"Partenariat, collaboration, projet ou simple prise de contact : notre équipe sera ravie d'échanger avec vous.",
-    office:'NOTRE SIÈGE', rights:'Tous droits réservés.', footer:'BUILT FOR THE FUTURE'
+    presenceTitle: <>Notre présence internationale<br />nourrit <em>l’innovation.</em></>,
+    presenceText: 'Depuis le Cameroun, nous cultivons des collaborations et des perspectives au-delà des frontières. Notre ambition est de connecter les talents, les idées et les marchés.',
+    teamTitle: <>Notre <em>équipe</em></>,
+    teamLead: 'Des talents complémentaires réunis autour d’une ambition commune.',
+    newsTitle: <>Actualités</>,
+    newsLead: 'Les dernières nouvelles de la corporation.',
+    news: [
+      ['Communication', 'Imprimez mieux. Portez la marque.', 'Découvrez les supports de communication et les initiatives qui font rayonner HSV.'],
+      ['Stages académiques', 'Stages académiques', 'Une expérience d’apprentissage au contact de projets et d’équipes engagées.'],
+      ['Vacances utiles', 'Vacances utiles', 'Un programme pour apprendre, créer et développer de nouvelles compétences.']
+    ],
+    explore: 'Explorer',
+    contactTitle: <>Contactez <em>nous</em></>,
+    contactLead: 'Partenaires, investisseurs, talents et porteurs de projets : échangeons.',
+    name: 'Nom', firstName: 'Prénom', email: 'E-mail', subject: 'Sujet', message: 'Message',
+    send: 'Envoyer le message', social: 'Siège social', investors: 'Investisseurs',
+    office: 'Awae Escalier, Yaoundé, Cameroun',
+    footerText: 'Construire aujourd’hui les solutions qui feront l’Afrique de demain.',
+    rights: 'Tous droits réservés.', navigation: 'Navigation'
   },
   en: {
-    nav:['About','Sectors','Ecosystem','Our vision','Contact'], cta:"Let's connect",
-    eyebrow:'A PAN-AFRICAN MULTI-SECTOR GROUP', heroTitle:<>Rooted in Africa.<br/><em>Rising to global heights.</em></>,
-    heroCopy:"We build solutions and businesses that transform key sectors across the continent. One shared ambition: shaping a sustainable, innovative African future connected to the world.",
-    explore:'Explore our ecosystem', who:'Who we are', city:'YAOUNDÉ · CAMEROON', scroll:'SCROLL TO EXPLORE',
-    aboutK:'WHO WE ARE', aboutTitle:<>Africa's future<br/>is being <em>built now.</em></>,
-    about1:"Hydra Silicon Valley is a pan-African group bringing together expertise, talent and initiatives around one conviction: the continent's development depends on practical solutions, conceived here and able to reach the world.",
-    about2:"Across our different business sectors, we connect innovation, entrepreneurship and impact to meet today's challenges and unlock tomorrow's opportunities.",
-    aboutLink:'Explore our sectors', sectorK:'WHERE WE WORK', sectorTitle:<>One ecosystem.<br/><em>Many horizons.</em></>,
-    sectorLead:"We focus our energy on the sectors shaping the continent's lives, economy and future.",
-    sectors:[
-      ['TECHNOLOGY','Technology & Digital','Digital solutions, infrastructure and products accelerating the transformation of organizations.'],
-      ['HEALTH','Health & Wellbeing','Approaches and services bringing communities closer to a more accessible and effective healthcare system.'],
-      ['AGRICULTURE','Agriculture & Food Systems','Initiatives that add value to agricultural value chains, support producers and strengthen food security.'],
-      ['INFRASTRUCTURE','Real Estate & Energy','Projects and services supporting the development of territories and sustainable infrastructure.']
+    nav: ['Home', 'Ecosystem', 'Corporation', 'News'],
+    contact: 'Contact',
+    heroKicker: 'A PAN-AFRICAN MULTI-SECTOR GROUP',
+    heroTitle: <>Rooted in <em>Africa.</em><br />Rising to global heights.</>,
+    heroText: 'We build solutions, businesses and opportunities that help transform key sectors across the continent.',
+    heroButton: 'Explore our ecosystem',
+    ecoTitle: <>Our <em>ecosystem</em></>,
+    ecoLead: 'Strategic subsidiaries building the foundations for digital transformation and sustainable development.',
+    sectors: [
+      ['HSV - TECH', 'Technology solutions and services for tomorrow’s challenges.', 'Technology & digital transformation'],
+      ['HSV - HEALTH', 'Digital health solutions and innovative approaches.', 'Health & wellbeing'],
+      ['HSV - AGRO', 'Technology for smart and sustainable agriculture.', 'Agriculture & agribusiness']
     ],
-    ecoK:'OUR ECOSYSTEM', ecoTitle:<>Distinct expertise.<br/><em>One shared ambition.</em></>,
-    ecoCopy:"Our entities develop specialized solutions, driven by a collective vision and a culture of innovation.",
-    companies:[['HSV','-TECH','Technology, engineering & digital transformation'],['HSV','-HEALTH','Healthcare, wellbeing & medical innovation'],['HSV','-AGRO','Agriculture, agribusiness & rural development']],
-    visionK:'OUR COMMITMENT', visionEyebrow:"BUILDING AFRICA'S FUTURE — SECTOR BY SECTOR",
-    visionTitle:<>The potential is<br/><em>immense.</em> Action<br/>starts here.</>,
-    visionCopy:"We believe in an Africa that creates, innovates and fully participates in global transformations. Our role is to help make this vision real, one project at a time.",
-    visionCta:"Let's build together", contactK:'GET IN TOUCH',
-    contactTitle:<>Have an idea?<br/><em>Let's talk.</em></>, contactCopy:"Partnership, collaboration, a project or simply an introduction: our team would be glad to hear from you.",
-    office:'OUR OFFICE', rights:'All rights reserved.', footer:'BUILT FOR THE FUTURE'
+    presenceTitle: <>Our international presence<br />fuels <em>innovation.</em></>,
+    presenceText: 'From Cameroon, we nurture collaborations and perspectives beyond borders. Our ambition is to connect talent, ideas and markets.',
+    teamTitle: <>Our <em>team</em></>,
+    teamLead: 'Complementary talents united by a shared ambition.',
+    newsTitle: <>Latest news</>,
+    newsLead: 'The latest updates from the corporation.',
+    news: [
+      ['Communication', 'Print better. Wear the brand.', 'Discover the communication materials and initiatives that bring HSV to life.'],
+      ['Academic internships', 'Academic internships', 'A learning experience alongside committed teams and real projects.'],
+      ['Useful holidays', 'Useful holidays', 'A programme to learn, create and develop new skills.']
+    ],
+    explore: 'Explore',
+    contactTitle: <>Get in <em>touch</em></>,
+    contactLead: 'Partners, investors, talent and project owners: let’s connect.',
+    name: 'Last name', firstName: 'First name', email: 'Email', subject: 'Subject', message: 'Message',
+    send: 'Send message', social: 'Head office', investors: 'Investors',
+    office: 'Awae Escalier, Yaoundé, Cameroon',
+    footerText: 'Building today the solutions that will shape Africa’s tomorrow.',
+    rights: 'All rights reserved.', navigation: 'Navigation'
   }
 };
 
-const sectors = [
-  {icon:'/ressources/pixel_technology.png', code:'01'},
-  {icon:'/ressources/ix_health.png', code:'02'},
-  {icon:'/ressources/material-symbols_agriculture-outline-sharp.png', code:'03'},
-  {icon:null, code:'04'}
-];
+function App() {
+  const [lang, setLang] = useState('fr');
+  const [theme, setTheme] = useState('light');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const t = translations[lang];
 
-function App(){
-  const [lang,setLang]=useState('fr');
-  const [menuOpen,setMenuOpen]=useState(false);
-  const t=copy[lang];
-  useEffect(()=>{document.documentElement.lang=lang;},[lang]);
-  useEffect(()=>{const close=()=>setMenuOpen(false);window.addEventListener('hashchange',close);return()=>window.removeEventListener('hashchange',close);},[]);
-  const links=['#about','#sectors','#ecosystem','#impact','#contact'];
-  return <>
-    <a className="skip-link" href="#main">Aller au contenu</a>
-    <header className="site-header">
-      <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil"><img src="/ressources/logo%20hydra%20%20blanc%201.png" alt="Hydra Silicon Valley" /></a>
-      <button className="menu-toggle" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?'Fermer le menu':'Ouvrir le menu'} aria-expanded={menuOpen}><span/><span/></button>
-      <nav className={menuOpen?'nav open':'nav'} aria-label="Navigation principale">{t.nav.map((label,i)=><a key={links[i]} href={links[i]}>{label}</a>)}</nav>
-      <div className="header-actions"><button className="lang-switch" onClick={()=>setLang(lang==='fr'?'en':'fr')} aria-label="Change language">{lang==='fr'?'EN':'FR'}</button><a className="button button-small button-outline" href="#contact">{t.cta}</a></div>
-    </header>
-    <main id="main">
-      <section className="hero" id="home"><div className="hero-grid"/><div className="hero-content"><p className="eyebrow"><span className="pulse"/>{t.eyebrow}</p><h1>{t.heroTitle}</h1><p className="hero-copy">{t.heroCopy}</p><div className="hero-actions"><a className="button button-primary" href="#ecosystem">{t.explore}<span>↗</span></a><a className="text-link" href="#about">{t.who}<span>↓</span></a></div><div className="hero-foot"><span>{t.city}</span><span>02°04′ N — 11°30′ E</span></div></div><div className="hero-art" aria-hidden="true"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="orbit orbit-three"/><div className="core"><img src="/ressources/logo%20hydra%20v2_Plan%20de%20travail%201%201.png" alt=""/></div><span className="orbit-label label-one">TECHNOLOGY</span><span className="orbit-label label-two">PEOPLE</span><span className="orbit-label label-three">FUTURE</span><div className="art-caption">AFRICA<br/><b>IN MOTION</b></div></div><div className="scroll-cue"><span/>{t.scroll}</div></section>
-      <section className="intro section" id="about"><div className="section-kicker">01 / {t.aboutK}</div><div className="intro-layout"><h2>{t.aboutTitle}</h2><div className="intro-text"><p>{t.about1}</p><p>{t.about2}</p><a className="text-link dark-link" href="#sectors">{t.aboutLink}<span>↗</span></a></div></div></section>
-      <section className="sectors section" id="sectors"><div className="section-top"><div><div className="section-kicker">02 / {t.sectorK}</div><h2>{t.sectorTitle}</h2></div><p>{t.sectorLead}</p></div><div className="sector-grid">{t.sectors.map((s,i)=><article className={'sector-card sector-'+['tech','health','agro','energy'][i]} key={s[0]}><div className="sector-number">{sectors[i].code}</div><div className="sector-symbol">{sectors[i].icon?<img src={sectors[i].icon} alt=""/>:'ϟ'}</div><div><p className="sector-tag">HSV / {s[0]}</p><h3>{s[1]}</h3><p className="sector-description">{s[2]}</p></div><span className="sector-arrow">↗</span></article>)}</div></section>
-      <section className="ecosystem section" id="ecosystem"><div className="section-kicker">03 / {t.ecoK}</div><div className="eco-heading"><h2>{t.ecoTitle}</h2><p>{t.ecoCopy}</p></div><div className="company-list">{t.companies.map((c,i)=><a className="company-row" href="#contact" key={c[1]}><span className="company-index">0{i+1}</span><span className="company-name">{c[0]}<span>{c[1]}</span></span><span className="company-desc">{c[2]}</span><span className="company-cta">↗</span></a>)}</div></section>
-      <section className="vision section" id="impact"><div className="vision-bg"/><div className="section-kicker">04 / {t.visionK}</div><div className="vision-content"><p className="eyebrow">{t.visionEyebrow}</p><h2>{t.visionTitle}</h2><p>{t.visionCopy}</p><a className="button button-primary" href="#contact">{t.visionCta}<span>↗</span></a></div><div className="vision-aside">FROM CAMEROON<br/>TO THE WORLD <span>✳</span></div></section>
-      <section className="contact section" id="contact"><div className="section-kicker">05 / {t.contactK}</div><div className="contact-layout"><div><h2>{t.contactTitle}</h2><p>{t.contactCopy}</p><a className="contact-email" href="mailto:hydrasiliconvalley@gmail.com">hydrasiliconvalley@gmail.com <span>↗</span></a></div><div className="contact-card"><span className="contact-card-icon">⌖</span><p className="card-label">{t.office}</p><h3>Awae Escalier</h3><p>Yaoundé, Cameroun</p><div className="card-rule"/><p className="card-label">EMAIL</p><a href="mailto:hydrasiliconvalley@gmail.com">hydrasiliconvalley@gmail.com</a></div></div></section>
-    </main>
-    <footer className="footer"><div className="footer-top"><a className="brand footer-brand" href="#home"><img src="/ressources/logo%20hydra%20%20blanc%201.png" alt="Hydra Silicon Valley"/></a><p>Building Africa's Future<br/>— Sector by Sector.</p><a className="back-top" href="#home" aria-label="Retour en haut">↑</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span><span>YAOUNDÉ, CAMEROUN</span><span>{t.footer} <b>✳</b></span></div></footer>
-  </>;
+  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    return () => { delete document.documentElement.dataset.theme; };
+  }, [theme]);
+
+  const submitContact = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const body = [
+      `Nom : ${form.get('lastName') || ''}`,
+      `Prénom : ${form.get('firstName') || ''}`,
+      `E-mail : ${form.get('email') || ''}`,
+      `Sujet : ${form.get('subject') || ''}`,
+      '',
+      form.get('message') || ''
+    ].join('\n');
+    window.location.href = `mailto:hydrasiliconvalley@gmail.com?subject=${encodeURIComponent(form.get('subject') || 'Prise de contact HSV')}&body=${encodeURIComponent(body)}`;
+  };
+
+  return (
+    <div className={`site-shell theme-${theme}`}>
+      <a className="skip-link" href="#main">Aller au contenu</a>
+      <header className="site-header">
+        <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil">
+          <img src={assets.logo} alt="Hydra Silicon Valley" />
+        </a>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Ouvrir le menu"><span /><span /></button>
+        <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">
+          {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]} onClick={() => setMenuOpen(false)}>{label}</a>)}
+        </nav>
+        <div className="header-tools">
+          <button className="theme-switch" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair'}>
+            <span className="theme-switch-knob">{theme === 'light' ? '☼' : '☾'}</span>
+          </button>
+          <button className="language-switch" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}>{lang === 'fr' ? 'EN' : 'FR'}</button>
+          <a className="header-contact" href="#contact">{t.contact}</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <section className="hero" id="home">
+          <div className="hero-grid" />
+          <div className="hero-glow" />
+          <div className="hero-mark"><img src={assets.mark} alt="" /></div>
+          <div className="hero-inner">
+            <p className="hero-kicker"><span />{t.heroKicker}</p>
+            <h1>{t.heroTitle}</h1>
+            <p className="hero-description">{t.heroText}</p>
+            <a className="hero-cta" href="#ecosystem">{t.heroButton}<span>↗</span></a>
+          </div>
+          <div className="hero-location">YAOUNDÉ · CAMEROUN <span>02°04′ N — 11°30′ E</span></div>
+        </section>
+
+        <section className="ecosystem section" id="ecosystem">
+          <div className="section-heading centered">
+            <span className="section-index">01 / NOS DOMAINES D’ACTION</span>
+            <h2>{t.ecoTitle}</h2>
+            <p>{t.ecoLead}</p>
+          </div>
+          <div className="sector-cards">
+            {t.sectors.map((sector, index) => (
+              <article className="sector-card" key={sector[0]}>
+                <div className="sector-icon">
+                  <img src={[assets.tech, assets.health, assets.agro][index]} alt="" />
+                </div>
+                <span className="sector-code">0{index + 1} / HSV</span>
+                <h3>{sector[0]}</h3>
+                <p>{sector[1]}</p>
+                <span className="sector-category">{sector[2]}</span>
+                <span className="card-arrow">↗</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="presence section" id="corporation">
+          <div className="presence-grid" />
+          <div className="presence-copy">
+            <span className="section-index">02 / NOTRE RAYONNEMENT</span>
+            <h2>{t.presenceTitle}</h2>
+            <p>{t.presenceText}</p>
+            <div className="presence-signature"><span>HSV</span><i /> BUILDING AFRICA’S FUTURE</div>
+          </div>
+          <div className="presence-visual">
+            <img src={assets.map} alt="Carte du monde illustrant les liens internationaux de Hydra Silicon Valley" />
+          </div>
+        </section>
+
+        <section className="team section">
+          <div className="section-heading centered">
+            <span className="section-index">03 / LES TALENTS DERRIÈRE LA VISION</span>
+            <h2>{t.teamTitle}</h2>
+            <p>{t.teamLead}</p>
+          </div>
+          <div className="team-grid">
+            {team.map((member) => (
+              <article className="team-card" key={member.name}>
+                <img src={member.image} alt={member.name} loading="lazy" />
+                <div className="team-card-overlay">
+                  <h3>{member.name}</h3>
+                  <p className="team-role">{member.role}</p>
+                  <p className="team-note">{member.note}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="news section" id="news">
+          <div className="section-heading centered">
+            <span className="section-index">04 / RESTEZ INFORMÉS</span>
+            <h2>{t.newsTitle}</h2>
+            <p>{t.newsLead}</p>
+          </div>
+          <div className="news-grid">
+            <article className="news-feature">
+              <div className="news-feature-copy">
+                <span>{t.news[0][0]}</span>
+                <h3>{t.news[0][1]}</h3>
+                <p>{t.news[0][2]}</p>
+                <a href="#contact">{t.explore} <b>↗</b></a>
+              </div>
+              <img src="/ressources/Frame%208204.png" alt="" loading="lazy" />
+            </article>
+            <article className="news-card news-card-one">
+              <img src="/ressources/Frame%208205.png" alt="" loading="lazy" />
+              <div><span>{t.news[1][0]}</span><h3>{t.news[1][1]}</h3><a href="#contact">↗</a></div>
+            </article>
+            <article className="news-card news-card-two">
+              <img src="/ressources/Frame%208194.png" alt="" loading="lazy" />
+              <div><span>{t.news[2][0]}</span><h3>{t.news[2][1]}</h3><a href="#contact">↗</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section className="contact section" id="contact">
+          <div className="section-heading centered">
+            <span className="section-index">05 / ENTRONS EN RELATION</span>
+            <h2>{t.contactTitle}</h2>
+            <p>{t.contactLead}</p>
+          </div>
+          <div className="contact-layout">
+            <form className="contact-form" onSubmit={submitContact}>
+              <div className="form-row">
+                <label>{t.name}<input name="lastName" autoComplete="family-name" required /></label>
+                <label>{t.firstName}<input name="firstName" autoComplete="given-name" required /></label>
+              </div>
+              <label>{t.email}<input name="email" type="email" autoComplete="email" required /></label>
+              <label>{t.subject}<input name="subject" required /></label>
+              <label>{t.message}<textarea name="message" rows="4" required /></label>
+              <button type="submit">{t.send}<span>↗</span></button>
+            </form>
+            <div className="contact-map">
+              <img src={assets.map} alt="" loading="lazy" />
+              <div className="contact-info-grid">
+                <div><span>{t.social}</span><strong>{t.office}</strong></div>
+                <a href="mailto:hydrasiliconvalley@gmail.com"><span>{t.investors}</span><strong>hydrasiliconvalley@gmail.com</strong></a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="footer-main">
+          <div className="footer-brand-block">
+            <a className="footer-brand" href="#home"><img src={assets.logo} alt="Hydra Silicon Valley" /></a>
+            <p>{t.footerText}</p>
+            <a className="footer-cta" href="#contact">{t.contact} <span>↗</span></a>
+          </div>
+          <div className="footer-navigation">
+            <span>{t.navigation}</span>
+            {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]}>{label}</a>)}
+          </div>
+          <a className="footer-top" href="#home" aria-label="Retour en haut">↑</a>
+        </div>
+        <div className="footer-wave"><img src={assets.wave} alt="" /></div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span><span>YAOUNDÉ, CAMEROUN</span><span>BUILDING AFRICA’S FUTURE — SECTOR BY SECTOR</span></div>
+      </footer>
+    </div>
+  );
 }
+
 export default App;
