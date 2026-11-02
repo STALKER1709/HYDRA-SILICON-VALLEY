@@ -72,7 +72,7 @@ function App(){
   return <>
     <a className="skip-link" href="#main">Aller au contenu</a>
     <header className="site-header">
-      <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil"><img src="/ressources/logo%20hydra%20blanc%201.png" alt="Hydra Silicon Valley" /></a>
+      <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil"><img src="/ressources/logo%20hydra%20%20blanc%201.png" alt="Hydra Silicon Valley" /></a>
       <button className="menu-toggle" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?'Fermer le menu':'Ouvrir le menu'} aria-expanded={menuOpen}><span/><span/></button>
       <nav className={menuOpen?'nav open':'nav'} aria-label="Navigation principale">{t.nav.map((label,i)=><a key={links[i]} href={links[i]}>{label}</a>)}</nav>
       <div className="header-actions"><button className="lang-switch" onClick={()=>setLang(lang==='fr'?'en':'fr')} aria-label="Change language">{lang==='fr'?'EN':'FR'}</button><a className="button button-small button-outline" href="#contact">{t.cta}</a></div>
@@ -85,7 +85,7 @@ function App(){
       <section className="vision section" id="impact"><div className="vision-bg"/><div className="section-kicker">04 / {t.visionK}</div><div className="vision-content"><p className="eyebrow">{t.visionEyebrow}</p><h2>{t.visionTitle}</h2><p>{t.visionCopy}</p><a className="button button-primary" href="#contact">{t.visionCta}<span>↗</span></a></div><div className="vision-aside">FROM CAMEROON<br/>TO THE WORLD <span>✳</span></div></section>
       <section className="contact section" id="contact"><div className="section-kicker">05 / {t.contactK}</div><div className="contact-layout"><div><h2>{t.contactTitle}</h2><p>{t.contactCopy}</p><a className="contact-email" href="mailto:hydrasiliconvalley@gmail.com">hydrasiliconvalley@gmail.com <span>↗</span></a></div><div className="contact-card"><span className="contact-card-icon">⌖</span><p className="card-label">{t.office}</p><h3>Awae Escalier</h3><p>Yaoundé, Cameroun</p><div className="card-rule"/><p className="card-label">EMAIL</p><a href="mailto:hydrasiliconvalley@gmail.com">hydrasiliconvalley@gmail.com</a></div></div></section>
     </main>
-    <footer className="footer"><div className="footer-top"><a className="brand footer-brand" href="#home"><img src="/ressources/logo%20hydra%20blanc%201.png" alt="Hydra Silicon Valley"/></a><p>Building Africa's Future<br/>— Sector by Sector.</p><a className="back-top" href="#home" aria-label="Retour en haut">↑</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span><span>YAOUNDÉ, CAMEROUN</span><span>{t.footer} <b>✳</b></span></div></footer>
+    <footer className="footer"><div className="footer-top"><a className="brand footer-brand" href="#home"><img src="/ressources/logo%20hydra%20%20blanc%201.png" alt="Hydra Silicon Valley"/></a><p>Building Africa's Future<br/>— Sector by Sector.</p><a className="back-top" href="#home" aria-label="Retour en haut">↑</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span><span>YAOUNDÉ, CAMEROUN</span><span>{t.footer} <b>✳</b></span></div></footer>
   </>;
 }
 export default App;
