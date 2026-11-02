@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 const assets = {
-  logo: '/ressources/logo%20hydra%20%20blanc%201.png',
+  logoLight: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201%201.png',
+  logoDark: '/ressources/logo%20hydra%20%20blanc%201.png',
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
   wave: '/ressources/Frame%208228.png',
@@ -120,7 +121,7 @@ function App() {
       <a className="skip-link" href="#main">Aller au contenu</a>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil">
-          <img src={assets.logo} alt="Hydra Silicon Valley" />
+          <img src={theme === 'light' ? assets.logoLight : assets.logoDark} alt="Hydra Silicon Valley" />
         </a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Ouvrir le menu"><span /><span /></button>
         <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">
@@ -262,7 +263,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand-block">
-            <a className="footer-brand" href="#home"><img src={assets.logo} alt="Hydra Silicon Valley" /></a>
+            <a className="footer-brand" href="#home"><img src={assets.logoLight} alt="Hydra Silicon Valley" /></a>
             <p>{t.footerText}</p>
             <a className="footer-cta" href="#contact">{t.contact} <span>↗</span></a>
           </div>
