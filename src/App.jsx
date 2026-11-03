@@ -5,18 +5,18 @@ const assets = {
   logoDark: '/ressources/logo%20hydra%20%20blanc%201.png',
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
-  presence: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/afrique%201.png',
+  presence: '/ressources/afrique%201.png',
   tech: '/ressources/pixel_technology.png',
   health: '/ressources/ix_health.png',
   agro: '/ressources/material-symbols_agriculture-outline-sharp.png'
 };
 
 const team = [
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.png', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/William%20ALIMA%20ZOGO.png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer' }
+  { image: '/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer' },
+  { image: '/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.png', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer' },
+  { image: '/ressources/Equipe/William%20ALIMA%20ZOGO.png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique' },
+  { image: '/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing' },
+  { image: '/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer' }
 ];
 
 const translations = {
@@ -160,7 +160,7 @@ function App() {
         <section className="hero" id="home">
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
-          <div className="hero-ellipse" aria-hidden="true"><img src="https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Gemini_Generated_Image_et5b17et5b17et5b-removebg-preview.png" alt="" /></div>
+          <div className="hero-ellipse" aria-hidden="true"><img src="/ressources/Gemini_Generated_Image_et5b17et5b17et5b-removebg-preview.png" alt="" /></div>
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
@@ -279,7 +279,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand-block">
-            <a className="footer-brand" href="#home"><img src={assets.logoLight} alt="Hydra Silicon Valley" /></a>
+            <a className="footer-brand" href="#home"><img src={theme === 'light' ? assets.logoLight : assets.logoDark} alt="Hydra Silicon Valley" /></a>
             <p>{t.footerText}</p>
             <a className="footer-cta" href="#contact">{t.contact} <span>↗</span></a>
           </div>
