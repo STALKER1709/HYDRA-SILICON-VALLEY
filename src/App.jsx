@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const assets = {
   logoLight: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201%201.png',
@@ -92,6 +92,52 @@ const translations = {
   }
 };
 
+function SolarEclipse() {
+  const eclipseRef = useRef(null);
+
+  useEffect(() => {
+    const node = eclipseRef.current;
+    if (!node) return undefined;
+
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionPreference.matches) return undefined;
+
+    let frame = 0;
+    const handlePointerMove = (event) => {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        const bounds = node.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+        node.style.setProperty('--eclipse-shift-x', `${Math.max(-1, Math.min(1, x)) * 7}px`);
+        node.style.setProperty('--eclipse-shift-y', `${Math.max(-1, Math.min(1, y)) * 5}px`);
+      });
+    };
+    const resetPointer = () => {
+      node.style.setProperty('--eclipse-shift-x', '0px');
+      node.style.setProperty('--eclipse-shift-y', '0px');
+    };
+
+    node.addEventListener('pointermove', handlePointerMove, { passive: true });
+    node.addEventListener('pointerleave', resetPointer);
+    return () => {
+      node.removeEventListener('pointermove', handlePointerMove);
+      node.removeEventListener('pointerleave', resetPointer);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <div ref={eclipseRef} className="hero-eclipse" aria-hidden="true">
+      <span className="eclipse-corona" />
+      <span className="eclipse-sun" />
+      <span className="eclipse-moon" />
+      <span className="eclipse-flare eclipse-flare-left" />
+      <span className="eclipse-flare eclipse-flare-right" />
+    </div>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState(() => {
     try { return localStorage.getItem('hsv-language') === 'en' ? 'en' : 'fr'; }
@@ -160,7 +206,7 @@ function App() {
         <section className="hero" id="home">
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
-          <div className="hero-ellipse" aria-hidden="true"><img src="https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Gemini_Generated_Image_et5b17et5b17et5b-removebg-preview.png" alt="" loading="eager" fetchPriority="high" decoding="async" /></div>
+          <SolarEclipse />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
