@@ -147,8 +147,12 @@ function App() {
           <div className="hero-ellipse" aria-hidden="true" />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
+            <span className="hero-kicker"><span aria-hidden="true" />{t.heroKicker}</span>
             <h1>{t.heroTitle}</h1>
+            <p className="hero-description">{t.heroText}</p>
+            <a className="hero-cta" href="#ecosystem">{t.heroButton}<span aria-hidden="true">↗</span></a>
           </div>
+          <div className="hero-location" aria-label="Localisation"><span>YAOUNDÉ</span> CAMEROUN <span>•</span> AFRIQUE</div>
         </section>
 
         <section className="ecosystem section" id="ecosystem">
@@ -198,7 +202,12 @@ function App() {
           <div className="team-grid">
             {team.map((member) => (
               <article className="team-card" key={member.name} tabIndex={0}>
-                <img src={member.image} alt={member.name} loading="lazy" />
+                <img src={member.image} alt={`${member.name} — ${member.role}`} loading="lazy" />
+                <div className="team-card-overlay">
+                  <h3>{member.name}</h3>
+                  <p className="team-role">{member.role}</p>
+                  <p className="team-note">{member.note}</p>
+                </div>
               </article>
             ))}
           </div>
