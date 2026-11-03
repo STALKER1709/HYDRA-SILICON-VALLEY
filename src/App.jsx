@@ -6,8 +6,6 @@ const assets = {
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
   presence: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/afrique%201.png',
-  waveFront: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Frame%208229.png',
-  waveBack: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Frame%208230.png',
   tech: '/ressources/pixel_technology.png',
   health: '/ressources/ix_health.png',
   agro: '/ressources/material-symbols_agriculture-outline-sharp.png'
@@ -276,7 +274,7 @@ function App() {
             {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]}>{label}</a>)}
           </div>
         </div>
-        <div className="footer-wave" aria-hidden="true"><img className="footer-wave-layer footer-wave-back" src={assets.waveBack} alt="" /><img className="footer-wave-layer footer-wave-front" src={assets.waveFront} alt="" /></div>
+        <div className="footer-wave" aria-hidden="true" />
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span>
           <span>YAOUNDÉ, CAMEROUN</span>
