@@ -107,6 +107,10 @@ function SolarEclipse() {
       if (frame) window.cancelAnimationFrame(frame);
       frame = window.requestAnimationFrame(() => {
         const bounds = node.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+          resetPointer();
+          return;
+        }
         const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
         const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
         node.style.setProperty('--eclipse-shift-x', `${Math.max(-1, Math.min(1, x)) * 7}px`);
@@ -119,10 +123,10 @@ function SolarEclipse() {
     };
 
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    window.addEventListener('pointerout', resetPointer);
+    
     return () => {
       window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('pointerout', resetPointer);
+      
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
