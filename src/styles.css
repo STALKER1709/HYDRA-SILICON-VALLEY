@@ -728,3 +728,100 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .back-to-top { transition: none; }
 }
+
+
+/* Reference-matched ambient ellipses: soft, wide green light fields.
+   Kept on the section backgrounds so they never cover foreground content. */
+@media (min-width: 761px) {
+  .ecosystem, .team, .news, .contact {
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
+      radial-gradient(ellipse 44% 35% at -4% 48%, rgba(83, 151, 82, .23) 0%, rgba(83, 151, 82, .12) 42%, transparent 76%),
+      radial-gradient(ellipse 43% 38% at 104% 58%, rgba(83, 151, 82, .21) 0%, rgba(83, 151, 82, .11) 43%, transparent 77%),
+      radial-gradient(ellipse 28% 22% at 52% 108%, rgba(103, 165, 91, .10) 0%, transparent 78%);
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  }
+
+  .ecosystem {
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
+      radial-gradient(ellipse 48% 62% at -8% 78%, rgba(91, 160, 87, .26), rgba(91, 160, 87, .12) 42%, transparent 76%),
+      radial-gradient(ellipse 43% 58% at 108% 78%, rgba(91, 160, 87, .24), rgba(91, 160, 87, .10) 44%, transparent 77%);
+  }
+  .team {
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
+      radial-gradient(ellipse 43% 38% at -7% 43%, rgba(83, 151, 82, .22), rgba(83, 151, 82, .10) 44%, transparent 77%),
+      radial-gradient(ellipse 42% 40% at 108% 70%, rgba(83, 151, 82, .22), rgba(83, 151, 82, .10) 44%, transparent 77%);
+  }
+  .news {
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
+      radial-gradient(ellipse 40% 42% at -8% 78%, rgba(83, 151, 82, .18), transparent 76%),
+      radial-gradient(ellipse 42% 42% at 108% 28%, rgba(83, 151, 82, .18), transparent 77%);
+  }
+  .contact {
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
+      radial-gradient(ellipse 42% 40% at -8% 78%, rgba(83, 151, 82, .24), rgba(83, 151, 82, .10) 44%, transparent 77%),
+      radial-gradient(ellipse 45% 42% at 108% 32%, rgba(83, 151, 82, .22), rgba(83, 151, 82, .09) 44%, transparent 78%);
+  }
+
+  .presence::before,
+  .presence::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    width: 58%;
+    height: 78%;
+    border-radius: 50%;
+    filter: blur(48px);
+    opacity: .72;
+  }
+  .presence::before {
+    left: -22%;
+    bottom: -32%;
+    background: radial-gradient(ellipse, rgba(35, 133, 54, .58) 0%, rgba(35, 133, 54, .20) 48%, transparent 75%);
+  }
+  .presence::after {
+    right: -24%;
+    top: -34%;
+    background: radial-gradient(ellipse, rgba(35, 133, 54, .42) 0%, rgba(35, 133, 54, .16) 48%, transparent 76%);
+  }
+  .presence-grid, .presence-copy, .presence-visual { z-index: 1; }
+}
+
+.theme-dark .ecosystem,
+.theme-dark .team,
+.theme-dark .news,
+.theme-dark .contact {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
+    radial-gradient(ellipse 44% 38% at -5% 48%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .13) 44%, transparent 77%),
+    radial-gradient(ellipse 44% 40% at 105% 58%, rgba(26, 105, 43, .27), rgba(26, 105, 43, .12) 44%, transparent 78%);
+}
+.theme-dark .ecosystem {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
+    radial-gradient(ellipse 48% 62% at -8% 78%, rgba(26, 105, 43, .34), rgba(26, 105, 43, .14) 45%, transparent 77%),
+    radial-gradient(ellipse 43% 58% at 108% 78%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .13) 46%, transparent 78%);
+}
+.theme-dark .team {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
+    radial-gradient(ellipse 43% 38% at -7% 43%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .12) 45%, transparent 77%),
+    radial-gradient(ellipse 42% 40% at 108% 70%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .12) 45%, transparent 77%);
+}
+.theme-dark .news {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
+    radial-gradient(ellipse 40% 42% at -8% 78%, rgba(26, 105, 43, .25), transparent 77%),
+    radial-gradient(ellipse 42% 42% at 108% 28%, rgba(26, 105, 43, .25), transparent 77%);
+}
+.theme-dark .contact {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
+    radial-gradient(ellipse 42% 40% at -8% 78%, rgba(26, 105, 43, .31), rgba(26, 105, 43, .13) 45%, transparent 77%),
+    radial-gradient(ellipse 45% 42% at 108% 32%, rgba(26, 105, 43, .28), rgba(26, 105, 43, .12) 45%, transparent 78%);
+}
