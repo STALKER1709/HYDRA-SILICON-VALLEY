@@ -764,18 +764,6 @@ img { display: block; max-width: 100%; }
   isolation: isolate;
   opacity: .98;
 }
-.hero-planet::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 8%;
-  right: 18%;
-  width: 38%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 196, 87, .5) 0%, rgba(255, 178, 62, .2) 34%, rgba(255, 178, 62, 0) 72%);
-  filter: blur(24px);
-}
 .hero-planet img {
   display: block;
   width: 100%;
@@ -790,13 +778,7 @@ img { display: block; max-width: 100%; }
     bottom: -8%;
     opacity: .78;
   }
-  .hero-planet::before {
-    top: 8%;
-    right: 18%;
-    width: 40%;
-    filter: blur(18px);
-  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-planet, .hero-planet::before { animation: none !important; }
+  .hero-planet { animation: none !important; }
 }
