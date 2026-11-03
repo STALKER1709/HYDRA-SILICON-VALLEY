@@ -38,7 +38,7 @@ const translations = {
     ],
     presenceTitle: <>Notre présence internationale<br />nourrit <em>l’innovation.</em></>,
     presenceText: 'Depuis le Cameroun, nous cultivons des collaborations et des perspectives au-delà des frontières. Notre ambition est de connecter les talents, les idées et les marchés.',
-    presenceStats: [['0', 'Pays de présence'], ['0', 'Filiales en activité'], ['0+', 'Projets réalisés'], ['0+', 'Partenaires stratégiques']],
+    presenceStats: [['3', 'Secteurs stratégiques'], ['CAM', 'Ancrage au Cameroun'], ['PAN', 'Ambition panafricaine'], ['INT', 'Ouverture internationale']],
     teamTitle: <>Notre <em>équipe</em></>,
     teamLead: 'Des talents complémentaires réunis autour d’une ambition commune.',
     newsTitle: <>Actualités</>,
@@ -73,7 +73,7 @@ const translations = {
     ],
     presenceTitle: <>Our international presence<br />fuels <em>innovation.</em></>,
     presenceText: 'From Cameroon, we nurture collaborations and perspectives beyond borders. Our ambition is to connect talent, ideas and markets.',
-    presenceStats: [['0', 'Countries of presence'], ['0', 'Active subsidiaries'], ['0+', 'Projects delivered'], ['0+', 'Strategic partners']],
+    presenceStats: [['3', 'Strategic sectors'], ['CMR', 'Cameroon roots'], ['PAN', 'Pan-African ambition'], ['INT', 'International outlook']],
     teamTitle: <>Our <em>team</em></>,
     teamLead: 'Complementary talents united by a shared ambition.',
     newsTitle: <>Latest news</>,
@@ -135,7 +135,7 @@ function App() {
           <button className="theme-switch" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair'}>
             <span className="theme-switch-knob">{theme === 'light' ? '☼' : '☾'}</span>
           </button>
-          <a className="header-contact" href="#contact">{t.contact}</a>
+          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'}>{lang === 'fr' ? 'EN' : 'FR'}</button>\n          <a className="header-contact" href="#contact">{t.contact}</a>
         </div>
       </header>
 
