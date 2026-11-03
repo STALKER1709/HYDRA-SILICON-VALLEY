@@ -99,6 +99,14 @@ function App() {
   const t = translations[lang];
 
   useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const updateScrollPosition = () => setShowBackToTop(window.scrollY > 0);
+    updateScrollPosition();
+    window.addEventListener('scroll', updateScrollPosition, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrollPosition);
+  }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     return () => { delete document.documentElement.dataset.theme; };
@@ -292,9 +300,17 @@ function App() {
           <span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span>
           <span>YAOUNDÉ, CAMEROUN</span>
           <span>BUILDING AFRICA’S FUTURE — SECTOR BY SECTOR</span>
-          <a className="footer-top" href="#home" aria-label="Retour en haut">↑</a>
+          
         </div>
       </footer>
+      <button
+        className={`back-to-top${showBackToTop ? ' is-visible' : ''}`}
+        type="button"
+        aria-label="Retour en haut de page"
+        aria-hidden={!showBackToTop}
+        tabIndex={showBackToTop ? 0 : -1}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >↑</button>
     </div>
   );
 }
