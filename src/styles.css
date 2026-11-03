@@ -1020,3 +1020,50 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .hero-mark img { animation: none; }
 }
+
+
+/* Hero: use the supplied transparent Africa artwork instead of the generated halo. */
+@media (min-width: 761px) {
+  .hero-glow { display: none !important; }
+  .hero-ellipse {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    width: min(54vw, 760px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    left: 50%;
+    bottom: -7%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: none !important;
+    filter: none !important;
+    opacity: 1;
+    mix-blend-mode: normal;
+    overflow: visible;
+  }
+  .hero-ellipse img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 24px rgba(13, 45, 22, .12));
+  }
+}
+@media (max-width: 760px) {
+  .hero-glow { display: none !important; }
+  .hero-ellipse {
+    width: min(112vw, 620px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    left: 50%;
+    bottom: -5%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: none !important;
+    filter: none !important;
+    opacity: .9;
+    mix-blend-mode: normal;
+  }
+  .hero-ellipse img { width: 100%; height: 100%; object-fit: contain; }
+}
