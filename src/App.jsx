@@ -151,7 +151,7 @@ function App() {
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
           <div className="hero-planet" aria-hidden="true">
-            <img src="/planet-sunrise.svg" alt="" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/An_orbital_sunrise_crowns_Earth%27s_horizon_%28iss072e340644%29.jpg" alt="" />
           </div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
