@@ -1352,3 +1352,27 @@ img { display: block; max-width: 100%; }
   .eclipse-sun { width: 85vw; }
   .eclipse-moon { width: 73vw; }
 }
+
+/* Theme-specific eclipse core: green in light mode, black with a green glow in dark mode. */
+.site-shell.theme-light .eclipse-moon {
+  background:
+    radial-gradient(circle at 36% 28%, #54a85b 0%, #247a32 48%, #155b25 72%, #0b3517 100%);
+  box-shadow:
+    0 -2px 3px rgba(76, 170, 82, .82),
+    0 -12px 34px rgba(46, 138, 55, .34),
+    0 -28px 82px rgba(21, 91, 37, .2),
+    inset -22px -28px 48px rgba(0, 0, 0, .28),
+    inset 8px 7px 24px rgba(225, 255, 218, .12);
+}
+
+.site-shell.theme-dark .eclipse-moon {
+  background:
+    radial-gradient(circle at 36% 28%, #101611 0%, #050806 62%, #010302 100%);
+  box-shadow:
+    0 -2px 3px rgba(86, 207, 94, .95),
+    0 -12px 34px rgba(46, 180, 58, .72),
+    0 -30px 88px rgba(35, 150, 47, .48),
+    0 -58px 140px rgba(24, 105, 34, .24),
+    inset -22px -28px 48px rgba(0, 0, 0, .82),
+    inset 8px 7px 24px rgba(116, 255, 125, .055);
+}
