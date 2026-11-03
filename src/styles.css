@@ -69,7 +69,7 @@ img { display: block; max-width: 100%; }
 .sector-card p { max-width: 290px; color: #667367; font-size: 12px; line-height: 1.8; }
 .sector-category { display: block; margin-top: 26px; color: var(--green); font-size: 10px; font-weight: 700; }
 .card-arrow { position: absolute; right: 27px; bottom: 25px; color: var(--green); font-size: 19px; }
-.presence { display: grid; grid-template-columns: .9fr 1.1fr; gap: 6%; align-items: center; position: relative; overflow: hidden; color: white; background: linear-gradient(rgba(5, 31, 13, .78), rgba(5, 31, 13, .78)), url('https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Frame%208194.png') center / cover no-repeat; min-height: 570px; }
+.presence { display: grid; grid-template-columns: .9fr 1.1fr; gap: 6%; align-items: center; position: relative; overflow: hidden; color: white; background-image: linear-gradient(rgba(5, 31, 13, .78), rgba(5, 31, 13, .78)), url('https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/afrique%201.png'), url('https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Frame%208194.png'); background-position: center, right 8% center, center; background-size: auto, 48% 85%, cover; background-repeat: no-repeat; min-height: 570px; }
 .presence-grid { position: absolute; inset: 0; opacity: .18; background: repeating-linear-gradient(115deg, transparent 0 5px, rgba(255,255,255,.15) 6px, transparent 7px); mask-image: linear-gradient(90deg, transparent, #000 65%); }
 .presence-copy, .presence-visual { position: relative; z-index: 1; }
 .presence .section-index { color: #b5c98c; }
