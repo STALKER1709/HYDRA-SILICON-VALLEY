@@ -143,6 +143,7 @@ function App() {
         <section className="hero" id="home">
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
+          <div className="hero-ellipse" aria-hidden="true" />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
@@ -150,6 +151,7 @@ function App() {
         </section>
 
         <section className="ecosystem section" id="ecosystem">
+          <div className="ecosystem-mark" aria-hidden="true"><img src={assets.mark} alt="" /></div>
           <div className="section-heading centered">
             <h2>{t.ecoTitle}</h2>
             <p>{t.ecoLead}</p>
