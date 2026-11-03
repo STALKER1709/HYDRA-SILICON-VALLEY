@@ -147,16 +147,14 @@ function App() {
       </header>
 
       <main id="main">
-        <section className="hero" id="home">
-          <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
-          <div className="hero-glow" />
-          <div className="hero-ellipse" aria-hidden="true" />
-          <div className="hero-mark"><img src={assets.mark} alt="" /></div>
+        <section className="hero hero-africa" id="home" aria-label="Hydra Silicon Valley — Enracinés en Afrique, élevés au niveau mondial">
           <div className="hero-inner">
+            <span className="hero-kicker"><span />{t.heroKicker}</span>
             <h1>{t.heroTitle}</h1>
             <p className="hero-description">{t.heroText}</p>
             <a className="hero-cta" href="#ecosystem">{t.heroButton}<span aria-hidden="true">↗</span></a>
           </div>
+          <div className="hero-location" aria-hidden="true">YAOUNDÉ, CAMEROUN <span>—</span> AMBITION PANAFRICAINE</div>
         </section>
 
         <section className="ecosystem section" id="ecosystem">
