@@ -1313,3 +1313,34 @@ img { display: block; max-width: 100%; }
   .eclipse-moon { width: 44vw; max-width: 680px; }
   .eclipse-flare { width: 100%; }
 }
+
+
+/* Sunset composition: wider corona, lowered below the hero horizon. */
+@media (min-width: 761px) {
+  .hero-eclipse {
+    width: 100vw;
+    height: 90vw;
+    max-height: 1180px;
+    bottom: -62vw;
+  }
+  .eclipse-corona {
+    width: 80vw;
+    max-width: none;
+    background:
+      radial-gradient(circle, transparent 43%, rgba(255, 198, 112, .08) 46%, rgba(255, 169, 83, .58) 48%, rgba(255, 211, 151, .94) 49%, rgba(207, 119, 54, .62) 50%, rgba(255, 172, 91, .18) 54%, transparent 67%),
+      conic-gradient(from 8deg, transparent 0deg, rgba(255, 218, 145, .16) 12deg, transparent 29deg, rgba(255, 201, 105, .23) 45deg, transparent 68deg, rgba(255, 218, 145, .13) 88deg, transparent 112deg, rgba(255, 201, 105, .2) 145deg, transparent 176deg, rgba(255, 218, 145, .15) 205deg, transparent 235deg, rgba(255, 201, 105, .2) 270deg, transparent 310deg, rgba(255, 218, 145, .14) 340deg, transparent 360deg);
+  }
+  .eclipse-sun { width: 72vw; max-width: none; opacity: .9; filter: blur(30px); }
+  .eclipse-moon {
+    width: 62vw;
+    max-width: none;
+    top: calc(50% + 22px);
+    box-shadow: 0 -2px 3px rgba(255, 224, 174, .98), 0 -12px 34px rgba(255, 173, 93, .52), 0 -28px 82px rgba(225, 128, 65, .28), inset -22px -28px 48px rgba(0,0,0,.72);
+  }
+  .eclipse-flare {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(225, 145, 91, .22), rgba(255, 219, 174, .72), rgba(225, 145, 91, .22), transparent);
+    filter: blur(3px);
+  }
+}
