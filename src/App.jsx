@@ -280,7 +280,7 @@ function App() {
         <div className="footer-wave" aria-hidden="true">
           <svg viewBox="0 0 1440 150" preserveAspectRatio="none" focusable="false">
             <defs>
-              <path id="hsv-footer-wave" d="M-160 72 C-80 28 0 28 80 72 S240 116 320 72 S480 28 560 72 S720 116 800 72 S960 28 1040 72 S1200 116 1280 72 S1440 28 1520 72 S1680 116 1760 72 V160 H-160 Z" />
+              <path id="hsv-footer-wave" d="M-180 74 C60 18 180 18 360 74 S660 130 900 74 S1200 18 1440 74 S1740 130 1980 74 V160 H-180 Z" />
             </defs>
             <g className="footer-wave-layer footer-wave-layer-back">
               <use href="#hsv-footer-wave" x="0" y="0" />
