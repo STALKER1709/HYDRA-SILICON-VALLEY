@@ -118,11 +118,11 @@ function SolarEclipse() {
       node.style.setProperty('--eclipse-shift-y', '0px');
     };
 
-    node.addEventListener('pointermove', handlePointerMove, { passive: true });
-    node.addEventListener('pointerleave', resetPointer);
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    window.addEventListener('pointerout', resetPointer);
     return () => {
-      node.removeEventListener('pointermove', handlePointerMove);
-      node.removeEventListener('pointerleave', resetPointer);
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerout', resetPointer);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
