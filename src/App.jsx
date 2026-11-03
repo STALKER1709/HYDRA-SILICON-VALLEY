@@ -160,7 +160,7 @@ function App() {
         <section className="hero" id="home">
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
-          <div className="hero-ellipse" aria-hidden="true"><img src="https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Gemini_Generated_Image_et5b17et5b17et5b-removebg-preview.png" alt="" /></div>
+          <div className="hero-ellipse" aria-hidden="true"><img src="https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Gemini_Generated_Image_et5b17et5b17et5b-removebg-preview.png" alt="" loading="eager" fetchPriority="high" decoding="async" /></div>
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
