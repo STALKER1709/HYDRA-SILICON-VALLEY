@@ -548,7 +548,7 @@ img { display: block; max-width: 100%; }
   to { transform: translate3d(2.5%, -3px, 0) scaleY(1.03); }
 }
 @keyframes footer-gold-current {
-  from { transform: translate3d(-1.5%, 2px, 0); opacity: .58; }
+  from { transform: translate3d(-1.5%, 2px, 0); opacity: 1; }
   to { transform: translate3d(1.5%, -2px, 0); opacity: .96; }
 }
 .footer-bottom {
@@ -841,7 +841,7 @@ img { display: block; max-width: 100%; }
     background-image: url("/ellipse-2460.png");
     background-repeat: no-repeat;
     background-size: min(100%, 1500px) auto;
-    opacity: .52;
+    opacity: 1;
   }
   .ecosystem::before { background-position: left 54%; }
   .team::before { background-position: right 48%; opacity: .38; }
@@ -1019,4 +1019,360 @@ img { display: block; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-mark img { animation: none; }
+}
+
+
+/* Hero: use the supplied transparent Africa artwork instead of the generated halo. */
+@media (min-width: 761px) {
+  .hero-glow { display: none !important; }
+  .hero-ellipse {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    width: min(54vw, 760px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    left: 50%;
+    bottom: -7%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: none !important;
+    filter: none !important;
+    opacity: .58;
+    mix-blend-mode: normal;
+    overflow: visible;
+  }
+  .hero-ellipse img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(.48) saturate(.88) contrast(1.12) drop-shadow(0 14px 24px rgba(13, 45, 22, .12));
+  }
+}
+@media (max-width: 760px) {
+  .hero-glow { display: none !important; }
+  .hero-ellipse {
+    width: min(112vw, 620px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    left: 50%;
+    bottom: -5%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: none !important;
+    filter: none !important;
+    opacity: .52;
+    mix-blend-mode: normal;
+  }
+  .hero-ellipse img { width: 100%; height: 100%; object-fit: contain; filter: brightness(.48) saturate(.88) contrast(1.12); }
+}
+
+
+/* Consolidated finishing rules: keep the supplied composition intact. */
+.hero { isolation: isolate; }
+.hero-mark { z-index: 0; pointer-events: none; }
+.hero-ellipse { z-index: 1; pointer-events: none; }
+.hero-inner { z-index: 2; }
+.hero h1 { color: #263b2a; text-shadow: none; }
+.hero-ellipse img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(.48) saturate(.88) contrast(1.12) drop-shadow(0 14px 24px rgba(13,45,22,.12));
+}
+.hero-cta, .header-contact, .footer-cta, .contact-form button,
+.theme-switch, .language-switch, .menu-toggle, .back-to-top {
+  min-height: 44px;
+}
+.theme-switch { min-height: 25px; }
+.language-switch { min-width: 44px; }
+.main-nav a, .footer-navigation a { padding-block: 7px; }
+.contact-form-note {
+  margin: -2px 0 16px;
+  color: #315b36;
+  font-size: 11px;
+  line-height: 1.55;
+}
+.theme-dark .contact-form-note { color: #d7e7cf; }
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #c9a84c;
+  outline-offset: 3px;
+}
+.contact-form input:focus-visible, .contact-form textarea:focus-visible {
+  outline-offset: 1px;
+}
+.news-card>div>p { display: block; }
+@media (min-width: 761px) {
+  .hero-ellipse {
+    width: min(54vw, 760px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    bottom: -13%;
+    opacity: 1;
+  }
+}
+@media (max-width: 760px) {
+  .hero-ellipse {
+    width: min(112vw, 620px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    bottom: -12%;
+    opacity: 1;
+  }
+  .form-row { grid-template-columns: 1fr; }
+  .news-card>div>p { font-size: 11px; }
+  .site-header { backdrop-filter: blur(14px); }
+  .main-nav a { min-height: 44px; display: flex; align-items: center; }
+}
+@media (max-width: 420px) {
+  .hero h1 { font-size: clamp(35px, 9.5vw, 43px); }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-feature { grid-template-columns: 1fr; }
+  .news-feature img { min-height: 190px; max-height: 240px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* Theme consistency: the footer follows the active theme. */
+.theme-dark .site-footer {
+  background: #070e09 !important;
+  color: #eef3e9;
+}
+.theme-dark .site-footer .footer-brand-block p { color: #a5b3a2; }
+.theme-dark .site-footer .footer-navigation a { color: #c0cdbd; }
+.theme-dark .site-footer .footer-navigation span { color: #d7bf62; }
+.theme-dark .site-footer .footer-brand img { filter: none; }
+
+
+/* Hero solar eclipse — CSS-rendered artwork, with restrained pointer parallax. */
+.hero-eclipse {
+  --eclipse-shift-x: 0px;
+  --eclipse-shift-y: 0px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: -186px;
+  width: min(82vw, 1080px);
+  height: 430px;
+  transform: translate3d(calc(-50% + var(--eclipse-shift-x)), var(--eclipse-shift-y), 0);
+  pointer-events: none;
+  isolation: isolate;
+  opacity: .98;
+  transition: transform 650ms cubic-bezier(.2,.7,.2,1);
+}
+.eclipse-corona,
+.eclipse-sun,
+.eclipse-moon {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.eclipse-corona {
+  width: clamp(280px, 38vw, 510px);
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, transparent 43%, rgba(255, 213, 119, .08) 46%, rgba(255, 195, 83, .55) 48%, rgba(255, 222, 151, .92) 49%, rgba(207, 145, 54, .58) 50%, rgba(255, 193, 91, .16) 53%, transparent 66%),
+    conic-gradient(from 8deg, transparent 0deg, rgba(255, 218, 145, .16) 12deg, transparent 29deg, rgba(255, 201, 105, .23) 45deg, transparent 68deg, rgba(255, 218, 145, .13) 88deg, transparent 112deg, rgba(255, 201, 105, .2) 145deg, transparent 176deg, rgba(255, 218, 145, .15) 205deg, transparent 235deg, rgba(255, 201, 105, .2) 270deg, transparent 310deg, rgba(255, 218, 145, .14) 340deg, transparent 360deg);
+  filter: blur(1.5px);
+  animation: eclipse-corona-pulse 8s ease-in-out infinite alternate;
+}
+.eclipse-sun {
+  width: clamp(240px, 32vw, 420px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255, 237, 188, .98) 0%, rgba(247, 184, 79, .48) 52%, rgba(210, 142, 54, .13) 68%, transparent 74%);
+  filter: blur(18px);
+  opacity: .82;
+}
+.eclipse-moon {
+  width: clamp(205px, 27vw, 350px);
+  aspect-ratio: 1;
+  left: calc(50% + 5px);
+  top: calc(50% + 13px);
+  background:
+    radial-gradient(circle at 36% 28%, rgba(39, 48, 39, .98), rgba(7, 13, 9, 1) 61%),
+    #080e09;
+  box-shadow:
+    0 -2px 2px rgba(255, 236, 190, .96),
+    0 -8px 23px rgba(255, 205, 113, .38),
+    0 -22px 58px rgba(225, 162, 75, .19),
+    inset -18px -22px 42px rgba(0, 0, 0, .68),
+    inset 8px 7px 24px rgba(255, 255, 255, .035);
+}
+.eclipse-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(78%, 790px);
+  height: 1px;
+  display: block;
+  background: linear-gradient(90deg, transparent, rgba(225, 178, 101, .22), rgba(255, 226, 168, .65), rgba(225, 178, 101, .22), transparent);
+  filter: blur(2px);
+}
+.eclipse-flare-left { transform: translate(-100%, -50%); }
+.eclipse-flare-right { transform: translate(0, -50%); }
+.theme-dark .eclipse-moon {
+  background: radial-gradient(circle at 36% 28%, #1a241b, #030604 66%);
+  box-shadow:
+    0 -2px 2px rgba(255, 226, 159, .95),
+    0 -9px 27px rgba(255, 194, 91, .42),
+    0 -24px 66px rgba(178, 124, 51, .24),
+    inset -18px -22px 42px rgba(0, 0, 0, .78);
+}
+.theme-dark .eclipse-corona { opacity: .86; }
+@keyframes eclipse-corona-pulse {
+  from { opacity: .72; filter: blur(1.5px); }
+  to { opacity: 1; filter: blur(2.5px); }
+}
+@media (max-width: 760px) {
+  .hero-eclipse {
+    width: 118vw;
+    height: 300px;
+    bottom: -136px;
+  }
+  .eclipse-corona { width: clamp(255px, 74vw, 390px); }
+  .eclipse-sun { width: clamp(218px, 64vw, 330px); }
+  .eclipse-moon {
+    width: clamp(190px, 56vw, 290px);
+    top: calc(50% + 9px);
+  }
+  .eclipse-flare { width: 72%; }
+}
+@media (max-width: 420px) {
+  .hero-eclipse { bottom: -145px; }
+  .eclipse-corona { width: 270px; }
+  .eclipse-sun { width: 225px; }
+  .eclipse-moon { width: 198px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-eclipse { transition: none; transform: translateX(-50%); }
+  .eclipse-corona { animation: none; }
+}
+
+
+/* Eclipse scale-up — stronger visual presence in the hero. */
+.hero-eclipse {
+  width: min(100vw, 1480px);
+  height: 560px;
+  bottom: -238px;
+}
+.eclipse-corona { width: clamp(360px, 49vw, 660px); }
+.eclipse-sun { width: clamp(310px, 42vw, 560px); }
+.eclipse-moon {
+  width: clamp(270px, 35vw, 460px);
+  left: calc(50% + 7px);
+  top: calc(50% + 16px);
+}
+.eclipse-flare { width: min(92%, 1180px); }
+
+@media (max-width: 760px) {
+  .hero-eclipse {
+    width: 142vw;
+    height: 390px;
+    bottom: -180px;
+  }
+  .eclipse-corona { width: clamp(320px, 92vw, 490px); }
+  .eclipse-sun { width: clamp(275px, 80vw, 420px); }
+  .eclipse-moon {
+    width: clamp(240px, 70vw, 360px);
+    top: calc(50% + 12px);
+  }
+  .eclipse-flare { width: 86%; }
+}
+@media (max-width: 420px) {
+  .hero-eclipse { width: 154vw; bottom: -190px; }
+  .eclipse-corona { width: 340px; }
+  .eclipse-sun { width: 292px; }
+  .eclipse-moon { width: 254px; }
+}
+
+
+/* Eclipse: the main corona now spans 60% of the desktop viewport width. */
+@media (min-width: 761px) {
+  .hero-eclipse {
+    width: 100vw;
+    max-width: none;
+    height: 66vw;
+    max-height: 920px;
+    bottom: -30vw;
+  }
+  .eclipse-corona { width: 60vw; max-width: 920px; }
+  .eclipse-sun { width: 52vw; max-width: 800px; }
+  .eclipse-moon { width: 44vw; max-width: 680px; }
+  .eclipse-flare { width: 100%; }
+}
+
+
+/* Sunset composition: wider corona, lowered below the hero horizon. */
+@media (min-width: 761px) {
+  .hero-eclipse {
+    width: 100vw;
+    height: 90vw;
+    max-height: 1180px;
+    bottom: -62vw;
+  }
+  .eclipse-corona {
+    width: 80vw;
+    max-width: none;
+    background:
+      radial-gradient(circle, transparent 43%, rgba(255, 198, 112, .08) 46%, rgba(255, 169, 83, .58) 48%, rgba(255, 211, 151, .94) 49%, rgba(207, 119, 54, .62) 50%, rgba(255, 172, 91, .18) 54%, transparent 67%),
+      conic-gradient(from 8deg, transparent 0deg, rgba(255, 218, 145, .16) 12deg, transparent 29deg, rgba(255, 201, 105, .23) 45deg, transparent 68deg, rgba(255, 218, 145, .13) 88deg, transparent 112deg, rgba(255, 201, 105, .2) 145deg, transparent 176deg, rgba(255, 218, 145, .15) 205deg, transparent 235deg, rgba(255, 201, 105, .2) 270deg, transparent 310deg, rgba(255, 218, 145, .14) 340deg, transparent 360deg);
+  }
+  .eclipse-sun { width: 72vw; max-width: none; opacity: .9; filter: blur(30px); }
+  .eclipse-moon {
+    width: 62vw;
+    max-width: none;
+    top: calc(50% + 22px);
+    box-shadow: 0 -2px 3px rgba(255, 224, 174, .98), 0 -12px 34px rgba(255, 173, 93, .52), 0 -28px 82px rgba(225, 128, 65, .28), inset -22px -28px 48px rgba(0,0,0,.72);
+  }
+  .eclipse-flare {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(225, 145, 91, .22), rgba(255, 219, 174, .72), rgba(225, 145, 91, .22), transparent);
+    filter: blur(3px);
+  }
+}
+
+
+/* Sunset eclipse: expand the corona to 95% of the desktop viewport. */
+@media (min-width: 761px) {
+  .eclipse-corona { width: 95vw; }
+  .eclipse-sun { width: 85vw; }
+  .eclipse-moon { width: 73vw; }
+}
+
+/* Theme-specific eclipse core: green in light mode, black with a green glow in dark mode. */
+.site-shell.theme-light .eclipse-moon {
+  background:
+    radial-gradient(circle at 36% 28%, #54a85b 0%, #247a32 48%, #155b25 72%, #0b3517 100%);
+  box-shadow:
+    0 -2px 3px rgba(76, 170, 82, .82),
+    0 -12px 34px rgba(46, 138, 55, .34),
+    0 -28px 82px rgba(21, 91, 37, .2),
+    inset -22px -28px 48px rgba(0, 0, 0, .28),
+    inset 8px 7px 24px rgba(225, 255, 218, .12);
+}
+
+.site-shell.theme-dark .eclipse-moon {
+  background:
+    radial-gradient(circle at 36% 28%, #101611 0%, #050806 62%, #010302 100%);
+  box-shadow:
+    0 -2px 3px rgba(86, 207, 94, .95),
+    0 -12px 34px rgba(46, 180, 58, .72),
+    0 -30px 88px rgba(35, 150, 47, .48),
+    0 -58px 140px rgba(24, 105, 34, .24),
+    inset -22px -28px 48px rgba(0, 0, 0, .82),
+    inset 8px 7px 24px rgba(116, 255, 125, .055);
 }

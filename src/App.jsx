@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const assets = {
   logoLight: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201%201.png',
@@ -92,13 +92,72 @@ const translations = {
   }
 };
 
+function SolarEclipse() {
+  const eclipseRef = useRef(null);
+
+  useEffect(() => {
+    const node = eclipseRef.current;
+    if (!node) return undefined;
+
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionPreference.matches) return undefined;
+
+    let frame = 0;
+    const handlePointerMove = (event) => {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        const bounds = node.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+          resetPointer();
+          return;
+        }
+        const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+        const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+        node.style.setProperty('--eclipse-shift-x', `${Math.max(-1, Math.min(1, x)) * 7}px`);
+        node.style.setProperty('--eclipse-shift-y', `${Math.max(-1, Math.min(1, y)) * 5}px`);
+      });
+    };
+    const resetPointer = () => {
+      node.style.setProperty('--eclipse-shift-x', '0px');
+      node.style.setProperty('--eclipse-shift-y', '0px');
+    };
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <div ref={eclipseRef} className="hero-eclipse" aria-hidden="true">
+      <span className="eclipse-corona" />
+      <span className="eclipse-sun" />
+      <span className="eclipse-moon" />
+      <span className="eclipse-flare eclipse-flare-left" />
+      <span className="eclipse-flare eclipse-flare-right" />
+    </div>
+  );
+}
+
 function App() {
-  const [lang, setLang] = useState('fr');
-  const [theme, setTheme] = useState('light');
+  const [lang, setLang] = useState(() => {
+    try { return localStorage.getItem('hsv-language') === 'en' ? 'en' : 'fr'; }
+    catch { return 'fr'; }
+  });
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('hsv-theme') === 'dark' ? 'dark' : 'light'; }
+    catch { return 'light'; }
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   const t = translations[lang];
 
-  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('hsv-language', lang); } catch { /* Storage may be unavailable. */ }
+  }, [lang]);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -109,6 +168,7 @@ function App() {
   }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('hsv-theme', theme); } catch { /* Storage may be unavailable. */ }
     return () => { delete document.documentElement.dataset.theme; };
   }, [theme]);
 
@@ -133,15 +193,15 @@ function App() {
         <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil">
           <img src={theme === 'light' ? assets.logoLight : assets.logoDark} alt="Hydra Silicon Valley" />
         </a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Ouvrir le menu"><span /><span /></button>
-        <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">
+        <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="primary-navigation" aria-label={menuOpen ? (lang === 'fr' ? 'Fermer le menu' : 'Close menu') : (lang === 'fr' ? 'Ouvrir le menu' : 'Open menu')}><span /><span /></button>
+        <nav id="primary-navigation" className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label={lang === 'fr' ? 'Navigation principale' : 'Main navigation'}>
           {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </nav>
         <div className="header-tools">
-          <button className="theme-switch" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair'}>
+          <button className="theme-switch" type="button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-pressed={theme === 'dark'} aria-label={theme === 'light' ? (lang === 'fr' ? 'Activer le thème sombre' : 'Enable dark theme') : (lang === 'fr' ? 'Activer le thème clair' : 'Enable light theme')}>
             <span className="theme-switch-knob">{theme === 'light' ? '☼' : '☾'}</span>
           </button>
-          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'}>{lang === 'fr' ? 'EN' : 'FR'}</button>
+          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'} lang={lang === 'fr' ? 'en' : 'fr'}>{lang === 'fr' ? 'EN' : 'FR'}</button>
           <a className="header-contact" href="#contact">{t.contact}</a>
         </div>
       </header>
@@ -150,7 +210,7 @@ function App() {
         <section className="hero" id="home">
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
-          <div className="hero-ellipse" aria-hidden="true" />
+          <SolarEclipse />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
@@ -244,7 +304,7 @@ function App() {
             <p>{t.contactLead}</p>
           </div>
           <div className="contact-layout">
-            <form className="contact-form" onSubmit={submitContact}>
+            <form className="contact-form" onSubmit={submitContact} aria-describedby="contact-form-note">
               <div className="form-row">
                 <label>{t.name}<input name="lastName" autoComplete="name" required /></label>
                 <label>{t.email}<input name="email" type="email" autoComplete="email" required /></label>
@@ -252,7 +312,8 @@ function App() {
               <label>{t.organization}<input name="organization" autoComplete="organization" /></label>
               <label>{t.subject}<input name="subject" required /></label>
               <label>{t.message}<textarea name="message" rows="4" required /></label>
-              <button type="submit">{t.send}<span>↗</span></button>
+              <p className="contact-form-note" id="contact-form-note">{lang === 'fr' ? 'Ce formulaire ouvre votre application de messagerie avec le message prérempli. Aucun message n’est envoyé directement depuis le site.' : 'This form opens your email application with a prefilled message. No message is sent directly by the website.'}</p>
+              <button type="submit">{t.send}<span aria-hidden="true">↗</span></button>
             </form>
             <div className="contact-map">
               <img src={assets.map} alt="" loading="lazy" />
@@ -268,7 +329,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand-block">
-            <a className="footer-brand" href="#home"><img src={assets.logoLight} alt="Hydra Silicon Valley" /></a>
+            <a className="footer-brand" href="#home"><img src={theme === 'light' ? assets.logoLight : assets.logoDark} alt="Hydra Silicon Valley" /></a>
             <p>{t.footerText}</p>
             <a className="footer-cta" href="#contact">{t.contact} <span>↗</span></a>
           </div>
