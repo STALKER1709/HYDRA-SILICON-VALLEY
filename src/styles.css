@@ -396,8 +396,6 @@ img { display: block; max-width: 100%; }
 @media (max-width: 760px) {
   .footer-wave { height: 76px; }
 }
-
-.theme-dark 
 @media (max-width: 760px) {
   .site-header .brand img { width: 155px; height: 52px; }
   .site-footer .footer-brand img { width: 155px; height: 52px; }
