@@ -85,7 +85,9 @@ img { display: block; max-width: 100%; }
 .team-card { position: relative; min-height: 410px; border-radius: 12px; overflow: hidden; background: #1a4c27; box-shadow: 0 16px 32px rgba(11, 44, 18, .12); }
 .team-card img { width: 100%; height: 100%; min-height: 410px; object-fit: cover; object-position: center top; transition: transform .45s; }
 .team-card:hover img { transform: scale(1.04); }
-.team-card-overlay { position: absolute; inset: auto 0 0; padding: 48px 18px 20px; color: white; background: linear-gradient(transparent, rgba(5, 17, 9, .95) 38%); }
+.team-card-overlay { position: absolute; inset: auto 0 0; padding: 48px 18px 20px; color: white; background: linear-gradient(transparent, rgba(5, 17, 9, .96) 18%); opacity: 0; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; }
+.team-card:hover .team-card-overlay, .team-card:focus .team-card-overlay, .team-card:focus-within .team-card-overlay { opacity: 1; transform: translateY(0); }
+.team-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .team-card h3 { font: 800 15px/1.2 'Exo 2', sans-serif; margin: 0 0 9px; }
 .team-role { font-size: 11px; font-style: italic; line-height: 1.45; margin: 0 0 7px; color: rgba(255,255,255,.9); }
 .team-note { font-size: 10px; line-height: 1.45; margin: 0; color: rgba(255,255,255,.8); }
@@ -165,6 +167,9 @@ img { display: block; max-width: 100%; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .team-card, .team-card img { min-height: 430px; }
   .sector-card { padding-left: 24px; padding-right: 24px; }
+}
+@media (hover: none), (max-width: 760px) {
+  .team-card-overlay { opacity: 1; transform: none; }
 }
 @media (max-width: 760px) {
   html { scroll-padding-top: 72px; }
