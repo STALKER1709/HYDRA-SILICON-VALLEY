@@ -1141,3 +1141,14 @@ img { display: block; max-width: 100%; }
     transition-duration: .01ms !important;
   }
 }
+
+
+/* Theme consistency: the footer follows the active theme. */
+.theme-dark .site-footer {
+  background: #070e09 !important;
+  color: #eef3e9;
+}
+.theme-dark .site-footer .footer-brand-block p { color: #a5b3a2; }
+.theme-dark .site-footer .footer-navigation a { color: #c0cdbd; }
+.theme-dark .site-footer .footer-navigation span { color: #d7bf62; }
+.theme-dark .site-footer .footer-brand img { filter: none; }
