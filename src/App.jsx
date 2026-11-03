@@ -283,10 +283,14 @@ function App() {
             <span>{t.navigation}</span>
             {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]}>{label}</a>)}
           </div>
-          <a className="footer-top" href="#home" aria-label="Retour en haut">↑</a>
         </div>
         <div className="footer-wave"><img src={assets.wave} alt="" /></div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span><span>YAOUNDÉ, CAMEROUN</span><span>BUILDING AFRICA’S FUTURE — SECTOR BY SECTOR</span></div>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span>
+          <span>YAOUNDÉ, CAMEROUN</span>
+          <span>BUILDING AFRICA’S FUTURE — SECTOR BY SECTOR</span>
+          <a className="footer-top" href="#home" aria-label="Retour en haut">↑</a>
+        </div>
       </footer>
     </div>
   );
