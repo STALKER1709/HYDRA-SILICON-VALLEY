@@ -150,8 +150,9 @@ function App() {
         <section className="hero" id="home">
           <div className="hero-pattern" aria-hidden="true"><iframe src="/ressources/Pattern%20Hydra.html" title="" tabIndex="-1" loading="eager" /></div>
           <div className="hero-glow" />
-          <div className="hero-ellipse" aria-hidden="true" />
-          <div className="hero-mark"><img src={assets.mark} alt="" /></div>
+          <div className="hero-planet" aria-hidden="true">
+            <img src="/planet-sunrise.svg" alt="" />
+          </div>
           <div className="hero-inner">
             <h1>{t.heroTitle}</h1>
             <p className="hero-description">{t.heroText}</p>
