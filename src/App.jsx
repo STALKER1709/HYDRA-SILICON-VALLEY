@@ -135,7 +135,8 @@ function App() {
           <button className="theme-switch" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair'}>
             <span className="theme-switch-knob">{theme === 'light' ? '☼' : '☾'}</span>
           </button>
-          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'}>{lang === 'fr' ? 'EN' : 'FR'}</button>\n          <a className="header-contact" href="#contact">{t.contact}</a>
+          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'}>{lang === 'fr' ? 'EN' : 'FR'}</button>
+          <a className="header-contact" href="#contact">{t.contact}</a>
         </div>
       </header>
 
