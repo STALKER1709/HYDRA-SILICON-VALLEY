@@ -1344,3 +1344,11 @@ img { display: block; max-width: 100%; }
     filter: blur(3px);
   }
 }
+
+
+/* Sunset eclipse: expand the corona to 95% of the desktop viewport. */
+@media (min-width: 761px) {
+  .eclipse-corona { width: 95vw; }
+  .eclipse-sun { width: 85vw; }
+  .eclipse-moon { width: 73vw; }
+}
