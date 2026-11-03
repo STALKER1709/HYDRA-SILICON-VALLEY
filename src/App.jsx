@@ -93,12 +93,21 @@ const translations = {
 };
 
 function App() {
-  const [lang, setLang] = useState('fr');
-  const [theme, setTheme] = useState('light');
+  const [lang, setLang] = useState(() => {
+    try { return localStorage.getItem('hsv-language') === 'en' ? 'en' : 'fr'; }
+    catch { return 'fr'; }
+  });
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('hsv-theme') === 'dark' ? 'dark' : 'light'; }
+    catch { return 'light'; }
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   const t = translations[lang];
 
-  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('hsv-language', lang); } catch { /* Storage may be unavailable. */ }
+  }, [lang]);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -109,6 +118,7 @@ function App() {
   }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('hsv-theme', theme); } catch { /* Storage may be unavailable. */ }
     return () => { delete document.documentElement.dataset.theme; };
   }, [theme]);
 
@@ -133,15 +143,15 @@ function App() {
         <a className="brand" href="#home" aria-label="Hydra Silicon Valley, accueil">
           <img src={theme === 'light' ? assets.logoLight : assets.logoDark} alt="Hydra Silicon Valley" />
         </a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Ouvrir le menu"><span /><span /></button>
-        <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">
+        <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="primary-navigation" aria-label={menuOpen ? (lang === 'fr' ? 'Fermer le menu' : 'Close menu') : (lang === 'fr' ? 'Ouvrir le menu' : 'Open menu')}><span /><span /></button>
+        <nav id="primary-navigation" className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label={lang === 'fr' ? 'Navigation principale' : 'Main navigation'}>
           {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </nav>
         <div className="header-tools">
-          <button className="theme-switch" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair'}>
+          <button className="theme-switch" type="button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-pressed={theme === 'dark'} aria-label={theme === 'light' ? (lang === 'fr' ? 'Activer le thème sombre' : 'Enable dark theme') : (lang === 'fr' ? 'Activer le thème clair' : 'Enable light theme')}>
             <span className="theme-switch-knob">{theme === 'light' ? '☼' : '☾'}</span>
           </button>
-          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'}>{lang === 'fr' ? 'EN' : 'FR'}</button>
+          <button className="language-switch" type="button" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} aria-label={lang === 'fr' ? 'Switch language to English' : 'Passer le site en français'} lang={lang === 'fr' ? 'en' : 'fr'}>{lang === 'fr' ? 'EN' : 'FR'}</button>
           <a className="header-contact" href="#contact">{t.contact}</a>
         </div>
       </header>
@@ -244,7 +254,7 @@ function App() {
             <p>{t.contactLead}</p>
           </div>
           <div className="contact-layout">
-            <form className="contact-form" onSubmit={submitContact}>
+            <form className="contact-form" onSubmit={submitContact} aria-describedby="contact-form-note">
               <div className="form-row">
                 <label>{t.name}<input name="lastName" autoComplete="name" required /></label>
                 <label>{t.email}<input name="email" type="email" autoComplete="email" required /></label>
@@ -252,7 +262,8 @@ function App() {
               <label>{t.organization}<input name="organization" autoComplete="organization" /></label>
               <label>{t.subject}<input name="subject" required /></label>
               <label>{t.message}<textarea name="message" rows="4" required /></label>
-              <button type="submit">{t.send}<span>↗</span></button>
+              <p className="contact-form-note" id="contact-form-note">{lang === 'fr' ? 'Ce formulaire ouvre votre application de messagerie avec le message prérempli. Aucun message n’est envoyé directement depuis le site.' : 'This form opens your email application with a prefilled message. No message is sent directly by the website.'}</p>
+              <button type="submit">{t.send}<span aria-hidden="true">↗</span></button>
             </form>
             <div className="contact-map">
               <img src={assets.map} alt="" loading="lazy" />
