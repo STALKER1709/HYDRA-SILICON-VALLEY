@@ -366,34 +366,37 @@ img { display: block; max-width: 100%; }
   object-position: left center;
 }
 
+/* Restore the broad, layered footer waves from the supplied desktop reference. */
 .footer-wave {
-  height: 78px;
+  height: 82px;
   overflow: hidden;
+  isolation: isolate;
 }
 .footer-wave-layer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  left: -5%;
+  bottom: -1px;
+  width: 110%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center bottom;
   transform-origin: center bottom;
+  will-change: transform;
 }
 .footer-wave-back {
-  opacity: .62;
-  animation: footer-wave-drift-back 17s ease-in-out infinite alternate;
+  opacity: .72;
+  animation: footer-wave-drift-back 13s ease-in-out infinite alternate;
 }
 .footer-wave-front {
-  opacity: .9;
-  animation: footer-wave-drift-front 12s ease-in-out infinite alternate;
+  opacity: .96;
+  animation: footer-wave-drift-front 9s ease-in-out infinite alternate;
 }
 @keyframes footer-wave-drift-back {
-  from { transform: translate3d(-.6%, 0, 0); }
-  to { transform: translate3d(.6%, -1px, 0); }
+  from { transform: translate3d(-2.5%, 5px, 0) scaleY(.96); }
+  to { transform: translate3d(2.5%, -3px, 0) scaleY(1.04); }
 }
 @keyframes footer-wave-drift-front {
-  from { transform: translate3d(.5%, 0, 0); }
-  to { transform: translate3d(-.5%, -1px, 0); }
+  from { transform: translate3d(2%, -2px, 0) scaleY(1.02); }
+  to { transform: translate3d(-2%, 4px, 0) scaleY(.96); }
 }
 
 .theme-dark .hero-ellipse {
@@ -421,4 +424,5 @@ img { display: block; max-width: 100%; }
   }
   .ecosystem-mark { display: none; }
   .footer-wave { height: 58px; }
+  .footer-wave-layer { left: -5%; width: 110%; object-fit: fill; }
 }
