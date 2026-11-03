@@ -5,18 +5,18 @@ const assets = {
   logoDark: '/ressources/logo%20hydra%20%20blanc%201.png',
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
-  presence: '/ressources/afrique%201.png',
+  presence: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/afrique%201.png',
   tech: '/ressources/pixel_technology.png',
   health: '/ressources/ix_health.png',
   agro: '/ressources/material-symbols_agriculture-outline-sharp.png'
 };
 
 const team = [
-  { image: '/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer' },
-  { image: '/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.png', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer' },
-  { image: '/ressources/Equipe/William%20ALIMA%20ZOGO.png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique' },
-  { image: '/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing' },
-  { image: '/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer' }
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.png', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/William%20ALIMA%20ZOGO.png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer' }
 ];
 
 const translations = {
