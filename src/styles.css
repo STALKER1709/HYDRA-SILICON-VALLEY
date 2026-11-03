@@ -909,3 +909,114 @@ img { display: block; max-width: 100%; }
   .hero-glow { display: none; }
   .hero-ellipse { background: url("/ellipse-2460.png") center top / 112vw auto no-repeat; border-radius: 0; filter: blur(2px); opacity: .55; }
 }
+
+
+/* HALOS — rendu unifié à partir de l'ellipse officielle fournie.
+   Aucun dégradé radial CSS ne doit concurrencer cette texture. */
+@media (min-width: 761px) {
+  .hero { overflow: hidden; }
+  .hero-glow { display: none !important; }
+  .hero-ellipse {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    width: min(88vw, 1320px);
+    height: 390px;
+    left: 50%;
+    bottom: -205px;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: url("/ellipse-2460.png") center center / contain no-repeat;
+    filter: blur(19px);
+    opacity: .78;
+    mix-blend-mode: multiply;
+  }
+  .theme-dark .hero-ellipse {
+    background-image: url("/ellipse-2460.png");
+    filter: blur(22px);
+    opacity: .72;
+    mix-blend-mode: screen;
+  }
+
+  /* Les fonds de section ne gardent que la grille fine. */
+  .ecosystem, .team, .news, .contact {
+    background-image: repeating-linear-gradient(
+      90deg, transparent 0, transparent calc(10% - 1px),
+      rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%
+    ) !important;
+    position: relative;
+    isolation: isolate;
+  }
+  .ecosystem::before, .team::before, .news::before, .contact::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("/ellipse-2460.png");
+    background-repeat: no-repeat;
+    background-size: min(78vw, 1120px) auto;
+    filter: blur(17px);
+    mix-blend-mode: multiply;
+    opacity: .34;
+  }
+  .ecosystem::before { background-position: left 52%; opacity: .34; }
+  .team::before { background-position: right 48%; opacity: .29; }
+  .news::before { background-position: left 58%; opacity: .25; }
+  .contact::before { background-position: right 48%; opacity: .32; }
+  .ecosystem::after, .team::after, .news::after, .contact::after { content: none !important; }
+  .ecosystem > *, .team > *, .news > *, .contact > * { position: relative; z-index: 1; }
+
+  .theme-dark .ecosystem, .theme-dark .team, .theme-dark .news, .theme-dark .contact {
+    background-image: repeating-linear-gradient(
+      90deg, transparent 0, transparent calc(10% - 1px),
+      rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%
+    ) !important;
+  }
+  .theme-dark .ecosystem::before, .theme-dark .team::before,
+  .theme-dark .news::before, .theme-dark .contact::before {
+    background-image: url("/ellipse-2460.png");
+    filter: blur(20px);
+    mix-blend-mode: screen;
+    opacity: .38;
+  }
+
+  /* Halo latéral de la section Présence : même asset, sans dégradé concurrent. */
+  .presence::before, .presence::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: min(58vw, 760px);
+    height: 520px;
+    pointer-events: none;
+    background: url("/ellipse-2460.png") center / contain no-repeat;
+    filter: blur(20px);
+    mix-blend-mode: screen;
+    opacity: .20;
+  }
+  .presence::before { left: -28%; bottom: -30%; }
+  .presence::after { right: -28%; top: -28%; opacity: .16; }
+}
+
+@media (max-width: 760px) {
+  .hero-glow { display: none !important; }
+  .hero-ellipse {
+    width: 125vw;
+    height: 245px;
+    left: 50%;
+    bottom: -128px;
+    transform: translateX(-50%);
+    border-radius: 0;
+    background: url("/ellipse-2460.png") center / contain no-repeat;
+    filter: blur(15px);
+    opacity: .52;
+    mix-blend-mode: multiply;
+  }
+  .theme-dark .hero-ellipse { mix-blend-mode: screen; opacity: .48; }
+  .ecosystem::before, .team::before, .news::before, .contact::before,
+  .presence::before, .presence::after { content: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mark img { animation: none; }
+}
