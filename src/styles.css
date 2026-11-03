@@ -857,3 +857,55 @@ img { display: block; max-width: 100%; }
     content: none;
   }
 }
+
+
+/* Desktop composition — corrections aligned to the supplied light/dark references.
+   The supplied ellipse PNG is the only ambient ellipse source; remove legacy CSS halos. */
+@media (min-width: 761px) {
+  .hero { overflow: hidden; }
+  .hero-glow { display: none; }
+  .hero-ellipse {
+    width: min(76vw, 1040px); height: 360px; left: 50%; bottom: -222px;
+    transform: translateX(-50%); border-radius: 0;
+    background: url("/ellipse-2460.png") center top / 100% auto no-repeat;
+    filter: blur(2px); opacity: .82;
+  }
+  .hero-mark { width: clamp(390px, 43vw, 650px); right: -5%; top: 12%; }
+  .ecosystem, .team, .news, .contact {
+    background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%);
+    background-repeat: repeat;
+  }
+  .ecosystem::before, .team::before, .news::before, .contact::before {
+    inset: 0; background-image: url("/ellipse-2460.png"); background-repeat: no-repeat;
+    background-size: 680px auto; filter: blur(1px); opacity: .25;
+  }
+  .ecosystem::before { background-position: -290px 58%; opacity: .26; }
+  .team::before { background-position: calc(100% + 330px) 48%; opacity: .22; }
+  .news::before { background-position: -330px 68%; opacity: .20; }
+  .contact::before { background-position: calc(100% + 330px) 42%; opacity: .24; }
+  .ecosystem::after, .team::after, .news::after, .contact::after { content: none; }
+  .presence::before, .presence::after { content: none; }
+  .team-grid {
+    width: min(100%, 780px); grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px 18px; align-items: start;
+  }
+  .team-card { grid-column: span 2; width: 100%; min-height: 0; aspect-ratio: 3 / 4; border-radius: 10px; }
+  .team-card:nth-child(1) { grid-column: 2 / span 2; }
+  .team-card:nth-child(2) { grid-column: 4 / span 2; }
+  .team-card:nth-child(3) { grid-column: 1 / span 2; }
+  .team-card:nth-child(4) { grid-column: 3 / span 2; }
+  .team-card:nth-child(5) { grid-column: 5 / span 2; }
+  .team-card img { min-height: 0; height: 100%; }
+  .team-card-overlay { padding: 38px 12px 14px; }
+}
+.theme-dark .ecosystem, .theme-dark .team, .theme-dark .news, .theme-dark .contact {
+  background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%);
+}
+.theme-dark .ecosystem::before, .theme-dark .team::before, .theme-dark .news::before, .theme-dark .contact::before {
+  background-image: url("/ellipse-2460.png"); mix-blend-mode: screen;
+}
+.theme-dark .hero-ellipse { background-image: url("/ellipse-2460.png"); background-color: transparent; }
+@media (max-width: 760px) {
+  .hero-glow { display: none; }
+  .hero-ellipse { background: url("/ellipse-2460.png") center top / 112vw auto no-repeat; border-radius: 0; filter: blur(2px); opacity: .55; }
+}
