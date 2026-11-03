@@ -826,92 +826,34 @@ img { display: block; max-width: 100%; }
     radial-gradient(ellipse 45% 42% at 108% 32%, rgba(26, 105, 43, .28), rgba(26, 105, 43, .12) 45%, transparent 78%);
 }
 
-
-/* Ellipses d'ambiance — placement et intensité calés sur les deux références desktop.
-   Les halos sont des couches de fond, jamais des éléments de contenu. */
+/* Ellipse officielle fournie dans ressources — utilisée comme texture, sans halo CSS synthétique. */
 @media (min-width: 761px) {
   .ecosystem, .team, .news, .contact {
     position: relative;
     isolation: isolate;
-    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
   }
-  .ecosystem {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%),
-      radial-gradient(ellipse 54% 58% at -7% 78%, rgba(92,164,91,.34) 0%, rgba(92,164,91,.20) 34%, rgba(92,164,91,.07) 61%, transparent 78%),
-      radial-gradient(ellipse 42% 48% at 106% 72%, rgba(92,164,91,.27) 0%, rgba(92,164,91,.14) 40%, transparent 76%);
-  }
-  .team {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%),
-      radial-gradient(ellipse 48% 58% at -8% 46%, rgba(94,165,91,.30) 0%, rgba(94,165,91,.16) 38%, transparent 76%),
-      radial-gradient(ellipse 48% 58% at 108% 67%, rgba(94,165,91,.31) 0%, rgba(94,165,91,.17) 39%, transparent 77%);
-  }
-  .news {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%),
-      radial-gradient(ellipse 44% 58% at -9% 75%, rgba(94,165,91,.23) 0%, rgba(94,165,91,.12) 40%, transparent 76%),
-      radial-gradient(ellipse 46% 54% at 109% 25%, rgba(94,165,91,.22) 0%, rgba(94,165,91,.11) 42%, transparent 77%);
-  }
-  .contact {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%),
-      radial-gradient(ellipse 50% 58% at -8% 82%, rgba(94,165,91,.34) 0%, rgba(94,165,91,.19) 37%, rgba(94,165,91,.07) 62%, transparent 78%),
-      radial-gradient(ellipse 49% 55% at 108% 25%, rgba(94,165,91,.30) 0%, rgba(94,165,91,.16) 39%, transparent 77%);
-  }
-  .presence {
-    isolation: isolate;
-  }
-  .presence::before {
+  .ecosystem::before, .team::before, .news::before, .contact::before {
     content: "";
     position: absolute;
     z-index: 0;
+    inset: 0;
     pointer-events: none;
-    width: 62%;
-    height: 92%;
-    left: -23%;
-    bottom: -43%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(24,133,55,.46) 0%, rgba(24,133,55,.22) 38%, transparent 72%);
-    filter: blur(34px);
+    background-image: url("/ellipse-2460.png");
+    background-repeat: no-repeat;
+    background-size: min(100%, 1500px) auto;
+    opacity: .52;
   }
-  .presence::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: 54%;
-    height: 82%;
-    right: -24%;
-    top: -38%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(24,133,55,.34) 0%, rgba(24,133,55,.15) 42%, transparent 73%);
-    filter: blur(38px);
+  .ecosystem::before { background-position: left 54%; }
+  .team::before { background-position: right 48%; opacity: .38; }
+  .news::before { background-position: left 62%; opacity: .34; }
+  .contact::before { background-position: right 52%; opacity: .48; }
+  .ecosystem > *, .team > *, .news > *, .contact > * {
+    position: relative;
+    z-index: 1;
   }
-  .presence-grid, .presence-copy, .presence-visual { position: relative; z-index: 1; }
 }
-
-.theme-dark .ecosystem {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.055) calc(10% - 1px), rgba(255,255,255,.055) 10%),
-    radial-gradient(ellipse 54% 58% at -7% 78%, rgba(26,118,48,.43) 0%, rgba(26,118,48,.22) 38%, transparent 77%),
-    radial-gradient(ellipse 42% 48% at 106% 72%, rgba(26,118,48,.34) 0%, rgba(26,118,48,.16) 42%, transparent 77%);
-}
-.theme-dark .team {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.055) calc(10% - 1px), rgba(255,255,255,.055) 10%),
-    radial-gradient(ellipse 48% 58% at -8% 46%, rgba(26,118,48,.37) 0%, rgba(26,118,48,.19) 40%, transparent 77%),
-    radial-gradient(ellipse 48% 58% at 108% 67%, rgba(26,118,48,.39) 0%, rgba(26,118,48,.20) 41%, transparent 78%);
-}
-.theme-dark .news {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.055) calc(10% - 1px), rgba(255,255,255,.055) 10%),
-    radial-gradient(ellipse 44% 58% at -9% 75%, rgba(26,118,48,.30) 0%, rgba(26,118,48,.15) 42%, transparent 77%),
-    radial-gradient(ellipse 46% 54% at 109% 25%, rgba(26,118,48,.29) 0%, rgba(26,118,48,.14) 43%, transparent 78%);
-}
-.theme-dark .contact {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.055) calc(10% - 1px), rgba(255,255,255,.055) 10%),
-    radial-gradient(ellipse 50% 58% at -8% 82%, rgba(26,118,48,.43) 0%, rgba(26,118,48,.22) 39%, transparent 78%),
-    radial-gradient(ellipse 49% 55% at 108% 25%, rgba(26,118,48,.38) 0%, rgba(26,118,48,.18) 41%, transparent 78%);
+@media (max-width: 760px) {
+  .ecosystem::before, .team::before, .news::before, .contact::before {
+    content: none;
+  }
 }
