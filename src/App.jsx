@@ -12,11 +12,11 @@ const assets = {
 };
 
 const team = [
-  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(2).png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer', note: 'Visionnaire de la tech africaine' },
-  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(3).png', name: 'ING. Bienvenu KUETCHE CHENDOU', role: 'Co-Fondateur & Chief Operating Officer', note: 'Visionnaire de la tech africaine' },
-  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(1).png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique', note: 'Designer pro, concepteur UI/UX' },
-  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(4).png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing', note: 'Spécialiste de la transformation digitale' },
-  { image: '/ressources/Propri%C3%A9t%C3%A9%201=Variante2%20(5).png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer', note: 'Administrateur SR et développeur Web et Mobile' }
+  { image: '/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.jpeg', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer', note: 'Visionnaire de la tech africaine' },
+  { image: '/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.jpeg', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer', note: 'Visionnaire de la tech africaine' },
+  { image: '/ressources/Equipe/William%20ALIMA%20ZOGO.jpeg', name: 'William ALIMA ZOGO', role: 'Directeur Artistique', note: 'Designer pro, concepteur UI/UX' },
+  { image: '/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.jpeg', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing', note: 'Spécialiste de la transformation digitale' },
+  { image: '/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.jpeg', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer', note: 'Administrateur SR et développeur Web et Mobile' }
 ];
 
 const translations = {
