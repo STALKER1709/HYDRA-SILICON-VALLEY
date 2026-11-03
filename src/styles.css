@@ -1297,3 +1297,19 @@ img { display: block; max-width: 100%; }
   .eclipse-sun { width: 292px; }
   .eclipse-moon { width: 254px; }
 }
+
+
+/* Eclipse: the main corona now spans 60% of the desktop viewport width. */
+@media (min-width: 761px) {
+  .hero-eclipse {
+    width: 100vw;
+    max-width: none;
+    height: 66vw;
+    max-height: 920px;
+    bottom: -30vw;
+  }
+  .eclipse-corona { width: 60vw; max-width: 920px; }
+  .eclipse-sun { width: 52vw; max-width: 800px; }
+  .eclipse-moon { width: 44vw; max-width: 680px; }
+  .eclipse-flare { width: 100%; }
+}
