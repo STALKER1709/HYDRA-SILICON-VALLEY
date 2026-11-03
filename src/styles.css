@@ -1069,18 +1069,75 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* Hero artwork: lower it and keep it behind the foreground content. */
+/* Consolidated finishing rules: keep the supplied composition intact. */
+.hero { isolation: isolate; }
+.hero-mark { z-index: 0; pointer-events: none; }
+.hero-ellipse { z-index: 1; pointer-events: none; }
+.hero-inner { z-index: 2; }
+.hero h1 { color: #263b2a; text-shadow: none; }
+.hero-ellipse img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(.48) saturate(.88) contrast(1.12) drop-shadow(0 14px 24px rgba(13,45,22,.12));
+}
+.hero-cta, .header-contact, .footer-cta, .contact-form button,
+.theme-switch, .language-switch, .menu-toggle, .back-to-top {
+  min-height: 44px;
+}
+.theme-switch { min-height: 25px; }
+.language-switch { min-width: 44px; }
+.main-nav a, .footer-navigation a { padding-block: 7px; }
+.contact-form-note {
+  margin: -2px 0 16px;
+  color: #315b36;
+  font-size: 11px;
+  line-height: 1.55;
+}
+.theme-dark .contact-form-note { color: #d7e7cf; }
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #c9a84c;
+  outline-offset: 3px;
+}
+.contact-form input:focus-visible, .contact-form textarea:focus-visible {
+  outline-offset: 1px;
+}
+.news-card>div>p { display: block; }
 @media (min-width: 761px) {
   .hero-ellipse {
-    z-index: 0;
-    bottom: -19%;
+    width: min(54vw, 760px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    bottom: -13%;
     opacity: 1;
   }
 }
 @media (max-width: 760px) {
   .hero-ellipse {
-    z-index: 0;
-    bottom: -16%;
+    width: min(112vw, 620px);
+    height: auto;
+    aspect-ratio: 677 / 369;
+    bottom: -12%;
     opacity: 1;
+  }
+  .form-row { grid-template-columns: 1fr; }
+  .news-card>div>p { font-size: 11px; }
+  .site-header { backdrop-filter: blur(14px); }
+  .main-nav a { min-height: 44px; display: flex; align-items: center; }
+}
+@media (max-width: 420px) {
+  .hero h1 { font-size: clamp(35px, 9.5vw, 43px); }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-feature { grid-template-columns: 1fr; }
+  .news-feature img { min-height: 190px; max-height: 240px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
   }
 }
