@@ -1198,3 +1198,17 @@ img { display: block; max-width: 100%; }
   }
   .hero-africa .hero-location { left: 7%; right: 7%; bottom: 24px; font-size: 7px; }
 }
+
+
+/* Restore the original hero backdrop and its native ambient brand elements. */
+.hero.hero-africa {
+  background: #f8f9f5 !important;
+}
+.hero.hero-africa::before { content: none !important; }
+.hero-africa .hero-glow {
+  display: block !important;
+}
+.hero-africa .hero-mark {
+  display: block !important;
+  opacity: .98;
+}
