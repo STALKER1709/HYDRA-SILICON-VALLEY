@@ -644,26 +644,39 @@ img { display: block; max-width: 100%; }
   .footer-wave-layer { animation: none !important; }
 }
 
-/* Geonowa is the site's primary typeface. The licensed WOFF2 files must be
-   placed in /public/fonts/ before @font-face can load them for every visitor. */
+/* Geonowa local web fonts */
 @font-face {
   font-family: 'Geonowa';
-  src: url('/fonts/Geonowa-Regular.woff2') format('woff2');
+  src: url('/fonts/Geonowa-Regular.otf') format('opentype');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'Geonowa';
-  src: url('/fonts/Geonowa-Medium.woff2') format('woff2');
+  src: url('/fonts/Geonowa-Medium.otf') format('opentype');
   font-style: normal;
-  font-weight: 500 600;
+  font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: 'Geonowa';
-  src: url('/fonts/Geonowa-Bold.woff2') format('woff2');
+  src: url('/fonts/Geonowa-Semibold.otf') format('opentype');
   font-style: normal;
-  font-weight: 700 800;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geonowa';
+  src: url('/fonts/Geonowa-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geonowa';
+  src: url('/fonts/Geonowa-Extrabold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 800;
   font-display: swap;
 }
