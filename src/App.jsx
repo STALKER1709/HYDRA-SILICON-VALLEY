@@ -44,16 +44,14 @@ const translations = {
     newsTitle: <>Actualités</>,
     newsLead: 'Les dernières nouvelles de la corporation.',
     news: [
-      { tag: 'Stages académiques', title: 'Un programme d’accueil pour les stagiaires', text: 'Trois mois de formation et d’encadrement dans les pôles Génie logiciel, Graphic Design, Systèmes et réseaux et Software Engineering. Inscription : 5 000 FCFA. Encadrement : 45 000 FCFA.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'Programme d’accueil de stagiaires académiques HSV' },
-      { tag: 'Formation', title: 'Vacances utiles numériques', text: 'Un parcours de six semaines, à raison de trois séances par semaine : découverte de l’ordinateur, bureautique, navigation Internet, design et programmation. Inscription : 5 000 FCFA. Encadrement : 25 000 FCFA.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Affiche du programme Vacances utiles numériques' },
-      { tag: 'Services aux étudiants', title: 'L’impression à 20 FCFA la page', text: 'Un service d’impression rapide et professionnel pour les rapports de stage et les travaux académiques, avec une attention portée à la qualité et à la précision.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression proposé aux étudiants' },
-      { tag: 'Identité HSV', title: 'La collection d’accessoires HSV', text: 'Portez les couleurs de Hydra Silicon Valley : polos à 5 000 FCFA, T-shirts à 3 500 FCFA et casquettes à 1 500 FCFA.', image: '/ressources/visuels/accessoires-hsv.jpeg', alt: 'Collection de polos, T-shirts et casquettes HSV' },
-      { tag: 'Offre spéciale', title: 'Jusqu’à 20 % de réduction sur vos impressions', text: 'Achetez un accessoire HSV et bénéficiez de 20 % de réduction sur vos impressions (16 FCFA la page). En recommandant un ami avec un boss HSV, profitez de 10 % de réduction (18 FCFA la page).', image: '/ressources/visuels/offre-impression.jpeg', alt: 'Offre promotionnelle sur les impressions HSV' }
+      { tag: 'Services aux étudiants', title: 'Imprimez mieux. Portez la marque.', text: 'Hydra Silicon Valley accompagne les étudiants avec un service d’impression rapide et professionnel pour les rapports de stage et les travaux académiques. 20 FCFA la page.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression HSV à 20 FCFA la page' },
+      { tag: 'Stages académiques', title: 'Programme d’accueil de stagiaires', text: 'Trois mois de formation et d’encadrement en Génie logiciel, Graphic Design, Systèmes et réseaux et Software Engineering.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'Programme de stages académiques HSV' },
+      { tag: 'Vacances utiles', title: 'Vacances utiles numériques', text: 'Un parcours de six semaines avec trois séances par semaine pour découvrir l’informatique, la bureautique, Internet, le design et la programmation.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Programme Vacances utiles numériques HSV' }
     ],
     explore: 'Explorer',
     contactTitle: <>Contactez <em>nous</em></>,
     contactLead: 'Partenaires, investisseurs, talents et porteurs de projets : échangeons.',
-    name: 'Nom', firstName: 'Prénom', email: 'E-mail', subject: 'Sujet', message: 'Message',
+    name: 'Nom', email: 'E-mail', organization: 'Organisation', subject: 'Sujet', message: 'Message',
     send: 'Envoyer le message', social: 'Siège social', investors: 'Investisseurs',
     office: 'Awae Escalier, Yaoundé, Cameroun',
     footerText: 'Construire aujourd’hui les solutions qui feront l’Afrique de demain.',
@@ -81,16 +79,14 @@ const translations = {
     newsTitle: <>Latest news</>,
     newsLead: 'The latest updates from the corporation.',
     news: [
-      { tag: 'Academic internships', title: 'A welcome programme for interns', text: 'Three months of training and mentoring across Software Engineering, Graphic Design, Systems & Networks and Software Development. Registration: 5,000 FCFA. Training: 45,000 FCFA.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'HSV academic internship programme' },
-      { tag: 'Training', title: 'Useful digital holidays', text: 'A six-week programme with three sessions per week covering computer basics, office tools, Internet browsing, design and programming. Registration: 5,000 FCFA. Training: 25,000 FCFA.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Useful digital holidays programme poster' },
-      { tag: 'Student services', title: 'Printing at 20 FCFA per page', text: 'Fast, professional printing for internship reports and academic work, with a focus on quality and precision.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Printing service for students' },
-      { tag: 'HSV identity', title: 'The HSV accessories collection', text: 'Wear Hydra Silicon Valley colours: polo shirts at 5,000 FCFA, T-shirts at 3,500 FCFA and caps at 1,500 FCFA.', image: '/ressources/visuels/accessoires-hsv.jpeg', alt: 'HSV polo shirts, T-shirts and caps' },
-      { tag: 'Special offer', title: 'Up to 20% off your printing', text: 'Buy an HSV accessory and get 20% off printing (16 FCFA per page). Refer a friend through an HSV boss and get 10% off (18 FCFA per page).', image: '/ressources/visuels/offre-impression.jpeg', alt: 'HSV printing discount offer' }
+      { tag: 'Student services', title: 'Print better. Wear the brand.', text: 'Hydra Silicon Valley supports students with fast, professional printing for internship reports and academic work. 20 FCFA per page.', image: '/ressources/visuels/service-impression.jpeg', alt: 'HSV printing service at 20 FCFA per page' },
+      { tag: 'Academic internships', title: 'Academic internship programme', text: 'Three months of training and mentoring across Software Engineering, Graphic Design, Systems & Networks and Software Development.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'HSV academic internship programme' },
+      { tag: 'Useful holidays', title: 'Useful digital holidays', text: 'A six-week programme with three sessions per week covering computer basics, office tools, Internet, design and programming.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'HSV useful digital holidays programme' }
     ],
     explore: 'Explore',
     contactTitle: <>Get in <em>touch</em></>,
     contactLead: 'Partners, investors, talent and project owners: let’s connect.',
-    name: 'Last name', firstName: 'First name', email: 'Email', subject: 'Subject', message: 'Message',
+    name: 'Name', email: 'Email', organization: 'Organization', subject: 'Subject', message: 'Message',
     send: 'Send message', social: 'Head office', investors: 'Investors',
     office: 'Awae Escalier, Yaoundé, Cameroon',
     footerText: 'Building today the solutions that will shape Africa’s tomorrow.',
@@ -115,7 +111,7 @@ function App() {
     const form = new FormData(event.currentTarget);
     const body = [
       `Nom : ${form.get('lastName') || ''}`,
-      `Prénom : ${form.get('firstName') || ''}`,
+      `Organisation : ${form.get('organization') || ''}`,
       `E-mail : ${form.get('email') || ''}`,
       `Sujet : ${form.get('subject') || ''}`,
       '',
@@ -139,7 +135,6 @@ function App() {
           <button className="theme-switch" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair'}>
             <span className="theme-switch-knob">{theme === 'light' ? '☼' : '☾'}</span>
           </button>
-          <button className="language-switch" onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}>{lang === 'fr' ? 'EN' : 'FR'}</button>
           <a className="header-contact" href="#contact">{t.contact}</a>
         </div>
       </header>
@@ -150,17 +145,12 @@ function App() {
           <div className="hero-glow" />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
-            <p className="hero-kicker"><span />{t.heroKicker}</p>
             <h1>{t.heroTitle}</h1>
-            <p className="hero-description">{t.heroText}</p>
-            <a className="hero-cta" href="#ecosystem">{t.heroButton}<span>↗</span></a>
           </div>
-          <div className="hero-location">YAOUNDÉ · CAMEROUN <span>02°04′ N — 11°30′ E</span></div>
         </section>
 
         <section className="ecosystem section" id="ecosystem">
           <div className="section-heading centered">
-            <span className="section-index">01 / NOS DOMAINES D’ACTION</span>
             <h2>{t.ecoTitle}</h2>
             <p>{t.ecoLead}</p>
           </div>
@@ -170,11 +160,9 @@ function App() {
                 <div className="sector-icon">
                   <img src={[assets.tech, assets.health, assets.agro][index]} alt="" />
                 </div>
-                <span className="sector-code">0{index + 1} / HSV</span>
                 <h3>{sector[0]}</h3>
                 <p>{sector[1]}</p>
                 <span className="sector-category">{sector[2]}</span>
-                <span className="card-arrow">↗</span>
               </article>
             ))}
           </div>
@@ -183,7 +171,6 @@ function App() {
         <section className="presence section" id="corporation">
           <div className="presence-grid" />
           <div className="presence-copy">
-            <span className="section-index">02 / NOTRE RAYONNEMENT</span>
             <h2>{t.presenceTitle}</h2>
             <p>{t.presenceText}</p>
             <div className="presence-stats">
@@ -202,7 +189,6 @@ function App() {
 
         <section className="team section">
           <div className="section-heading centered">
-            <span className="section-index">03 / LES TALENTS DERRIÈRE LA VISION</span>
             <h2>{t.teamTitle}</h2>
             <p>{t.teamLead}</p>
           </div>
@@ -210,11 +196,6 @@ function App() {
             {team.map((member) => (
               <article className="team-card" key={member.name} tabIndex={0}>
                 <img src={member.image} alt={member.name} loading="lazy" />
-                <div className="team-card-overlay">
-                  <h3>{member.name}</h3>
-                  <p className="team-role">{member.role}</p>
-                  <p className="team-note">{member.note}</p>
-                </div>
               </article>
             ))}
           </div>
@@ -222,7 +203,6 @@ function App() {
 
         <section className="news section" id="news">
           <div className="section-heading centered">
-            <span className="section-index">04 / RESTEZ INFORMÉS</span>
             <h2>{t.newsTitle}</h2>
             <p>{t.newsLead}</p>
           </div>
@@ -247,17 +227,16 @@ function App() {
 
         <section className="contact section" id="contact">
           <div className="section-heading centered">
-            <span className="section-index">05 / ENTRONS EN RELATION</span>
             <h2>{t.contactTitle}</h2>
             <p>{t.contactLead}</p>
           </div>
           <div className="contact-layout">
             <form className="contact-form" onSubmit={submitContact}>
               <div className="form-row">
-                <label>{t.name}<input name="lastName" autoComplete="family-name" required /></label>
-                <label>{t.firstName}<input name="firstName" autoComplete="given-name" required /></label>
+                <label>{t.name}<input name="lastName" autoComplete="name" required /></label>
+                <label>{t.email}<input name="email" type="email" autoComplete="email" required /></label>
               </div>
-              <label>{t.email}<input name="email" type="email" autoComplete="email" required /></label>
+              <label>{t.organization}<input name="organization" autoComplete="organization" /></label>
               <label>{t.subject}<input name="subject" required /></label>
               <label>{t.message}<textarea name="message" rows="4" required /></label>
               <button type="submit">{t.send}<span>↗</span></button>
