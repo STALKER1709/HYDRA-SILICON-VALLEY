@@ -256,3 +256,59 @@ img { display: block; max-width: 100%; }
 .theme-dark .footer-bottom { color: #6c786b; }
 .theme-dark .footer-top { border-color: #d2d9cf; }
 .theme-dark .footer-bottom { border-top-color: rgba(20, 50, 20, .12); }
+
+
+/* Strict desktop alignment with Desktop - comp.jpg and Desktop - 2comp.jpg */
+@media (min-width: 761px) {
+  .hero {
+    background-color: transparent;
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .055) calc(10% - 1px), rgba(30, 76, 35, .055) 10%);
+  }
+  .hero-inner { margin-top: 0; }
+  .hero h1 { max-width: 900px; margin: 0 auto; }
+  .ecosystem, .team, .news, .contact {
+    background-color: transparent;
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .055) calc(10% - 1px), rgba(30, 76, 35, .055) 10%),
+      radial-gradient(ellipse at 12% 45%, rgba(99, 157, 92, .13), transparent 34%),
+      radial-gradient(ellipse at 88% 55%, rgba(99, 157, 92, .11), transparent 32%);
+  }
+  .sector-card { min-height: 310px; }
+  .sector-icon { left: 50%; transform: translateX(-50%); }
+  .sector-card h3 { margin-top: 42px; }
+  .team-grid { row-gap: 18px; }
+  .team-card, .team-card img { min-height: 285px; }
+  .team-card img { object-fit: cover; object-position: center top; }
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 340px 255px;
+    gap: 18px;
+  }
+  .news-feature { grid-column: 1 / -1; grid-row: auto; }
+  .news-feature-copy { padding: 32px 30px; }
+  .news-feature h3 { max-width: 360px; font-size: clamp(25px, 2.3vw, 34px); }
+  .news-feature img { object-position: center; }
+  .news-card > div { padding: 38px 18px 15px; }
+  .contact-info-grid > div, .contact-info-grid > a { min-height: 78px; }
+  .contact-info-grid > a { background: #0d3518; border-color: #0d3518; color: #fff; }
+  .contact-info-grid > a span { color: #b8d39a; }
+  .contact-info-grid > a strong { color: #fff; }
+}
+.theme-dark .hero {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%);
+}
+.theme-dark .ecosystem,
+.theme-dark .team,
+.theme-dark .news,
+.theme-dark .contact {
+  background-color: transparent;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
+    radial-gradient(ellipse at 12% 45%, rgba(34, 104, 47, .19), transparent 34%),
+    radial-gradient(ellipse at 88% 55%, rgba(34, 104, 47, .16), transparent 32%);
+}
+.theme-dark .contact-info-grid > a { background: #f7faf4; border-color: #f7faf4; color: #17321c; }
+.theme-dark .contact-info-grid > a span { color: #58775a; }
+.theme-dark .contact-info-grid > a strong { color: #17321c; }
