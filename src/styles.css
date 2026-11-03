@@ -366,37 +366,63 @@ img { display: block; max-width: 100%; }
   object-position: left center;
 }
 
-/* Restore the broad, layered footer waves from the supplied desktop reference. */
+/* Footer wave: original CSS composition, independent of supplied image assets. */
 .footer-wave {
-  height: 82px;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 112px;
   overflow: hidden;
+  pointer-events: none;
   isolation: isolate;
+  background: linear-gradient(180deg, #145b2b 0%, #0b3b20 42%, #082b19 100%);
+  clip-path: polygon(
+    0 34%, 5% 23%, 10% 14%, 16% 12%, 22% 19%,
+    28% 33%, 34% 43%, 40% 45%, 47% 39%,
+    54% 29%, 61% 18%, 68% 10%, 75% 8%,
+    82% 13%, 89% 23%, 95% 31%, 100% 34%,
+    100% 100%, 0 100%
+  );
 }
-.footer-wave-layer {
-  left: -5%;
-  bottom: -1px;
-  width: 110%;
-  height: 100%;
-  object-fit: fill;
-  object-position: center bottom;
-  transform-origin: center bottom;
-  will-change: transform;
+.footer-wave::before,
+.footer-wave::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-.footer-wave-back {
-  opacity: .72;
-  animation: footer-wave-drift-back 13s ease-in-out infinite alternate;
+.footer-wave::before {
+  z-index: -1;
+  opacity: .92;
+  background: linear-gradient(180deg, rgba(42, 143, 65, .94), rgba(13, 89, 42, .18) 72%);
+  clip-path: polygon(
+    0 19%, 7% 7%, 14% 5%, 21% 15%, 29% 35%,
+    37% 48%, 45% 49%, 53% 37%, 61% 19%,
+    69% 3%, 77% 0, 85% 8%, 93% 22%, 100% 27%,
+    100% 39%, 92% 31%, 84% 21%, 76% 16%,
+    68% 19%, 60% 34%, 52% 51%, 44% 62%,
+    36% 60%, 28% 48%, 20% 30%, 13% 19%,
+    6% 20%, 0 31%
+  );
 }
-.footer-wave-front {
-  opacity: .96;
-  animation: footer-wave-drift-front 9s ease-in-out infinite alternate;
+.footer-wave::after {
+  z-index: 1;
+  opacity: .9;
+  background: linear-gradient(90deg, #0b6c36 0%, #18a957 34%, #c9a84c 69%, #16a34a 100%);
+  height: 2px;
+  top: 26%;
+  bottom: auto;
+  clip-path: polygon(
+    0 100%, 8% 0, 16% 0, 25% 100%, 36% 100%,
+    48% 0, 59% 0, 70% 100%, 82% 0, 92% 0, 100% 100%,
+    100% 100%, 0 100%
+  );
 }
-@keyframes footer-wave-drift-back {
-  from { transform: translate3d(-2.5%, 5px, 0) scaleY(.96); }
-  to { transform: translate3d(2.5%, -3px, 0) scaleY(1.04); }
-}
-@keyframes footer-wave-drift-front {
-  from { transform: translate3d(2%, -2px, 0) scaleY(1.02); }
-  to { transform: translate3d(-2%, 4px, 0) scaleY(.96); }
+.footer-bottom { background: linear-gradient(180deg, #082b19, #062316); }
+@media (max-width: 760px) {
+  .footer-wave { height: 76px; }
 }
 
 .theme-dark .hero-ellipse {
