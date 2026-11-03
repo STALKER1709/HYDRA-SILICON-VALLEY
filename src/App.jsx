@@ -12,11 +12,11 @@ const assets = {
 };
 
 const team = [
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer', note: 'Visionnaire de la tech africaine' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.png', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer', note: 'Visionnaire de la tech africaine' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/William%20ALIMA%20ZOGO.png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique', note: 'Designer pro, concepteur UI/UX' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing', note: 'Spécialiste de la transformation digitale' },
-  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer', note: 'Administrateur SR et développeur Web et Mobile' }
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Prosper%20Patrick%20MVOGO.png', name: 'ING. Prosper Patrick MVOGO', role: 'Fondateur & Chief Executive Officer' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Bienvenu%20KUETCHE%20CHENDJOU.png', name: 'ING. Bienvenu KUETCHE CHENDJOU', role: 'Co-Fondateur & Chief Operating Officer' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/William%20ALIMA%20ZOGO.png', name: 'William ALIMA ZOGO', role: 'Directeur Artistique' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Daphney%20Julienne%20MENGUE.png', name: 'ING. Daphney Julienne MENGUE', role: 'Responsable Communication & Marketing' },
+  { image: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/Equipe/ING.%20Levis%20Jores%20NJIMI%20NJEUMEN.png', name: 'ING. Levis Jores NJIMI NJEUMEN', role: 'Directeur Technique & Chief Technology Officer' }
 ];
 
 const translations = {
@@ -145,12 +145,10 @@ function App() {
           <div className="hero-ellipse" aria-hidden="true" />
           <div className="hero-mark"><img src={assets.mark} alt="" /></div>
           <div className="hero-inner">
-            <span className="hero-kicker"><span aria-hidden="true" />{t.heroKicker}</span>
             <h1>{t.heroTitle}</h1>
             <p className="hero-description">{t.heroText}</p>
             <a className="hero-cta" href="#ecosystem">{t.heroButton}<span aria-hidden="true">↗</span></a>
           </div>
-          <div className="hero-location" aria-label="Localisation"><span>YAOUNDÉ</span> CAMEROUN <span>•</span> AFRIQUE</div>
         </section>
 
         <section className="ecosystem section" id="ecosystem">
@@ -167,7 +165,6 @@ function App() {
                 </div>
                 <h3>{sector[0]}</h3>
                 <p>{sector[1]}</p>
-                <span className="sector-category">{sector[2]}</span>
               </article>
             ))}
           </div>
@@ -204,7 +201,6 @@ function App() {
                 <div className="team-card-overlay">
                   <h3>{member.name}</h3>
                   <p className="team-role">{member.role}</p>
-                  <p className="team-note">{member.note}</p>
                 </div>
               </article>
             ))}
@@ -274,7 +270,25 @@ function App() {
             {t.nav.map((label, index) => <a key={label} href={['#home', '#ecosystem', '#corporation', '#news'][index]}>{label}</a>)}
           </div>
         </div>
-        <div className="footer-wave" aria-hidden="true" />
+        <div className="footer-wave" aria-hidden="true">
+          <svg viewBox="0 0 1440 150" preserveAspectRatio="none" focusable="false">
+            <defs>
+              <path id="hsv-footer-wave" d="M-160 72 C-80 28 0 28 80 72 S240 116 320 72 S480 28 560 72 S720 116 800 72 S960 28 1040 72 S1200 116 1280 72 S1440 28 1520 72 S1680 116 1760 72 V160 H-160 Z" />
+            </defs>
+            <g className="footer-wave-layer footer-wave-layer-back">
+              <use href="#hsv-footer-wave" x="0" y="0" />
+              <use href="#hsv-footer-wave" x="1440" y="0" />
+            </g>
+            <g className="footer-wave-layer footer-wave-layer-middle">
+              <use href="#hsv-footer-wave" x="0" y="18" />
+              <use href="#hsv-footer-wave" x="1440" y="18" />
+            </g>
+            <g className="footer-wave-layer footer-wave-layer-front">
+              <use href="#hsv-footer-wave" x="0" y="34" />
+              <use href="#hsv-footer-wave" x="1440" y="34" />
+            </g>
+          </svg>
+        </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} HYDRA SILICON VALLEY. {t.rights}</span>
           <span>YAOUNDÉ, CAMEROUN</span>
