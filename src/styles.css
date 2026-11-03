@@ -39,7 +39,7 @@ img { display: block; max-width: 100%; }
 .hero { min-height: 780px; height: 100vh; max-height: 980px; padding: 180px 7% 90px; position: relative; isolation: isolate; display: flex; justify-content: center; align-items: center; text-align: center; background: #f8f9f5; }
 .hero-pattern { display: none; position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; opacity: .34; mix-blend-mode: multiply; }
 .hero-pattern iframe { display: block; width: 100%; height: 100%; border: 0; }
-.hero-glow { position: absolute; z-index: -1; width: 72vw; height: 300px; border-radius: 50%; bottom: -210px; left: 14%; background: radial-gradient(ellipse, rgba(28, 99, 39, .78), rgba(28, 99, 39, 0) 70%); filter: blur(22px); }
+.hero-glow { display: none !important; }
 .hero-mark { position: absolute; z-index: -1; width: clamp(360px, 43vw, 650px); right: -3%; top: 9%; opacity: .98; }
 .hero-mark img { width: 100%; transform-origin: 50% 50%; animation: hero-mark-rotate 34s linear infinite; }
 @keyframes hero-mark-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -264,10 +264,7 @@ img { display: block; max-width: 100%; }
   .hero h1 { max-width: 900px; margin: 0 auto; }
   .ecosystem, .team, .news, .contact {
     background-color: transparent;
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .055) calc(10% - 1px), rgba(30, 76, 35, .055) 10%),
-      radial-gradient(ellipse at 12% 45%, rgba(99, 157, 92, .13), transparent 34%),
-      radial-gradient(ellipse at 88% 55%, rgba(99, 157, 92, .11), transparent 32%);
+    background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .055) calc(10% - 1px), rgba(30, 76, 35, .055) 10%);
   }
   .sector-card { min-height: 310px; }
   .sector-icon { left: 50%; transform: translateX(-50%); }
@@ -299,10 +296,7 @@ img { display: block; max-width: 100%; }
 .theme-dark .news,
 .theme-dark .contact {
   background-color: transparent;
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
-    radial-gradient(ellipse at 12% 45%, rgba(34, 104, 47, .19), transparent 34%),
-    radial-gradient(ellipse at 88% 55%, rgba(34, 104, 47, .16), transparent 32%);
+  background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%);
 }
 .theme-dark .contact-info-grid > a { background: #f7faf4; border-color: #f7faf4; color: #17321c; }
 .theme-dark .contact-info-grid > a span { color: #58775a; }
@@ -319,24 +313,7 @@ img { display: block; max-width: 100%; }
   }
 
   .hero { overflow: visible; }
-  .hero-ellipse {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: min(82vw, 1180px);
-    height: 310px;
-    left: 50%;
-    bottom: -150px;
-    transform: translateX(-50%);
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    background: radial-gradient(ellipse at 50% 100%,
-      rgba(13, 75, 31, .96) 0%,
-      rgba(32, 112, 47, .76) 34%,
-      rgba(65, 139, 66, .24) 58%,
-      transparent 76%);
-    filter: blur(15px);
-    opacity: .94;
-  }
+  
   .hero-inner { z-index: 2; }
   .hero-mark { z-index: 1; }
   .ecosystem { position: relative; isolation: isolate; }
@@ -420,29 +397,11 @@ img { display: block; max-width: 100%; }
   .footer-wave { height: 76px; }
 }
 
-.theme-dark .hero-ellipse {
-  background: radial-gradient(ellipse at 50% 100%,
-    rgba(12, 77, 31, .98) 0%,
-    rgba(26, 103, 42, .78) 36%,
-    rgba(38, 123, 51, .25) 61%,
-    transparent 77%);
-}
+.theme-dark 
 @media (max-width: 760px) {
   .site-header .brand img { width: 155px; height: 52px; }
   .site-footer .footer-brand img { width: 155px; height: 52px; }
-  .hero-ellipse {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: 112vw;
-    height: 220px;
-    left: 50%;
-    bottom: -105px;
-    transform: translateX(-50%);
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    background: radial-gradient(ellipse at 50% 100%, rgba(13,75,31,.85), rgba(35,112,47,.35) 48%, transparent 76%);
-    filter: blur(14px);
-  }
+  
   .ecosystem-mark { display: none; }
 }
 
@@ -730,165 +689,49 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* Reference-matched ambient ellipses: soft, wide green light fields.
-   Kept on the section backgrounds so they never cover foreground content. */
-@media (min-width: 761px) {
-  .ecosystem, .team, .news, .contact {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
-      radial-gradient(ellipse 44% 35% at -4% 48%, rgba(83, 151, 82, .23) 0%, rgba(83, 151, 82, .12) 42%, transparent 76%),
-      radial-gradient(ellipse 43% 38% at 104% 58%, rgba(83, 151, 82, .21) 0%, rgba(83, 151, 82, .11) 43%, transparent 77%),
-      radial-gradient(ellipse 28% 22% at 52% 108%, rgba(103, 165, 91, .10) 0%, transparent 78%);
-    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
-  }
-
-  .ecosystem {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
-      radial-gradient(ellipse 48% 62% at -8% 78%, rgba(91, 160, 87, .26), rgba(91, 160, 87, .12) 42%, transparent 76%),
-      radial-gradient(ellipse 43% 58% at 108% 78%, rgba(91, 160, 87, .24), rgba(91, 160, 87, .10) 44%, transparent 77%);
-  }
-  .team {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
-      radial-gradient(ellipse 43% 38% at -7% 43%, rgba(83, 151, 82, .22), rgba(83, 151, 82, .10) 44%, transparent 77%),
-      radial-gradient(ellipse 42% 40% at 108% 70%, rgba(83, 151, 82, .22), rgba(83, 151, 82, .10) 44%, transparent 77%);
-  }
-  .news {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
-      radial-gradient(ellipse 40% 42% at -8% 78%, rgba(83, 151, 82, .18), transparent 76%),
-      radial-gradient(ellipse 42% 42% at 108% 28%, rgba(83, 151, 82, .18), transparent 77%);
-  }
-  .contact {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30, 76, 35, .045) calc(10% - 1px), rgba(30, 76, 35, .045) 10%),
-      radial-gradient(ellipse 42% 40% at -8% 78%, rgba(83, 151, 82, .24), rgba(83, 151, 82, .10) 44%, transparent 77%),
-      radial-gradient(ellipse 45% 42% at 108% 32%, rgba(83, 151, 82, .22), rgba(83, 151, 82, .09) 44%, transparent 78%);
-  }
-
-  .presence::before,
-  .presence::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: 58%;
-    height: 78%;
-    border-radius: 50%;
-    filter: blur(48px);
-    opacity: .72;
-  }
-  .presence::before {
-    left: -22%;
-    bottom: -32%;
-    background: radial-gradient(ellipse, rgba(35, 133, 54, .58) 0%, rgba(35, 133, 54, .20) 48%, transparent 75%);
-  }
-  .presence::after {
-    right: -24%;
-    top: -34%;
-    background: radial-gradient(ellipse, rgba(35, 133, 54, .42) 0%, rgba(35, 133, 54, .16) 48%, transparent 76%);
-  }
-  .presence-grid, .presence-copy, .presence-visual { z-index: 1; }
-}
-
-.theme-dark .ecosystem,
-.theme-dark .team,
-.theme-dark .news,
-.theme-dark .contact {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
-    radial-gradient(ellipse 44% 38% at -5% 48%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .13) 44%, transparent 77%),
-    radial-gradient(ellipse 44% 40% at 105% 58%, rgba(26, 105, 43, .27), rgba(26, 105, 43, .12) 44%, transparent 78%);
-}
-.theme-dark .ecosystem {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
-    radial-gradient(ellipse 48% 62% at -8% 78%, rgba(26, 105, 43, .34), rgba(26, 105, 43, .14) 45%, transparent 77%),
-    radial-gradient(ellipse 43% 58% at 108% 78%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .13) 46%, transparent 78%);
-}
-.theme-dark .team {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
-    radial-gradient(ellipse 43% 38% at -7% 43%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .12) 45%, transparent 77%),
-    radial-gradient(ellipse 42% 40% at 108% 70%, rgba(26, 105, 43, .30), rgba(26, 105, 43, .12) 45%, transparent 77%);
-}
-.theme-dark .news {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
-    radial-gradient(ellipse 40% 42% at -8% 78%, rgba(26, 105, 43, .25), transparent 77%),
-    radial-gradient(ellipse 42% 42% at 108% 28%, rgba(26, 105, 43, .25), transparent 77%);
-}
-.theme-dark .contact {
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%),
-    radial-gradient(ellipse 42% 40% at -8% 78%, rgba(26, 105, 43, .31), rgba(26, 105, 43, .13) 45%, transparent 77%),
-    radial-gradient(ellipse 45% 42% at 108% 32%, rgba(26, 105, 43, .28), rgba(26, 105, 43, .12) 45%, transparent 78%);
-}
-
-/* Ellipse officielle fournie dans ressources — utilisée comme texture, sans halo CSS synthétique. */
-@media (min-width: 761px) {
-  .ecosystem, .team, .news, .contact {
-    position: relative;
-    isolation: isolate;
-  }
-  .ecosystem::before, .team::before, .news::before, .contact::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    pointer-events: none;
-    background-image: url("/ellipse-2460.png");
-    background-repeat: no-repeat;
-    background-size: min(100%, 1500px) auto;
-    opacity: .52;
-  }
-  .ecosystem::before { background-position: left 54%; }
-  .team::before { background-position: right 48%; opacity: .38; }
-  .news::before { background-position: left 62%; opacity: .34; }
-  .contact::before { background-position: right 52%; opacity: .48; }
-  .ecosystem > *, .team > *, .news > *, .contact > * {
-    position: relative;
-    z-index: 1;
-  }
-}
-@media (max-width: 760px) {
-  .ecosystem::before, .team::before, .news::before, .contact::before {
-    content: none;
-  }
-}
-
-
-/* Desktop composition — corrections aligned to the supplied light/dark references.
-   The supplied ellipse PNG is the only ambient ellipse source; remove legacy CSS halos. */
+/* Ambient ellipse system — single source: public/ellipse-2460.png.
+   Desktop positions and opacity are centralized here; no synthetic radial halos. */
 @media (min-width: 761px) {
   .hero { overflow: hidden; }
-  .hero-glow { display: none; }
   .hero-ellipse {
-    width: min(76vw, 1040px); height: 360px; left: 50%; bottom: -222px;
-    transform: translateX(-50%); border-radius: 0;
-    background: url("/ellipse-2460.png") center top / 100% auto no-repeat;
-    filter: blur(2px); opacity: .82;
+    position: absolute; z-index: 0; left: 50%; bottom: -205px;
+    width: min(88vw, 1320px); height: 390px; transform: translateX(-50%);
+    pointer-events: none; background: url("/ellipse-2460.png") center / contain no-repeat;
+    filter: blur(19px); opacity: .78; mix-blend-mode: multiply;
   }
-  .hero-mark { width: clamp(390px, 43vw, 650px); right: -5%; top: 12%; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-mark { z-index: 1; }
   .ecosystem, .team, .news, .contact {
+    position: relative; isolation: isolate;
     background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%);
-    background-repeat: repeat;
   }
   .ecosystem::before, .team::before, .news::before, .contact::before {
-    inset: 0; background-image: url("/ellipse-2460.png"); background-repeat: no-repeat;
-    background-size: 680px auto; filter: blur(1px); opacity: .25;
+    content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none;
+    background: url("/ellipse-2460.png") no-repeat;
+    background-size: min(78vw, 1120px) auto;
+    filter: blur(17px); mix-blend-mode: multiply; opacity: .34;
   }
-  .ecosystem::before { background-position: -290px 58%; opacity: .26; }
-  .team::before { background-position: calc(100% + 330px) 48%; opacity: .22; }
-  .news::before { background-position: -330px 68%; opacity: .20; }
-  .contact::before { background-position: calc(100% + 330px) 42%; opacity: .24; }
-  .ecosystem::after, .team::after, .news::after, .contact::after { content: none; }
-  .presence::before, .presence::after { content: none; }
-  .team-grid {
-    width: min(100%, 780px); grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 14px 18px; align-items: start;
+  .ecosystem::before { background-position: left 52%; opacity: .34; }
+  .team::before { background-position: right 48%; opacity: .29; }
+  .news::before { background-position: left 58%; opacity: .25; }
+  .contact::before { background-position: right 48%; opacity: .32; }
+  .ecosystem > *, .team > *, .news > *, .contact > * { position: relative; z-index: 1; }
+  .theme-dark .hero-ellipse { filter: blur(22px); opacity: .72; mix-blend-mode: screen; }
+  .theme-dark .ecosystem, .theme-dark .team, .theme-dark .news, .theme-dark .contact {
+    background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%);
   }
+  .theme-dark .ecosystem::before, .theme-dark .team::before,
+  .theme-dark .news::before, .theme-dark .contact::before {
+    filter: blur(20px); mix-blend-mode: screen; opacity: .38;
+  }
+  .presence::before, .presence::after {
+    content: ""; position: absolute; z-index: 0; width: min(58vw, 760px); height: 520px;
+    pointer-events: none; background: url("/ellipse-2460.png") center / contain no-repeat;
+    filter: blur(20px); mix-blend-mode: screen; opacity: .20;
+  }
+  .presence::before { left: -28%; bottom: -30%; }
+  .presence::after { right: -28%; top: -28%; opacity: .16; }
+  .team-grid { width: min(100%, 780px); grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px 18px; align-items: start; }
   .team-card { grid-column: span 2; width: 100%; min-height: 0; aspect-ratio: 3 / 4; border-radius: 10px; }
   .team-card:nth-child(1) { grid-column: 2 / span 2; }
   .team-card:nth-child(2) { grid-column: 4 / span 2; }
@@ -898,125 +741,15 @@ img { display: block; max-width: 100%; }
   .team-card img { min-height: 0; height: 100%; }
   .team-card-overlay { padding: 38px 12px 14px; }
 }
-.theme-dark .ecosystem, .theme-dark .team, .theme-dark .news, .theme-dark .contact {
-  background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%);
-}
-.theme-dark .ecosystem::before, .theme-dark .team::before, .theme-dark .news::before, .theme-dark .contact::before {
-  background-image: url("/ellipse-2460.png"); mix-blend-mode: screen;
-}
-.theme-dark .hero-ellipse { background-image: url("/ellipse-2460.png"); background-color: transparent; }
 @media (max-width: 760px) {
-  .hero-glow { display: none; }
-  .hero-ellipse { background: url("/ellipse-2460.png") center top / 112vw auto no-repeat; border-radius: 0; filter: blur(2px); opacity: .55; }
-}
-
-
-/* HALOS — rendu unifié à partir de l'ellipse officielle fournie.
-   Aucun dégradé radial CSS ne doit concurrencer cette texture. */
-@media (min-width: 761px) {
-  .hero { overflow: hidden; }
-  .hero-glow { display: none !important; }
   .hero-ellipse {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: min(88vw, 1320px);
-    height: 390px;
-    left: 50%;
-    bottom: -205px;
-    transform: translateX(-50%);
-    border-radius: 0;
-    background: url("/ellipse-2460.png") center center / contain no-repeat;
-    filter: blur(19px);
-    opacity: .78;
-    mix-blend-mode: multiply;
-  }
-  .theme-dark .hero-ellipse {
-    background-image: url("/ellipse-2460.png");
-    filter: blur(22px);
-    opacity: .72;
-    mix-blend-mode: screen;
-  }
-
-  /* Les fonds de section ne gardent que la grille fine. */
-  .ecosystem, .team, .news, .contact {
-    background-image: repeating-linear-gradient(
-      90deg, transparent 0, transparent calc(10% - 1px),
-      rgba(30,76,35,.045) calc(10% - 1px), rgba(30,76,35,.045) 10%
-    ) !important;
-    position: relative;
-    isolation: isolate;
-  }
-  .ecosystem::before, .team::before, .news::before, .contact::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    pointer-events: none;
-    background-image: url("/ellipse-2460.png");
-    background-repeat: no-repeat;
-    background-size: min(78vw, 1120px) auto;
-    filter: blur(17px);
-    mix-blend-mode: multiply;
-    opacity: .34;
-  }
-  .ecosystem::before { background-position: left 52%; opacity: .34; }
-  .team::before { background-position: right 48%; opacity: .29; }
-  .news::before { background-position: left 58%; opacity: .25; }
-  .contact::before { background-position: right 48%; opacity: .32; }
-  .ecosystem::after, .team::after, .news::after, .contact::after { content: none !important; }
-  .ecosystem > *, .team > *, .news > *, .contact > * { position: relative; z-index: 1; }
-
-  .theme-dark .ecosystem, .theme-dark .team, .theme-dark .news, .theme-dark .contact {
-    background-image: repeating-linear-gradient(
-      90deg, transparent 0, transparent calc(10% - 1px),
-      rgba(255,255,255,.045) calc(10% - 1px), rgba(255,255,255,.045) 10%
-    ) !important;
-  }
-  .theme-dark .ecosystem::before, .theme-dark .team::before,
-  .theme-dark .news::before, .theme-dark .contact::before {
-    background-image: url("/ellipse-2460.png");
-    filter: blur(20px);
-    mix-blend-mode: screen;
-    opacity: .38;
-  }
-
-  /* Halo latéral de la section Présence : même asset, sans dégradé concurrent. */
-  .presence::before, .presence::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    width: min(58vw, 760px);
-    height: 520px;
-    pointer-events: none;
+    position: absolute; z-index: 0; left: 50%; bottom: -128px;
+    width: 125vw; height: 245px; transform: translateX(-50%); pointer-events: none;
     background: url("/ellipse-2460.png") center / contain no-repeat;
-    filter: blur(20px);
-    mix-blend-mode: screen;
-    opacity: .20;
+    filter: blur(15px); opacity: .52; mix-blend-mode: multiply;
   }
-  .presence::before { left: -28%; bottom: -30%; }
-  .presence::after { right: -28%; top: -28%; opacity: .16; }
-}
-
-@media (max-width: 760px) {
-  .hero-glow { display: none !important; }
-  .hero-ellipse {
-    width: 125vw;
-    height: 245px;
-    left: 50%;
-    bottom: -128px;
-    transform: translateX(-50%);
-    border-radius: 0;
-    background: url("/ellipse-2460.png") center / contain no-repeat;
-    filter: blur(15px);
-    opacity: .52;
-    mix-blend-mode: multiply;
-  }
-  .theme-dark .hero-ellipse { mix-blend-mode: screen; opacity: .48; }
+  .theme-dark .hero-ellipse { opacity: .48; mix-blend-mode: screen; }
   .ecosystem::before, .team::before, .news::before, .contact::before,
   .presence::before, .presence::after { content: none !important; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-mark img { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .hero-mark img { animation: none; } }
