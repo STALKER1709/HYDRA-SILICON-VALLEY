@@ -5,6 +5,7 @@ const assets = {
   logoDark: '/ressources/logo%20hydra%20%20blanc%201.png',
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
+  presence: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/afrique%201.png',
   wave: '/ressources/Frame%208228.png',
   tech: '/ressources/pixel_technology.png',
   health: '/ressources/ix_health.png',
@@ -36,6 +37,7 @@ const translations = {
     ],
     presenceTitle: <>Notre présence internationale<br />nourrit <em>l’innovation.</em></>,
     presenceText: 'Depuis le Cameroun, nous cultivons des collaborations et des perspectives au-delà des frontières. Notre ambition est de connecter les talents, les idées et les marchés.',
+    presenceStats: [['0', 'Pays de présence'], ['0', 'Filiales en activité'], ['0+', 'Projets réalisés'], ['0+', 'Partenaires stratégiques']],
     teamTitle: <>Notre <em>équipe</em></>,
     teamLead: 'Des talents complémentaires réunis autour d’une ambition commune.',
     newsTitle: <>Actualités</>,
@@ -72,6 +74,7 @@ const translations = {
     ],
     presenceTitle: <>Our international presence<br />fuels <em>innovation.</em></>,
     presenceText: 'From Cameroon, we nurture collaborations and perspectives beyond borders. Our ambition is to connect talent, ideas and markets.',
+    presenceStats: [['0', 'Countries of presence'], ['0', 'Active subsidiaries'], ['0+', 'Projects delivered'], ['0+', 'Strategic partners']],
     teamTitle: <>Our <em>team</em></>,
     teamLead: 'Complementary talents united by a shared ambition.',
     newsTitle: <>Latest news</>,
@@ -182,10 +185,17 @@ function App() {
             <span className="section-index">02 / NOTRE RAYONNEMENT</span>
             <h2>{t.presenceTitle}</h2>
             <p>{t.presenceText}</p>
-            <div className="presence-signature"><span>HSV</span><i /> BUILDING AFRICA’S FUTURE</div>
+            <div className="presence-stats">
+              {t.presenceStats.map(([value, label]) => (
+                <div className="presence-stat" key={label}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="presence-visual">
-            <img src={assets.map} alt="Carte du monde illustrant les liens internationaux de Hydra Silicon Valley" />
+            <img src={assets.presence} alt="Main levée devant une carte texturée de l’Afrique" />
           </div>
         </section>
 
