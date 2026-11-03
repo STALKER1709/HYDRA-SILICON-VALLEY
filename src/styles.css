@@ -751,3 +751,52 @@ img { display: block; max-width: 100%; }
   .presence::before, .presence::after { content: none !important; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-mark img { animation: none; } }
+
+
+/* Hero visual: African planet emerging behind a warm sunrise */
+.hero-planet {
+  position: absolute;
+  z-index: 1;
+  right: -8%;
+  bottom: -17%;
+  width: min(74vw, 1060px);
+  pointer-events: none;
+  isolation: isolate;
+  opacity: .98;
+}
+.hero-planet::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  right: 18%;
+  width: 38%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 196, 87, .5) 0%, rgba(255, 178, 62, .2) 34%, rgba(255, 178, 62, 0) 72%);
+  filter: blur(24px);
+}
+.hero-planet img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.hero-inner { z-index: 2; }
+@media (max-width: 760px) {
+  .hero-planet {
+    width: 126vw;
+    right: -43%;
+    bottom: -8%;
+    opacity: .78;
+  }
+  .hero-planet::before {
+    top: 8%;
+    right: 18%;
+    width: 40%;
+    filter: blur(18px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-planet, .hero-planet::before { animation: none !important; }
+}
