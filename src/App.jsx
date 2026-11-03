@@ -154,6 +154,10 @@ function App() {
             <p className="hero-description">{t.heroText}</p>
             <a className="hero-cta" href="#ecosystem">{t.heroButton}<span aria-hidden="true">↗</span></a>
           </div>
+          <figure className="hero-visual">
+            <img src="/ressources/Gemini_Generated_Image_mixazvmixazvmixa.jpg" alt="La planète Terre au lever du soleil, avec le continent africain au premier plan" fetchPriority="high" />
+            <figcaption>AFRIQUE · HORIZON MONDIAL</figcaption>
+          </figure>
           <div className="hero-location" aria-hidden="true">YAOUNDÉ, CAMEROUN <span>—</span> AMBITION PANAFRICAINE</div>
         </section>
 
