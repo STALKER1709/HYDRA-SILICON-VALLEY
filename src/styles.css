@@ -1260,3 +1260,40 @@ img { display: block; max-width: 100%; }
   .hero-eclipse { transition: none; transform: translateX(-50%); }
   .eclipse-corona { animation: none; }
 }
+
+
+/* Eclipse scale-up — stronger visual presence in the hero. */
+.hero-eclipse {
+  width: min(100vw, 1480px);
+  height: 560px;
+  bottom: -238px;
+}
+.eclipse-corona { width: clamp(360px, 49vw, 660px); }
+.eclipse-sun { width: clamp(310px, 42vw, 560px); }
+.eclipse-moon {
+  width: clamp(270px, 35vw, 460px);
+  left: calc(50% + 7px);
+  top: calc(50% + 16px);
+}
+.eclipse-flare { width: min(92%, 1180px); }
+
+@media (max-width: 760px) {
+  .hero-eclipse {
+    width: 142vw;
+    height: 390px;
+    bottom: -180px;
+  }
+  .eclipse-corona { width: clamp(320px, 92vw, 490px); }
+  .eclipse-sun { width: clamp(275px, 80vw, 420px); }
+  .eclipse-moon {
+    width: clamp(240px, 70vw, 360px);
+    top: calc(50% + 12px);
+  }
+  .eclipse-flare { width: 86%; }
+}
+@media (max-width: 420px) {
+  .hero-eclipse { width: 154vw; bottom: -190px; }
+  .eclipse-corona { width: 340px; }
+  .eclipse-sun { width: 292px; }
+  .eclipse-moon { width: 254px; }
+}
