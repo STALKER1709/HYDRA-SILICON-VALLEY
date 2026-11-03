@@ -197,7 +197,7 @@ function App() {
           </div>
           <div className="team-grid">
             {team.map((member) => (
-              <article className="team-card" key={member.name}>
+              <article className="team-card" key={member.name} tabIndex={0}>
                 <img src={member.image} alt={member.name} loading="lazy" />
                 <div className="team-card-overlay">
                   <h3>{member.name}</h3>
