@@ -215,7 +215,6 @@ function App() {
           <div className="news-grid">
             <article className="news-feature">
               <div className="news-feature-copy">
-                <span>{t.news[0].tag}</span>
                 <h3>{t.news[0].title}</h3>
                 <p>{t.news[0].text}</p>
                 <a href="#contact">{t.explore} <b>↗</b></a>
@@ -225,7 +224,7 @@ function App() {
             {t.news.slice(1).map((item) => (
               <article className="news-card" key={item.title}>
                 <img src={item.image} alt={item.alt} loading="lazy" />
-                <div><span>{item.tag}</span><h3>{item.title}</h3><p>{item.text}</p><a href="#contact" aria-label={t.explore}>↗</a></div>
+                <div><h3>{item.title}</h3><p>{item.text}</p><a href="#contact" aria-label={t.explore}>↗</a></div>
               </article>
             ))}
           </div>
