@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { margin: 0; background: #F7F3EA; color: #1A1A1A; font-family: var(--font-inter), sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: #F5A623; color: #1A1A1A; }
+a { text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #F5A623; outline-offset: 4px; }
+.african-motif {
+  background-image:
+    linear-gradient(45deg, transparent 46%, rgba(168,213,186,.5) 47%, rgba(168,213,186,.5) 49%, transparent 50%),
+    linear-gradient(-45deg, transparent 46%, rgba(245,166,35,.4) 47%, rgba(245,166,35,.4) 49%, transparent 50%),
+    linear-gradient(90deg, transparent 48%, rgba(168,213,186,.25) 49%, rgba(168,213,186,.25) 51%, transparent 52%);
+  background-size: 42px 42px, 42px 42px, 84px 84px;
+  mask-image: linear-gradient(90deg, black, transparent 75%);
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
