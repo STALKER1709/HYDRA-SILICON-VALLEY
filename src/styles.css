@@ -262,8 +262,8 @@ img { display: block; max-width: 100%; }
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: -180px;
-  width: 900px;
+  bottom: -110px;
+  width: 1100px;
   height: 430px;
   transform: translateX(-50%);
   pointer-events: none;
@@ -303,9 +303,9 @@ img { display: block; max-width: 100%; }
   filter: blur(24px);
 }
 .eclipse-moon {
-  width: 680px;
-  height: 680px;
-  top: 61%;
+  width: 1100px;
+  height: 1100px;
+  top: 58%;
   background: radial-gradient(
     ellipse at 50% 0%,
     #347f42 0%,
@@ -1146,13 +1146,13 @@ img { display: block; max-width: 100%; }
   .hero h1 { font-size: clamp(38px, 10vw, 52px); }
   .hero-description { font-size: 9px; max-width: 360px; }
   .hero-eclipse {
-    width: 760px;
-    height: 330px;
-    bottom: -205px;
+    width: 900px;
+    height: 390px;
+    bottom: -120px;
   }
   .eclipse-corona { width: 620px; height: 270px; }
   .eclipse-sun { width: 570px; height: 220px; }
-  .eclipse-moon { width: 560px; height: 560px; }
+  .eclipse-moon { width: 820px; height: 820px; top: 58%; }
 
   .section {
     padding: 76px 7%;
@@ -1290,13 +1290,13 @@ img { display: block; max-width: 100%; }
     opacity: .98;
   }
   .hero-eclipse {
-    width: 62.5vw;
-    height: 29.9vw;
-    bottom: -12.5vw;
+    width: 76vw;
+    height: 36vw;
+    bottom: -8vw;
   }
   .eclipse-corona { width: 52.8vw; height: 22.9vw; }
   .eclipse-sun { width: 48.6vw; height: 18.8vw; }
-  .eclipse-moon { width: 47.2vw; height: 47.2vw; }
+  .eclipse-moon { width: 76vw; height: 76vw; top: 58%; }
 
   .section {
     padding: clamp(26px, 6.4vw, 92px) clamp(12px, 7vw, 100px);
