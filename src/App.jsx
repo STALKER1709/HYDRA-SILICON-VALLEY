@@ -113,8 +113,8 @@ function SolarEclipse() {
         }
         const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
         const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-        node.style.setProperty('--eclipse-shift-x', `${Math.max(-1, Math.min(1, x)) * 7}px`);
-        node.style.setProperty('--eclipse-shift-y', `${Math.max(-1, Math.min(1, y)) * 5}px`);
+        node.style.setProperty('--eclipse-shift-x', `${Math.max(-1, Math.min(1, x)) * 18}px`);
+        node.style.setProperty('--eclipse-shift-y', `${Math.max(-1, Math.min(1, y)) * 12}px`);
       });
     };
     const resetPointer = () => {
