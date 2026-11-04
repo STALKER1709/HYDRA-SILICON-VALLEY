@@ -1428,21 +1428,19 @@ img { display: block; max-width: 100%; }
   }
 }
 
-/* Hero eclipse is intentionally static: no entrance, pulsing, breathing or parallax motion */
+/* Hero eclipse: entrance and subtle pointer parallax only; no pulsing or breathing */
 .hero-eclipse {
-  animation: none !important;
-  transition: none !important;
-  transform: translateX(-50%) !important;
+  --eclipse-shift-x: 0px;
+  --eclipse-shift-y: 0px;
+  animation: eclipse-rise 1.5s cubic-bezier(.22,1,.36,1) .2s;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  transform: translateX(-50%) translate(var(--eclipse-shift-x), var(--eclipse-shift-y));
 }
 .eclipse-corona,
 .eclipse-sun,
 .eclipse-moon {
   animation: none !important;
   transition: none !important;
-}
-.eclipse-corona,
-.eclipse-sun,
-.eclipse-moon {
   transform: translate(-50%, -50%) !important;
 }
 .eclipse-moon {
