@@ -167,6 +167,29 @@ function App() {
     return () => window.removeEventListener('scroll', updateScrollPosition);
   }, []);
   useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionPreference.matches) return undefined;
+
+    const targets = document.querySelectorAll(
+      '.ecosystem, .presence, .team, .news, .contact, .site-footer, .section-heading, .sector-card, .presence-stat, .team-card, .news-feature, .news-card, .contact-form, .contact-map, .footer-brand-block, .footer-navigation'
+    );
+
+    targets.forEach((element) => element.classList.add('reveal-on-scroll'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem('hsv-theme', theme); } catch { /* Storage may be unavailable. */ }
     return () => { delete document.documentElement.dataset.theme; };
