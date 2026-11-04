@@ -1427,3 +1427,24 @@ img { display: block; max-width: 100%; }
     transition: none !important;
   }
 }
+
+/* Hero eclipse is intentionally static: no entrance, pulsing, breathing or parallax motion */
+.hero-eclipse {
+  animation: none !important;
+  transition: none !important;
+  transform: translateX(-50%) !important;
+}
+.eclipse-corona,
+.eclipse-sun,
+.eclipse-moon {
+  animation: none !important;
+  transition: none !important;
+}
+.eclipse-corona,
+.eclipse-sun,
+.eclipse-moon {
+  transform: translate(-50%, -50%) !important;
+}
+.eclipse-moon {
+  transform: translate(-50%, -50%) !important;
+}
