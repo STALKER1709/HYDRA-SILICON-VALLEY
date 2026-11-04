@@ -1220,6 +1220,206 @@ img { display: block; max-width: 100%; }
   .team-grid { grid-template-columns: 1fr; }
 }
 
+
+/* Fixed reference composition: scale proportions, never switch section layouts */
+@media (max-width: 760px) {
+  .site-header {
+    height: clamp(44px, 5.28vw, 72px);
+    padding-inline: clamp(10px, 3.2vw, 46px);
+    gap: clamp(5px, 1.2vw, 18px);
+  }
+  .brand img {
+    width: clamp(74px, 10.8vw, 155px);
+    height: clamp(32px, 4vw, 58px);
+  }
+  .menu-toggle { display: none !important; }
+  .main-nav {
+    position: static;
+    display: flex !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: clamp(5px, 1.8vw, 26px);
+  }
+  .main-nav a {
+    width: auto;
+    min-height: 0;
+    padding: 6px 0;
+    white-space: nowrap;
+    font-size: clamp(5px, .68vw, 10px);
+  }
+  .header-tools { flex: 0 0 auto; gap: clamp(4px, .9vw, 13px); margin: 0; }
+  .theme-switch {
+    width: clamp(24px, 3.5vw, 50px);
+    height: clamp(13px, 1.75vw, 25px);
+    padding: 2px;
+  }
+  .theme-switch-knob {
+    width: clamp(9px, 1.32vw, 19px);
+    height: clamp(9px, 1.32vw, 19px);
+  }
+  :root[data-theme="dark"] .theme-switch-knob {
+    transform: translateX(clamp(10px, 1.75vw, 25px));
+  }
+  .header-contact, .language-switch {
+    display: inline-flex;
+    min-width: 0;
+    padding: 4px clamp(5px, 1vw, 14px);
+    min-height: 0;
+    font-size: clamp(5px, .62vw, 9px);
+    white-space: nowrap;
+  }
+
+  .hero {
+    height: 56vw;
+    min-height: 0;
+    max-height: 806px;
+    padding: 10vw 5% 5vw;
+  }
+  .hero h1 { font-size: clamp(19px, 5vw, 72px); }
+  .hero-description { font-size: clamp(6px, .7vw, 10px); }
+  .hero-mark {
+    width: 42vw;
+    right: -6.5%;
+    top: 16.5%;
+    opacity: .98;
+  }
+  .hero-eclipse {
+    width: 62.5vw;
+    height: 29.9vw;
+    bottom: -12.5vw;
+  }
+  .eclipse-corona { width: 52.8vw; height: 22.9vw; }
+  .eclipse-sun { width: 48.6vw; height: 18.8vw; }
+  .eclipse-moon { width: 47.2vw; height: 23.6vw; }
+
+  .section {
+    padding: clamp(26px, 6.4vw, 92px) clamp(12px, 7vw, 100px);
+  }
+  .section-heading { margin-bottom: clamp(18px, 3.35vw, 48px); }
+  .section-heading h2, .presence h2 {
+    font-size: clamp(17px, 3.75vw, 54px);
+    margin-bottom: clamp(5px, .85vw, 12px);
+  }
+  .section-heading p { font-size: clamp(6px, .76vw, 11px); }
+
+  .ecosystem-mark {
+    width: 27vw;
+    left: -12%;
+    top: -6vw;
+  }
+  .sector-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(5px, 1.55vw, 22px);
+  }
+  .sector-card {
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(12px, 2.65vw, 38px) clamp(7px, 1.95vw, 28px) clamp(9px, 1.7vw, 24px);
+    border-radius: clamp(5px, .9vw, 13px);
+  }
+  .sector-icon {
+    width: clamp(25px, 4.72vw, 68px);
+    height: clamp(25px, 4.72vw, 68px);
+    top: clamp(-32px, -2.22vw, -8px);
+  }
+  .sector-icon img { width: 46%; height: 46%; }
+  .sector-card h3 {
+    margin: clamp(15px, 2.36vw, 34px) 0 clamp(4px, .7vw, 10px);
+    font-size: clamp(7px, 1.12vw, 16px);
+  }
+  .sector-card p {
+    font-size: clamp(5px, .7vw, 10px);
+    line-height: 1.45;
+  }
+  .sector-category { margin-top: clamp(6px, 1.32vw, 19px); font-size: clamp(5px, .63vw, 9px); }
+
+  .presence {
+    grid-template-columns: .9fr 1.1fr;
+    gap: 4%;
+    min-height: 0;
+    padding: clamp(24px, 5vw, 72px) 7%;
+  }
+  .presence h2 { font-size: clamp(17px, 3.2vw, 46px); }
+  .presence-copy > p { font-size: clamp(5px, .7vw, 10px); margin-bottom: clamp(8px, 1.67vw, 24px); }
+  .presence-stats { grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(7px, 1.4vw, 20px) clamp(8px, 2.36vw, 34px); }
+  .presence-stat strong { font-size: clamp(17px, 2.36vw, 34px); }
+  .presence-stat span { font-size: clamp(5px, .56vw, 8px); }
+  .presence-visual img { width: 100%; max-height: none; }
+
+  .team-grid {
+    width: min(100%, 900px);
+    grid-template-columns: repeat(6, minmax(0,1fr));
+    gap: clamp(5px, 1.25vw, 18px);
+  }
+  .team-card:nth-child(1) { grid-column: 2 / span 2; }
+  .team-card:nth-child(2) { grid-column: 4 / span 2; }
+  .team-card:nth-child(3) { grid-column: 1 / span 2; }
+  .team-card:nth-child(4) { grid-column: 3 / span 2; }
+  .team-card:nth-child(5) { grid-column: 5 / span 2; }
+  .team-card:nth-child(n) { aspect-ratio: 3 / 4; }
+
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 31.5vw 23.6vw;
+    gap: clamp(5px, 1.25vw, 18px);
+  }
+  .news-feature {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 0;
+    grid-template-columns: 1fr 1fr;
+  }
+  .news-feature-copy { padding: clamp(8px, 1.95vw, 28px) clamp(8px, 2.1vw, 30px); }
+  .news-feature h3 { font-size: clamp(12px, 2.65vw, 38px); }
+  .news-feature p { font-size: clamp(5px, .7vw, 10px); }
+  .news-feature a { padding: clamp(4px, .56vw, 8px) clamp(6px, .9vw, 13px); font-size: clamp(5px, .63vw, 9px); }
+  .news-card { min-height: 0; }
+  .news-card h3 { font-size: clamp(7px, 1.05vw, 15px); }
+
+  .contact-layout { grid-template-columns: .9fr 1.1fr; gap: 6%; }
+  .contact-form { padding: clamp(8px, 1.67vw, 24px); }
+  .contact-form label { font-size: clamp(5px, .56vw, 8px); margin-bottom: clamp(4px, .76vw, 11px); }
+  .contact-form input, .contact-form textarea { font-size: clamp(6px, .63vw, 9px); padding: clamp(4px, .49vw, 7px) clamp(5px, .63vw, 9px); }
+  .contact-form textarea { min-height: clamp(38px, 5.7vw, 82px); }
+  .contact-form button { min-height: clamp(22px, 2.64vw, 38px); font-size: clamp(6px, .63vw, 9px); }
+  .form-row { grid-template-columns: 1fr 1fr; gap: clamp(5px, .83vw, 12px); }
+  .contact-info-grid { grid-template-columns: 1fr 1fr; gap: clamp(5px, .97vw, 14px); }
+  .contact-info-grid > div, .contact-info-grid > a {
+    min-height: clamp(36px, 4.72vw, 68px);
+    padding: clamp(5px, .83vw, 12px);
+  }
+  .contact-info-grid span { font-size: clamp(5px, .56vw, 8px); }
+  .contact-info-grid strong { font-size: clamp(5px, .63vw, 9px); }
+
+  .site-footer { min-height: clamp(110px, 14.6vw, 210px); padding: clamp(12px, 1.95vw, 28px) 5.3% 0; }
+  .footer-main { grid-template-columns: minmax(0,1fr) auto; gap: clamp(12px, 3.3vw, 48px); padding-bottom: clamp(30px, 4vw, 58px); }
+  .site-footer .footer-brand img { width: clamp(80px, 11.1vw, 160px); height: clamp(30px, 3.75vw, 54px); }
+  .footer-brand-block p { font-size: clamp(5px, .56vw, 8px); }
+  .footer-navigation { min-width: clamp(65px, 8vw, 115px); gap: clamp(2px, .35vw, 5px); }
+  .footer-navigation span, .footer-navigation a { font-size: clamp(5px, .56vw, 8px); }
+  .footer-wave { height: clamp(40px, 5.42vw, 78px); }
+  .footer-bottom { left: 5.3%; right: 5.3%; flex-wrap: nowrap; gap: clamp(4px, .97vw, 14px); padding-right: clamp(16px, 2vw, 28px); font-size: clamp(4px, .42vw, 6px); }
+  .footer-top { width: clamp(12px, 1.46vw, 21px); height: clamp(12px, 1.46vw, 21px); bottom: clamp(5px, .83vw, 12px); }
+}
+
+@media (max-width: 420px) {
+  .hero { min-height: 0; height: 56vw; }
+  .hero h1 { font-size: clamp(16px, 5vw, 21px); }
+  .sector-cards, .news-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .sector-cards { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .news-feature { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .news-feature img { height: 100%; }
+  .team-grid { grid-template-columns: repeat(6, minmax(0,1fr)); }
+  .form-row { grid-template-columns: 1fr 1fr; }
+  .contact-info-grid { grid-template-columns: 1fr 1fr; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
