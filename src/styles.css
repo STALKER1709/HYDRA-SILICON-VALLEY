@@ -1448,20 +1448,20 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* Dark theme: black eclipse with a restrained green atmospheric rim */
+/* Dark theme: softened charcoal eclipse with a restrained green atmospheric rim */
 :root[data-theme="dark"] .eclipse-moon {
   background: radial-gradient(
     ellipse at 50% 0%,
-    #101510 0%,
-    #080c09 48%,
-    #030504 78%,
-    #010201 100%
+    #263029 0%,
+    #1b231d 48%,
+    #121914 78%,
+    #0d130f 100%
   );
   box-shadow:
-    0 -2px 10px rgba(72, 190, 83, .72),
-    0 -12px 30px rgba(45, 170, 61, .48),
-    0 -30px 76px rgba(30, 130, 48, .28),
-    inset 0 8px 24px rgba(115, 190, 112, .035);
+    0 -2px 10px rgba(72, 190, 83, .68),
+    0 -12px 30px rgba(45, 170, 61, .44),
+    0 -30px 76px rgba(30, 130, 48, .25),
+    inset 0 8px 24px rgba(150, 205, 145, .07);
 }
 :root[data-theme="dark"] .eclipse-corona {
   background: radial-gradient(
