@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: siteName, description: siteDescription, images: ["/icon-512.png"] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  icons: { icon: "/favicon.ico", apple: "/apple-icon.png" },
+  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, minimumScale: 1, themeColor: "#0B3D2E", colorScheme: "light" };
