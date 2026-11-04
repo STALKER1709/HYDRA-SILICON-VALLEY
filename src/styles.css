@@ -215,7 +215,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   z-index: 0;
   width: clamp(430px, 42vw, 620px);
-  right: -6.5%;
+  right: -31.5%;
   top: 16.5%;
   opacity: .98;
   pointer-events: none;
@@ -1285,7 +1285,7 @@ img { display: block; max-width: 100%; }
   .hero-description { font-size: clamp(6px, .7vw, 10px); }
   .hero-mark {
     width: 42vw;
-    right: -6.5%;
+    right: -31.5%;
     top: 16.5%;
     opacity: .98;
   }
