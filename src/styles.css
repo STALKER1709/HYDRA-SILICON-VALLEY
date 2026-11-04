@@ -875,6 +875,187 @@ img { display: block; max-width: 100%; }
 .theme-dark .footer-wave-layer-front { fill: #082f18; }
 .theme-dark .footer-bottom { color: rgba(255,255,255,.82); }
 
+/* Motion system */
+.hero-inner {
+  animation: hero-copy-in 1s cubic-bezier(.22,1,.36,1) .15s both;
+}
+.hero-mark {
+  animation: hero-mark-in 1.15s cubic-bezier(.22,1,.36,1) .1s both;
+}
+.hero-pattern iframe {
+  animation: pattern-breathe 12s ease-in-out infinite;
+}
+.hero-eclipse {
+  --eclipse-shift-x: 0px;
+  --eclipse-shift-y: 0px;
+  animation: eclipse-rise 1.5s cubic-bezier(.22,1,.36,1) .2s both;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  transform: translateX(-50%) translate(var(--eclipse-shift-x), var(--eclipse-shift-y));
+}
+.eclipse-corona {
+  animation: corona-pulse 5.5s ease-in-out infinite;
+  transform: translate(-50%, -50%) translate(var(--eclipse-shift-x), var(--eclipse-shift-y));
+}
+.eclipse-sun {
+  animation: sun-pulse 6.5s ease-in-out infinite;
+}
+.eclipse-moon {
+  animation: moon-breathe 8s ease-in-out infinite;
+}
+.ecosystem-mark {
+  animation: mark-float 9s ease-in-out infinite;
+}
+.sector-card,
+.team-card,
+.news-feature,
+.news-card,
+.contact-form,
+.contact-map,
+.footer-brand-block,
+.footer-navigation {
+  will-change: transform, opacity;
+}
+.sector-card {
+  transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease, border-color .3s ease;
+}
+.sector-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 38px rgba(12,51,19,.13);
+  border-color: rgba(21,91,37,.28);
+}
+.sector-icon {
+  transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease;
+}
+.sector-card:hover .sector-icon {
+  transform: translateX(-50%) translateY(-5px) scale(1.06);
+  box-shadow: 0 12px 28px rgba(0,0,0,.13);
+}
+.presence-visual img {
+  animation: visual-float 7s ease-in-out infinite;
+}
+.presence-stat strong {
+  transition: transform .35s ease, color .35s ease;
+}
+.presence-stat:hover strong {
+  transform: translateY(-4px);
+  color: #b5d17a;
+}
+.news-feature-copy h3,
+.news-card h3 {
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.news-feature:hover h3,
+.news-card:hover h3 {
+  transform: translateY(-3px);
+}
+.contact-form button {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(11,50,18,.18);
+}
+.footer-wave {
+  animation: wave-drift 14s ease-in-out infinite alternate;
+}
+.footer-wave-layer-middle {
+  animation: wave-drift-middle 10s ease-in-out infinite alternate;
+}
+.footer-wave-layer-front {
+  animation: wave-drift-front 8s ease-in-out infinite alternate;
+}
+.theme-switch-knob {
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.main-nav a {
+  position: relative;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 1px;
+  height: 1px;
+  background: currentColor;
+  transition: right .3s ease;
+}
+.main-nav a:hover::after {
+  right: 0;
+}
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sector-card.reveal-on-scroll:nth-child(2),
+.team-card.reveal-on-scroll:nth-child(2),
+.news-card.reveal-on-scroll:nth-child(3) {
+  transition-delay: .1s;
+}
+.sector-card.reveal-on-scroll:nth-child(3),
+.team-card.reveal-on-scroll:nth-child(3) {
+  transition-delay: .2s;
+}
+.team-card.reveal-on-scroll:nth-child(4) { transition-delay: .3s; }
+.team-card.reveal-on-scroll:nth-child(5) { transition-delay: .4s; }
+.news-feature.reveal-on-scroll { transition-delay: .05s; }
+.news-card.reveal-on-scroll:nth-child(2) { transition-delay: .15s; }
+.news-card.reveal-on-scroll:nth-child(3) { transition-delay: .25s; }
+
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(22px); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes hero-mark-in {
+  from { opacity: 0; transform: translate3d(70px,-18px,0) scale(.94); }
+  to { opacity: .98; transform: translate3d(0,0,0) scale(1); }
+}
+@keyframes pattern-breathe {
+  0%,100% { transform: scale(1); opacity: .86; }
+  50% { transform: scale(1.025); opacity: 1; }
+}
+@keyframes eclipse-rise {
+  from { opacity: 0; transform: translateX(-50%) translateY(45px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes corona-pulse {
+  0%,100% { opacity: .72; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: .95; transform: translate(-50%,-50%) scale(1.045); }
+}
+@keyframes sun-pulse {
+  0%,100% { opacity: .68; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: .9; transform: translate(-50%,-50%) scale(1.035); }
+}
+@keyframes moon-breathe {
+  0%,100% { transform: translate(-50%,-50%) scale(1); }
+  50% { transform: translate(-50%,-51%) scale(1.012); }
+}
+@keyframes mark-float {
+  0%,100% { transform: rotate(-18deg) translate3d(0,0,0); }
+  50% { transform: rotate(-16deg) translate3d(10px,8px,0); }
+}
+@keyframes visual-float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes wave-drift {
+  from { transform: translateX(-10px) translateY(2px); }
+  to { transform: translateX(10px) translateY(-2px); }
+}
+@keyframes wave-drift-middle {
+  from { transform: translateX(8px); }
+  to { transform: translateX(-8px); }
+}
+@keyframes wave-drift-front {
+  from { transform: translateX(-5px); }
+  to { transform: translateX(5px); }
+}
+
 /* Accessibility / interaction */
 :where(a,button,input,textarea,[tabindex]):focus-visible {
   outline: 3px solid var(--gold);
