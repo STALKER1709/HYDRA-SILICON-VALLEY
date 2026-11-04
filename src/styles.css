@@ -215,7 +215,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   z-index: 0;
   width: clamp(430px, 42vw, 620px);
-  right: -39%;
+  right: -24%;
   top: 16.5%;
   opacity: .98;
   pointer-events: none;
@@ -1139,7 +1139,7 @@ img { display: block; max-width: 100%; }
   }
   .hero-mark {
     width: 86vw;
-    right: -65%;
+    right: -42%;
     top: 18%;
     opacity: .55;
   }
