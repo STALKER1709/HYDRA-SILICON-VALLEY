@@ -352,7 +352,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-main">
           <div className="footer-brand-block">
-            <a className="footer-brand" href="#home"><img src={theme === 'light' ? assets.logoLight : assets.logoDark} alt="Hydra Silicon Valley" /></a>
+            <a className="footer-brand" href="#home"><img src={assets.logoLight} alt="Hydra Silicon Valley" /></a>
             <p>{t.footerText}</p>
             <a className="footer-cta" href="#contact">{t.contact} <span>↗</span></a>
           </div>
