@@ -262,7 +262,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: -650px;
+  bottom: -690px;
   width: 1450px;
   height: 430px;
   transform: translateX(-50%);
@@ -1148,7 +1148,7 @@ img { display: block; max-width: 100%; }
   .hero-eclipse {
     width: 1120px;
     height: 430px;
-    bottom: -520px;
+    bottom: -560px;
   }
   .eclipse-corona { width: 620px; height: 270px; }
   .eclipse-sun { width: 570px; height: 220px; }
@@ -1292,7 +1292,7 @@ img { display: block; max-width: 100%; }
   .hero-eclipse {
     width: 100vw;
     height: 46vw;
-    bottom: -68vw;
+    bottom: -73vw;
   }
   .eclipse-corona { width: 52.8vw; height: 22.9vw; }
   .eclipse-sun { width: 48.6vw; height: 18.8vw; }
