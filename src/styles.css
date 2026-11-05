@@ -1637,3 +1637,23 @@ img { display: block; max-width: 100%; }
 .site-shell.theme-dark .site-footer .footer-bottom {
   color: #526052 !important;
 }
+
+
+/* Keep the primary navigation visible while the page scrolls */
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: auto;
+  z-index: 100;
+  background: rgba(250, 251, 247, .94);
+  border-bottom: 1px solid rgba(20, 48, 22, .12);
+  box-shadow: 0 4px 18px rgba(16, 36, 18, .045);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+:root[data-theme="dark"] .site-header {
+  background: rgba(8, 18, 10, .94);
+  border-bottom-color: rgba(255, 255, 255, .12);
+}
