@@ -1767,3 +1767,48 @@ img { display: block; max-width: 100%; }
     animation: none !important;
   }
 }
+
+
+/* Seamless footer waterline: waves bleed past every viewport edge and reach the page bottom */
+.site-footer {
+  isolation: isolate;
+  background: #fff !important;
+}
+.site-footer .footer-wave {
+  left: -90px;
+  right: -90px;
+  bottom: 0;
+  width: auto;
+  height: clamp(112px, 12vw, 168px);
+  overflow: hidden;
+  z-index: 1;
+}
+.site-footer .footer-wave svg {
+  width: calc(100% + 180px);
+  height: 100%;
+  margin-left: -90px;
+  overflow: visible;
+}
+.site-footer .footer-wave-layer {
+  transform-box: view-box;
+}
+.site-footer .footer-bottom {
+  background: transparent !important;
+  color: #fff !important;
+  bottom: 0;
+  min-height: 34px;
+  padding-bottom: 8px;
+  z-index: 7;
+  text-shadow: 0 1px 3px rgba(0, 35, 12, .35);
+}
+@media (max-width: 760px) {
+  .site-footer .footer-wave {
+    left: -64px;
+    right: -64px;
+    height: clamp(100px, 19vw, 138px);
+  }
+  .site-footer .footer-wave svg {
+    width: calc(100% + 128px);
+    margin-left: -64px;
+  }
+}
