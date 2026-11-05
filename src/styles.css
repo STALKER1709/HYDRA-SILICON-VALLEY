@@ -1812,3 +1812,15 @@ img { display: block; max-width: 100%; }
     margin-left: -64px;
   }
 }
+
+
+/* Increase the footer wave current speed while keeping the three layers out of sync */
+.site-footer .footer-wave-layer-back {
+  animation-duration: 8s;
+}
+.site-footer .footer-wave-layer-middle {
+  animation-duration: 5.5s;
+}
+.site-footer .footer-wave-layer-front {
+  animation-duration: 3.8s;
+}
