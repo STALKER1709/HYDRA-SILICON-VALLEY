@@ -84,7 +84,7 @@ const translations = {
     explore: 'Explore',
     contactTitle: <>Get in <em>touch</em></>,
     contactLead: 'Partners, investors, talent and project owners: let’s connect.',
-    name: 'Name', email: 'Email', organization: 'Organization', subject: 'Subject', message: 'Message',
+    firstName: 'First name', name: 'Last name', email: 'Email', organization: 'Organization', subject: 'Subject', message: 'Message',
     send: 'Send message', social: 'Head office', investors: 'Investors',
     office: 'Awae Escalier, Yaoundé, Cameroon',
     footerText: 'Building today the solutions that will shape Africa’s tomorrow.',
