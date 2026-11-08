@@ -35,8 +35,8 @@ const translations = {
       ['HSV - AGRO', 'Technologies pour une agriculture intelligente et durable.', 'Agriculture & agro-industrie']
     ],
     presenceTitle: <>Notre présence internationale<br />nourrit <em>l’innovation.</em></>,
-    presenceText: 'Depuis le Cameroun, nous cultivons des collaborations et des perspectives au-delà des frontières. Notre ambition est de connecter les talents, les idées et les marchés.',
-    presenceStats: [['3', 'Secteurs stratégiques'], ['CAM', 'Ancrage au Cameroun'], ['PAN', 'Ambition panafricaine'], ['INT', 'Ouverture internationale']],
+    presenceText: 'Grâce à des équipes engagées et des talents solides, nous construisons des écosystèmes et des opportunités économiques à impact. Nos ambitions : renforcer nos capacités et ouvrir nos horizons pour créer de la valeur durable.',
+    presenceStats: [['0', 'Pays de présence'], ['0', 'Filiales présentes'], ['0+', 'Talents mobilisés'], ['0+', 'Partenaires stratégiques']],
     teamTitle: <>Notre <em>équipe</em></>,
     teamLead: 'Des talents complémentaires réunis autour d’une ambition commune.',
     newsTitle: <>Actualités</>,
@@ -256,7 +256,7 @@ function App() {
                 </div>
                 <h3>{sector[0]}</h3>
                 <p>{sector[1]}</p>
-                <span className="sector-specialty">{sector[2]}</span>
+                <span className="sector-category">{sector[2]}</span>
               </article>
             ))}
           </div>
@@ -307,6 +307,7 @@ function App() {
           <div className="news-grid">
             <article className="news-feature">
               <div className="news-feature-copy">
+                <span className="news-date">{t.news[0].tag}</span>
                 <h3>{t.news[0].title}</h3>
                 <p>{t.news[0].text}</p>
                 <a href="#contact">{t.explore} <b>↗</b></a>
