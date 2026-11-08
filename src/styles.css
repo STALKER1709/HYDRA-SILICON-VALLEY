@@ -1927,3 +1927,56 @@ img { display: block; max-width: 100%; }
     letter-spacing: .035em;
   }
 }
+
+
+/* Use the supplied Hydra logo asset as-is: no CSS-generated wordmark or crop */
+.theme-light .site-header .brand,
+.site-footer .footer-brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: 76px;
+  min-width: 0;
+  overflow: visible;
+  position: relative;
+}
+.theme-light .site-header .brand::after,
+.site-footer .footer-brand::after {
+  content: none !important;
+  display: none !important;
+}
+.theme-light .site-header .brand img,
+.site-footer .footer-brand img {
+  position: static;
+  display: block;
+  width: 76px;
+  min-width: 0;
+  max-width: 100%;
+  height: 76px;
+  object-fit: contain;
+  object-position: center;
+}
+.site-footer .footer-brand {
+  height: 64px;
+}
+.site-footer .footer-brand img {
+  width: 64px;
+  height: 64px;
+}
+@media (max-width: 760px) {
+  .theme-light .site-header .brand,
+  .site-footer .footer-brand {
+    width: auto;
+    height: 52px;
+  }
+  .theme-light .site-header .brand img {
+    width: 52px;
+    height: 52px;
+  }
+  .site-footer .footer-brand img {
+    width: 48px;
+    height: 48px;
+  }
+}
