@@ -2173,3 +2173,37 @@ img { display: block; max-width: 100%; }
     font-size: clamp(17px, 4.6vw, 20px);
   }
 }
+
+
+/* Exact accents and persistent CTA visibility on the featured news panel */
+.news-feature-copy {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100%;
+  min-height: 0;
+  overflow: visible;
+}
+.news-feature-copy h3 em {
+  color: #f2bd36 !important;
+  font-style: normal;
+}
+.news-feature-copy > a {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: auto !important;
+  min-height: 22px;
+  padding: 5px 12px !important;
+  background: #d8f2d2 !important;
+  color: #173c20 !important;
+  border-radius: 4px;
+  line-height: 1 !important;
+}
+.news-feature-copy > a .news-explore-icon {
+  display: inline-grid !important;
+  visibility: visible !important;
+}
