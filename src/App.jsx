@@ -307,37 +307,12 @@ function App() {
           </div>
           <div className="news-grid">
             <article className="news-feature">
-              <div
-                className="news-feature-copy"
-                style={{
-                  padding: 'clamp(14px, 1.95vw, 28px) clamp(10px, 2.1vw, 30px) clamp(12px, 1.5vw, 22px)',
-                  alignItems: 'flex-start',
-                  justifyContent: 'flex-start',
-                  background: '#20752b'
-                }}
-              >
-                <span className="news-date" style={{ fontSize: 'clamp(7px, .56vw, 8px)', marginBottom: 'clamp(7px, .7vw, 10px)' }}>{t.news[0].tag}</span>
-                <h3 style={{ fontSize: 'clamp(18px, 2.65vw, 38px)', lineHeight: 1.03, margin: '0 0 clamp(10px, .85vw, 13px)', maxWidth: '100%' }}>{t.news[0].title}</h3>
-                <p style={{ fontSize: 'clamp(8px, .7vw, 10px)', lineHeight: 1.5, maxWidth: '100%' }}>{t.news[0].text}</p>
-                <a
-                  href="#contact"
-                  style={{
-                    marginTop: 'auto',
-                    minHeight: 'clamp(22px, 2.1vw, 30px)',
-                    padding: '4px clamp(9px, .9vw, 13px)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '6px',
-                    borderRadius: '4px',
-                    background: '#d8f2d2',
-                    color: '#173c20',
-                    fontSize: 'clamp(7px, .63vw, 9px)',
-                    fontWeight: 600,
-                    lineHeight: 1
-                  }}
-                >
-                  <span aria-hidden="true" style={{ width: '11px', height: '11px', border: '1px solid currentColor', borderRadius: '50%', display: 'inline-grid', placeItems: 'center', fontSize: '8px', lineHeight: 1 }}>↗</span>
+              <div className="news-feature-copy">
+                <span className="news-date">{t.news[0].tag}</span>
+                <h3>{t.news[0].title}</h3>
+                <p>{t.news[0].text}</p>
+                <a href="#contact">
+                  <span aria-hidden="true" className="news-explore-icon">↗</span>
                   {t.explore}
                 </a>
               </div>
