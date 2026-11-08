@@ -48,7 +48,7 @@ const translations = {
     ],
     explore: 'Explorer',
     contactTitle: <>Contactez <em>nous</em></>,
-    contactLead: 'Partenaires, investisseurs, talents et porteurs de projets : échangeons.',
+    contactLead: 'Relations investisseurs, partenariats stratégiques, médias.',
     name: 'Nom', email: 'E-mail', organization: 'Organisation', subject: 'Sujet', message: 'Message',
     send: 'Envoyer le message', social: 'Siège social', investors: 'Investisseurs',
     office: 'Awae Escalier, Yaoundé, Cameroun',
@@ -256,6 +256,7 @@ function App() {
                 </div>
                 <h3>{sector[0]}</h3>
                 <p>{sector[1]}</p>
+                <span className="sector-specialty">{sector[2]}</span>
               </article>
             ))}
           </div>
