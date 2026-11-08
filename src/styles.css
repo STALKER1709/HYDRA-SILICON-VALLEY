@@ -1980,3 +1980,35 @@ img { display: block; max-width: 100%; }
     height: 48px;
   }
 }
+
+
+/* Slightly larger original logo in the header and footer */
+.theme-light .site-header .brand,
+.site-footer .footer-brand {
+  height: 88px;
+}
+.theme-light .site-header .brand img {
+  width: 88px;
+  height: 88px;
+}
+.site-footer .footer-brand {
+  height: 72px;
+}
+.site-footer .footer-brand img {
+  width: 72px;
+  height: 72px;
+}
+@media (max-width: 760px) {
+  .theme-light .site-header .brand,
+  .site-footer .footer-brand {
+    height: 60px;
+  }
+  .theme-light .site-header .brand img {
+    width: 60px;
+    height: 60px;
+  }
+  .site-footer .footer-brand img {
+    width: 54px;
+    height: 54px;
+  }
+}
