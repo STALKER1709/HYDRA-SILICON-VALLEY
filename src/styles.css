@@ -2012,3 +2012,31 @@ img { display: block; max-width: 100%; }
     height: 54px;
   }
 }
+
+
+/* Match the dark-theme header logo to the light-theme logo dimensions */
+.site-shell.theme-dark .site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  height: 88px;
+  overflow: visible;
+}
+.site-shell.theme-dark .site-header .brand img {
+  display: block;
+  position: static;
+  width: 88px;
+  min-width: 0;
+  max-width: 100%;
+  height: 88px;
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 760px) {
+  .site-shell.theme-dark .site-header .brand {
+    height: 60px;
+  }
+  .site-shell.theme-dark .site-header .brand img {
+    width: 60px;
+    height: 60px;
+  }
+}
