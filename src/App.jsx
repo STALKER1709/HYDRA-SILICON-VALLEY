@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 const assets = {
-  logoLight: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201.png',
-  logoDark: '/ressources/logo%20hydra%20%20blanc%201.png',
+  logoLight: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/logo%20hydra%20v2_Plan%20de%20travail%201.png',
+  logoDark: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/logo%20hydra%20%20blanc%201.png',
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
   presence: 'https://raw.githubusercontent.com/STALKER1709/HYDRA-SILICON-VALLEY/main/ressources/afrique%201.png',
