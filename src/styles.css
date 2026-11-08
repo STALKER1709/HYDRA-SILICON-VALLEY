@@ -1824,3 +1824,28 @@ img { display: block; max-width: 100%; }
 .site-footer .footer-wave-layer-front {
   animation-duration: 3.8s;
 }
+
+
+/* Updated square brand mark: consistent optical sizing on light surfaces */
+.site-header .brand img {
+  width: clamp(52px, 4.2vw, 62px);
+  height: clamp(52px, 4.2vw, 62px);
+  object-fit: contain;
+  object-position: center;
+}
+.site-footer .footer-brand img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 760px) {
+  .site-header .brand img {
+    width: clamp(42px, 7vw, 54px);
+    height: clamp(42px, 7vw, 54px);
+  }
+  .site-footer .footer-brand img {
+    width: 46px;
+    height: 46px;
+  }
+}
