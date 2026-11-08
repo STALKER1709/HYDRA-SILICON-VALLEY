@@ -21,38 +21,38 @@ const team = [
 
 const translations = {
   fr: {
-    nav: ['Accueil', 'Écosystème', 'Corporation', 'Actualités'],
+    nav: ['Accueil', 'Écosystème', 'Corporation', 'Actualité'],
     contact: 'Contact',
     heroKicker: 'UN GROUPE PANAFRICAIN MULTISECTORIEL',
     heroTitle: <>Enracinés en <em>Afrique.</em><br />Élevés au niveau mondial.</>,
     heroText: 'Nous bâtissons des solutions, des entreprises et des opportunités qui contribuent à transformer les secteurs clés du continent.',
     heroButton: 'Découvrir notre écosystème',
     ecoTitle: <>Notre <em>écosystème</em></>,
-    ecoLead: 'Des filiales stratégiques pour construire les leviers de la transformation numérique et du développement durable.',
+    ecoLead: 'Des filiales stratégiques pour couvrir tous les leviers de la transformation numérique africaine.',
     sectors: [
-      ['HSV - TECH', 'Solutions technologiques et services pour relever les défis de demain.', 'Technologie & transformation digitale'],
-      ['HSV - HEALTH', 'Solutions de santé numérique et approches innovantes.', 'Santé & bien-être'],
-      ['HSV - AGRO', 'Technologies pour une agriculture intelligente et durable.', 'Agriculture & agro-industrie']
+      ['HSV - TECH', 'Solutions logicielles et enterprise pour l’Afrique et l’international.', 'Logiciels & Transformation Digital'],
+      ['HSV - HEALTH', 'Solutions de santé numérique et télémédecine.', 'Santé & Télémédecine'],
+      ['HSV - AGRO', 'Technologies pour l’agriculture intelligente et l’agroalimentaire.', 'Agriculture & Agroalimentaire']
     ],
     presenceTitle: <>Notre présence internationale<br />nourrit <em>l’innovation.</em></>,
     presenceText: 'Grâce à des équipes engagées et des talents solides, nous construisons des écosystèmes et des opportunités économiques à impact. Nos ambitions : renforcer nos capacités et ouvrir nos horizons pour créer de la valeur durable.',
     presenceStats: [['0', 'Pays de présence'], ['0', 'Filiales présentes'], ['0+', 'Talents mobilisés'], ['0+', 'Partenaires stratégiques']],
     teamTitle: <>Notre <em>équipe</em></>,
-    teamLead: 'Des talents complémentaires réunis autour d’une ambition commune.',
+    teamLead: 'Une équipe dirigeante expérimentée au service d’une ambition continentale.',
     newsTitle: <>Actualités</>,
-    newsLead: 'Les dernières nouvelles de la corporation.',
+    newsLead: 'Les dernières annonces de la corporation.',
     news: [
-      { tag: 'Services aux étudiants', title: 'Imprimez mieux. Portez la marque.', text: 'Hydra Silicon Valley accompagne les étudiants avec un service d’impression rapide et professionnel pour les rapports de stage et les travaux académiques. 20 FCFA la page.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression HSV à 20 FCFA la page' },
-      { tag: 'Stages académiques', title: 'Programme d’accueil de stagiaires', text: 'Trois mois de formation et d’encadrement en Génie logiciel, Graphic Design, Systèmes et réseaux et Software Engineering.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'Programme de stages académiques HSV' },
-      { tag: 'Vacances utiles', title: 'Vacances utiles numériques', text: 'Un parcours de six semaines avec trois séances par semaine pour découvrir l’informatique, la bureautique, Internet, le design et la programmation.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Programme Vacances utiles numériques HSV' }
+      { tag: 'Octobre 2025', title: <>Imprimez mieux.<br /><em>Portez la marque.</em></>, text: 'Un service d’impression de rapports de stage accessible et une sélection d’accessoires HSV.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression HSV à 20 FCFA la page' },
+      { tag: 'Juin - Août 2026', title: 'Stages académiques', text: 'Formation et encadrement en Génie logiciel, Graphic Design, Systèmes et réseaux.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'Programme de stages académiques HSV' },
+      { tag: 'Juillet - Août 2026', title: 'Vacances utiles', text: 'Un programme de vacances pour découvrir les compétences numériques.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Programme Vacances utiles numériques HSV' }
     ],
     explore: 'Explorer',
     contactTitle: <>Contactez <em>nous</em></>,
     contactLead: 'Relations investisseurs, partenariats stratégiques, médias.',
-    name: 'Nom', email: 'E-mail', organization: 'Organisation', subject: 'Sujet', message: 'Message',
+    firstName: 'Prénom', name: 'Nom', email: 'Email', organization: 'Organisation', subject: 'Sujet', message: 'Message',
     send: 'Envoyer le message', social: 'Siège social', investors: 'Investisseurs',
     office: 'Awae Escalier, Yaoundé, Cameroun',
-    footerText: 'Construire aujourd’hui les solutions qui feront l’Afrique de demain.',
+    footerText: 'Corporation technologique panafricaine. Nous créons des solutions innovantes pour bâtir l’Afrique de demain.',
     rights: 'Tous droits réservés.', navigation: 'Navigation'
   },
   en: {
@@ -199,6 +199,7 @@ function App() {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const body = [
+      `Prénom : ${form.get('firstName') || ''}`,
       `Nom : ${form.get('lastName') || ''}`,
       `Organisation : ${form.get('organization') || ''}`,
       `E-mail : ${form.get('email') || ''}`,
@@ -331,11 +332,12 @@ function App() {
           <div className="contact-layout">
             <form className="contact-form" onSubmit={submitContact} aria-describedby="contact-form-note">
               <div className="form-row">
-                <label>{t.name}<input name="lastName" autoComplete="name" required /></label>
-                <label>{t.email}<input name="email" type="email" autoComplete="email" required /></label>
+                <label>{t.firstName}*<input name="firstName" autoComplete="given-name" required /></label>
+                <label>{t.name}*<input name="lastName" autoComplete="family-name" required /></label>
               </div>
+              <label>{t.email}*<input name="email" type="email" autoComplete="email" required /></label>
               <label>{t.organization}<input name="organization" autoComplete="organization" /></label>
-              <label>{t.subject}<input name="subject" required /></label>
+              <label>{t.subject}*<input name="subject" required /></label>
               <label>{t.message}<textarea name="message" rows="4" required /></label>
               <p className="contact-form-note" id="contact-form-note">{lang === 'fr' ? 'Ce formulaire ouvre votre application de messagerie avec le message prérempli. Aucun message n’est envoyé directement depuis le site.' : 'This form opens your email application with a prefilled message. No message is sent directly by the website.'}</p>
               <button type="submit">{t.send}<span aria-hidden="true">↗</span></button>
