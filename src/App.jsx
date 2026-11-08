@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const assets = {
-  logoLight: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201%201.png',
+  logoLight: '/ressources/logo%20hydra%20v2_Plan%20de%20travail%201.png',
   logoDark: '/ressources/logo%20hydra%20%20blanc%201.png',
   mark: '/ressources/Propri%C3%A9t%C3%A9%201=Variante4.png',
   map: '/ressources/Frame%208219.png',
