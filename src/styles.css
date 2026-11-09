@@ -2402,3 +2402,37 @@ img { display: block; max-width: 100%; }
   height: 13px;
   font-size: 9px;
 }
+
+
+/* Featured news card: trim the lower edge of the artwork and strengthen the CTA */
+.news-feature > img {
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+.news-feature-copy > a {
+  min-height: 40px !important;
+  padding: 10px 19px !important;
+  gap: 9px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 650 !important;
+  letter-spacing: .01em;
+}
+.news-feature-copy > a .news-explore-icon {
+  width: 16px !important;
+  height: 16px !important;
+  font-size: 10px !important;
+}
+@media (max-width: 760px) {
+  .news-feature-copy > a {
+    min-height: 30px !important;
+    padding: 7px 11px !important;
+    gap: 6px !important;
+    font-size: 10px !important;
+  }
+  .news-feature-copy > a .news-explore-icon {
+    width: 12px !important;
+    height: 12px !important;
+    font-size: 8px !important;
+  }
+}
