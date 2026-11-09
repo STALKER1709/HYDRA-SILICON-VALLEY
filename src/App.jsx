@@ -42,7 +42,7 @@ const translations = {
     newsTitle: <>Actualités</>,
     newsLead: 'Les dernières annonces de la corporation.',
     news: [
-      { tag: 'Octobre 2025', title: <>Imprimez mieux.<br /><em>Portez la marque.</em></>, text: 'Un service d’impression de supports pour le développement de votre sélection d’accessoires HSV.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression HSV à 20 FCFA la page' },
+      { tag: 'Octobre 2026', title: <>Imprimez mieux.<br /><em>Portez la marque.</em></>, text: 'Un service d’impression de supports pour le développement de votre sélection d’accessoires HSV.', image: '/ressources/visuels/service-impression.jpeg', alt: 'Service d’impression HSV à 20 FCFA la page' },
       { tag: 'Juin - Août 2026', title: 'Stages académiques', text: 'Formation et encadrement en Génie logiciel, Graphic Design, Systèmes et réseaux.', image: '/ressources/visuels/stages-academiques.jpeg', alt: 'Programme de stages académiques HSV' },
       { tag: 'Juillet - Août 2026', title: 'Vacances utiles', text: 'Un programme de vacances pour découvrir les compétences numériques.', image: '/ressources/visuels/vacances-utiles.jpeg', alt: 'Programme Vacances utiles numériques HSV' }
     ],
